@@ -1674,6 +1674,12 @@ p:last-child {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
 }
 
+.from-blue-900 {
+  --tw-gradient-from: #1e3a8a var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(30 58 138 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .from-colorBlue {
   --tw-gradient-from: #0119FF var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(1 25 255 / 0) var(--tw-gradient-to-position);
@@ -1706,6 +1712,10 @@ p:last-child {
 .via-colorBlue\/40 {
   --tw-gradient-to: rgb(1 25 255 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), rgb(1 25 255 / 0.4) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
+.to-blue-700 {
+  --tw-gradient-to: #1d4ed8 var(--tw-gradient-to-position);
 }
 
 .to-colorBlue\/40 {
@@ -2050,6 +2060,10 @@ p:last-child {
 
 .opacity-0 {
   opacity: 0;
+}
+
+.opacity-40 {
+  opacity: 0.4;
 }
 
 .opacity-80 {

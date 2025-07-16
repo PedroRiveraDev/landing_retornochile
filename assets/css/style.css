@@ -879,6 +879,10 @@ p:last-child {
   inset: 0px;
 }
 
+.inset-1 {
+  inset: 0.25rem;
+}
+
 .-bottom-full {
   bottom: -100%;
 }
@@ -965,6 +969,14 @@ p:last-child {
 
 .z-\[999\] {
   z-index: 999;
+}
+
+.z-0 {
+  z-index: 0;
+}
+
+.-z-0 {
+  z-index: 0;
 }
 
 .order-1 {
@@ -1193,6 +1205,10 @@ p:last-child {
   min-height: 100dvh;
 }
 
+.min-h-screen {
+  min-height: 100vh;
+}
+
 .w-11 {
   width: 2.75rem;
 }
@@ -1303,6 +1319,10 @@ p:last-child {
 
 .max-w-xl {
   max-width: 36rem;
+}
+
+.max-w-\[746px\] {
+  max-width: 746px;
 }
 
 .flex-1 {
@@ -1523,6 +1543,15 @@ p:last-child {
   row-gap: 60px;
 }
 
+.gap-x-1 {
+  -moz-column-gap: 0.25rem;
+       column-gap: 0.25rem;
+}
+
+.gap-y-14 {
+  row-gap: 3.5rem;
+}
+
 .-space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(-0.5rem * var(--tw-space-x-reverse));
@@ -1664,6 +1693,22 @@ p:last-child {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
+.bg-colorDark\/50 {
+  background-color: rgb(13 14 29 / 0.5);
+}
+
+.bg-colorDark\/60 {
+  background-color: rgb(13 14 29 / 0.6);
+}
+
+.bg-zinc-100\/10 {
+  background-color: rgb(244 244 245 / 0.1);
+}
+
+.bg-zinc-100\/100 {
+  background-color: rgb(244 244 245 / 1);
 }
 
 .bg-gradient-to-r {
@@ -1866,6 +1911,11 @@ p:last-child {
   padding-bottom: 60px;
 }
 
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
 .pb-10 {
   padding-bottom: 2.5rem;
 }
@@ -1926,6 +1976,14 @@ p:last-child {
   padding-top: 1.75rem;
 }
 
+.pb-20 {
+  padding-bottom: 5rem;
+}
+
+.pt-\[300px\] {
+  padding-top: 300px;
+}
+
 .text-left {
   text-align: left;
 }
@@ -1974,6 +2032,11 @@ p:last-child {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .font-bold {
@@ -2070,6 +2133,14 @@ p:last-child {
   opacity: 0.8;
 }
 
+.opacity-30 {
+  opacity: 0.3;
+}
+
+.opacity-25 {
+  opacity: 0.25;
+}
+
 .shadow-customOne {
   --tw-shadow: 0px 16px 50px 0px rgba(13,14,29,0.12);
   --tw-shadow-colored: 0px 16px 50px 0px var(--tw-shadow-color);
@@ -2082,9 +2153,19 @@ p:last-child {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.shadow-lg {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.outline-zinc-500 {
+  outline-color: #71717a;
 }
 
 .ring-2 {
@@ -2919,6 +3000,11 @@ p:last-child {
     font-size: 3.75rem;
     line-height: 1;
   }
+
+  .md\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
 }
 
 @media (min-width: 992px) {
@@ -2970,6 +3056,14 @@ p:last-child {
     max-width: 100%;
   }
 
+  .lg\:max-w-56 {
+    max-width: 14rem;
+  }
+
+  .lg\:max-w-xl {
+    max-width: 36rem;
+  }
+
   .lg\:grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
@@ -2996,6 +3090,18 @@ p:last-child {
 
   .lg\:flex-row {
     flex-direction: row;
+  }
+
+  .lg\:flex-col {
+    flex-direction: column;
+  }
+
+  .lg\:items-start {
+    align-items: flex-start;
+  }
+
+  .lg\:items-end {
+    align-items: flex-end;
   }
 
   .lg\:justify-between {
@@ -3049,12 +3155,25 @@ p:last-child {
     padding-bottom: 10rem;
   }
 
+  .lg\:py-28 {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+
   .lg\:pb-20 {
     padding-bottom: 5rem;
   }
 
   .lg\:pt-\[100px\] {
     padding-top: 100px;
+  }
+
+  .lg\:pb-\[100px\] {
+    padding-bottom: 100px;
+  }
+
+  .lg\:pt-\[375px\] {
+    padding-top: 375px;
   }
 
   .lg\:text-7xl {
@@ -3068,6 +3187,11 @@ p:last-child {
 
   .lg\:text-\[2rem\] {
     font-size: 2rem;
+  }
+
+  .lg\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
   }
 }
 
@@ -3090,6 +3214,10 @@ p:last-child {
 
   .xl\:max-w-\[330px\] {
     max-width: 330px;
+  }
+
+  .xl\:max-w-3xl {
+    max-width: 48rem;
   }
 
   .xl\:grid-cols-2 {
@@ -3143,8 +3271,21 @@ p:last-child {
     padding-bottom: 14rem;
   }
 
+  .xl\:py-32 {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
   .xl\:pt-\[130px\] {
     padding-top: 130px;
+  }
+
+  .xl\:pb-\[130px\] {
+    padding-bottom: 130px;
+  }
+
+  .xl\:pt-\[486px\] {
+    padding-top: 486px;
   }
 
   .xl\:text-\[5rem\] {

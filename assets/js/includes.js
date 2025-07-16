@@ -30,18 +30,18 @@ document.addEventListener('DOMContentLoaded', function() {
                         <ul class="site-menu-main">
                             <!-- Home -->
                             <li class="nav-item">
-                                <a class="nav-link-item text-colorDark" href="index.html">Home</a>
+                                <a class="nav-link-item text-colorDark" href="index.html">Inicio</a>
                             </li>
 
                             <!-- About -->
                             <li class="nav-item">
-                                <a class="nav-link-item text-colorDark" href="about.html">About</a>
+                                <a class="nav-link-item text-colorDark" href="about.html">Sobre Nosotros</a>
                             </li>
 
                             <!-- Services (con submenu) -->
                             <li class="nav-item nav-item-has-children">
                                 <a href="#" class="nav-link-item drop-trigger text-colorDark">
-                                    Services <i class="ri-arrow-down-s-line"></i>
+                                    Soporte <i class="ri-arrow-down-s-line"></i>
                                 </a>
                                 <ul class="sub-menu" id="submenu-services">
                                     <li class="sub-menu--item">
@@ -49,14 +49,14 @@ document.addEventListener('DOMContentLoaded', function() {
                                     </li>
                                     <li class="sub-menu--item">
                                         <a href="testimonials.html" data-menu-get="h3"
-                                            class="drop-trigger">Testimonial</a>
+                                            class="drop-trigger">Reseñas</a>
                                     </li>
                                 </ul>
                             </li>
 
                             <!-- Pricing -->
                             <li class="nav-item">
-                                <a class="nav-link-item text-colorDark" href="pricing.html">Pricing</a>
+                                <a class="nav-link-item text-colorDark" href="pricing.html">Precios</a>
                             </li>
 
                             <!-- Blog -->
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                             <!-- Contact -->
                             <li class="nav-item">
-                                <a class="nav-link-item text-colorDark" href="contact.html">Contact</a>
+                                <a class="nav-link-item text-colorDark" href="contact.html">Contacto</a>
                             </li>
                         </ul>
                     </nav>
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <!-- Responsive Offcanvas Menu Button -->
 
                     <a href="contact.html" class="btn btn-primary hidden xl:inline-flex">
-                        Get in Touch
+                        Contáctanos
                         <span>
                             <i class="ri-arrow-right-up-line"></i>
                             <i class="ri-arrow-right-up-line"></i>

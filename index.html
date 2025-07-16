@@ -1,0 +1,1469 @@
+<!doctype html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tekup - IT Solutions and Services Tailwind Template</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <!-- Site font -->
+    <link rel="stylesheet" href="assets/fonts/webfonts/afacad/stylesheet.css" />
+    <link rel="stylesheet" href="assets/fonts/iconfonts/remix-icons/remixicon.css" />
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="assets/css/vendors/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/vendors/jos.css" />
+    <link rel="stylesheet" href="assets/css/vendors/menu.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css" />
+
+    <!-- Development css -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- Production css -->
+    <!-- <link rel="stylesheet" href="/assets/css/style.min.css" /> -->
+</head>
+
+<body>
+    <!-- loading section start -->
+    <div class="fullpage_loader">
+        <div class="spinner"></div>
+    </div>
+    <!-- loading section end -->
+    <div class="page-wrapper relative">
+        <!--...::: Header Start :::... -->
+        <header class="section-header relative z-30 w-full">
+
+
+            <!-- Header Bottom -->
+            <div class="site-header bg-white px-5 py-4 sm:px-10 md:px-[60px] lg:py-0">
+                <!-- Header Bottom Area -->
+                <div class="flex items-center justify-between gap-x-8 gap-y-6 text-xl text-white">
+                    <div class="flex items-center gap-14">
+                        <!-- Header Logo -->
+                        <a href="index.html">
+                            <img src="assets/img/images/logo-dark.png" alt="logo-dark" width="143" height="44" />
+                        </a>
+                        <!-- Header Logo -->
+
+                        <!-- Header Navigation -->
+                        <div class="menu-block-wrapper">
+                            <div class="menu-overlay"></div>
+                            <nav class="menu-block" id="append-menu-header">
+                                <div class="mobile-menu-head">
+                                    <div class="go-back">
+                                        <i class="ri-arrow-left-s-line"></i>
+                                    </div>
+                                    <div class="current-menu-title"></div>
+                                    <div class="mobile-menu-close">&times;</div>
+                                </div>
+                                <ul class="site-menu-main">
+                                    <!-- Home -->
+                                    <li class="nav-item">
+                                        <a class="nav-link-item text-colorDark" href="index.html">Home</a>
+                                    </li>
+
+                                    <!-- About -->
+                                    <li class="nav-item">
+                                        <a class="nav-link-item text-colorDark" href="about.html">About</a>
+                                    </li>
+
+                                    <!-- Services (con submenu) -->
+                                    <li class="nav-item nav-item-has-children">
+                                        <a href="#" class="nav-link-item drop-trigger text-colorDark">
+                                            Services <i class="ri-arrow-down-s-line"></i>
+                                        </a>
+                                        <ul class="sub-menu" id="submenu-services">
+                                            <li class="sub-menu--item">
+                                                <a href="faq.html" data-menu-get="h3" class="drop-trigger">FAQ</a>
+                                            </li>
+                                            <li class="sub-menu--item">
+                                                <a href="testimonials.html" data-menu-get="h3"
+                                                    class="drop-trigger">Testimonial</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- Pricing -->
+                                    <li class="nav-item">
+                                        <a class="nav-link-item text-colorDark" href="pricing.html">Pricing</a>
+                                    </li>
+
+                                    <!-- Blog -->
+                                    <li class="nav-item">
+                                        <a class="nav-link-item text-colorDark" href="blog.html">Blog</a>
+                                    </li>
+
+                                    <!-- Contact -->
+                                    <li class="nav-item">
+                                        <a class="nav-link-item text-colorDark" href="contact.html">Contact</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- Header Navigation -->
+                    </div>
+
+                    <div class="flex gap-20">
+                        <div class="flex items-center gap-5">
+                            <!-- Responsive Offcanvas Menu Button -->
+                            <div class="block lg:hidden">
+                                <button id="openBtn" class="hamburger-menu mobile-menu-trigger">
+                                    <span class="bg-colorBlue before:bg-colorBlue after:bg-colorBlue"></span>
+                                </button>
+                            </div>
+                            <!-- Responsive Offcanvas Menu Button -->
+
+
+                            <a href="contact.html" class="btn btn-primary hidden xl:inline-flex">
+                                Get in Touch
+                                <span>
+                                    <i class="ri-arrow-right-up-line"></i>
+                                    <i class="ri-arrow-right-up-line"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Header Bottom Area -->
+            </div>
+            <!-- Header Bottom -->
+        </header>
+        <!--...::: Header Start :::... -->
+
+        <!-- Search Block -->
+        <div id="search-block"
+            class="fixed left-0 top-0 z-[999] w-full -translate-y-full bg-white pb-10 pt-20 transition-all duration-300 md:pb-[60px] lg:pb-20 lg:pt-[100px] xl:pt-[130px]">
+            <button class="absolute right-8 top-8 text-[2rem] leading-none text-[#6E6E77] hover:text-colorBlue"
+                onclick="btnCloseSearch()">
+                <i class="ri-close-large-fill"></i>
+            </button>
+
+            <div class="container">
+                <form action="#" method="get" class="relative mb-3">
+                    <input type="search" placeholder="Search here..."
+                        class="border-colorGray w-full border-b pb-5 pr-20 leading-none outline-none focus-visible:border-colorDark md:text-2xl lg:text-[2rem]"
+                        required />
+                    <button type="submit" class="absolute right-0 top-0 p-5 leading-none">
+                        <i class="ri-search-line"></i>
+                    </button>
+                </form>
+                <p>Type above and press Enter to search. Press Close to cancel.</p>
+            </div>
+        </div>
+        <!-- Search Block -->
+
+        <!-- Info Offcanvas Block -->
+        <div id="info-menu-block"
+            class="fixed right-0 top-0 z-[999] flex min-h-dvh max-w-md translate-x-full flex-col justify-between gap-10 bg-white px-12 py-16 transition-all duration-300">
+            <button class="absolute right-8 top-8 text-[2rem] leading-none text-[#6E6E77] hover:text-colorBlue"
+                onclick="btnCloseInfoMenu()">
+                <i class="ri-close-large-fill"></i>
+            </button>
+
+            <!-- Info Menu Top Block -->
+            <div>
+                <a href="index.html" class="mb-6 block">
+                    <img src="assets/img/images/logo-dark.png" alt="logo-dark" width="143" height="44" />
+                </a>
+                <p>
+                    Vast numbers of employees now work remotely, and it’s too late to
+                    develop a set of remote-work policies if you didn’t already have
+                    one.
+                </p>
+            </div>
+            <!-- Info Menu Top Block -->
+
+            <!-- Info Menu Bottom Block -->
+            <div class="mt-auto">
+                <ul class="flex flex-col gap-y-12">
+                    <li>
+                        <span class="text-colorBlue">
+                            <i class="ri-map-pin-2-fill"></i>
+                        </span>
+                        <span class="mb-1.5 mt-4 block text-2xl font-semibold">Address</span>
+                        <address class="block max-w-52">
+                            1791 Yorkshire Circle Kitty Hawk, NC 279499
+                        </address>
+                    </li>
+                    <li>
+                        <span class="text-colorBlue">
+                            <i class="ri-mail-fill"></i>
+                        </span>
+                        <span class="mb-1.5 mt-4 block text-2xl font-semibold">Contact</span>
+                        <a href="mailto:tekup@example.com" class="block hover:text-colorBlue">tekup@example.com</a>
+                        <a href="tel:+5185643200" class="block hover:text-colorBlue">518-564-3200</a>
+                    </li>
+                    <li>
+                        <div class="flex gap-2">
+                            <a href="https://www.x.com" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-colorGrey text-lg hover:bg-colorBlue hover:text-white">
+                                <i class="ri-twitter-x-line"></i>
+                            </a>
+                            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-colorGrey text-lg hover:bg-colorBlue hover:text-white">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-colorGrey text-lg hover:bg-colorBlue hover:text-white">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+                            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-colorGrey text-lg hover:bg-colorBlue hover:text-white">
+                                <i class="ri-linkedin-fill"></i>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Info Menu Bottom Block -->
+        </div>
+        <!-- Info Offcanvas Block -->
+
+        <!-- Overlay Block -->
+        <div class="overlay-block fixed left-0 top-0 z-50 hidden size-full bg-black/85" onclick="closeUserEvent()">
+        </div>
+        <!-- Overlay Block -->
+
+        <!-- Main Wrapper -->
+        <main class="main-wrapper relative overflow-hidden">
+            <!--...::: Hero Section Start :::... -->
+            <section class="section-hero">
+                <div class="hero-slider hero-slider-one swiper group">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <div class="relative z-10 py-[60px] sm:py-20 md:py-28 lg:py-40 xl:py-56 xxl:py-[300px]">
+                                <!-- Section Container -->
+                                <div class="container">
+                                    <!-- Hero Area -->
+                                    <div class="mx-auto max-w-5xl text-center text-white">
+                                        <h1 class="mb-6 leading-tight">
+                                            The best innovative technology solutions
+                                        </h1>
+                                        <p class="mb-12">
+                                            We are architects of innovation, trailblazers of
+                                            technological advancement
+                                        </p>
+
+                                        <a href="contact.html" class="btn btn-white">
+                                            Start a Project
+                                            <span>
+                                                <i class="ri-arrow-right-up-line"></i>
+                                                <i class="ri-arrow-right-up-line"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <!-- Hero Area -->
+                                </div>
+                                <!-- Section Container -->
+
+                                <!-- Hero Image Block -->
+                                <div class="absolute inset-0 -z-10">
+                                    <img src="assets/img/images/home-2/hero-slider-1.jpg" alt="hero-img" width="1920"
+                                        height="1080" class="hero-bg-img absolute inset-0 h-full w-full object-cover" />
+                                    <div class="absolute inset-0 bg-colorDark/70"></div>
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-r from-colorBlue/40 via-colorBlue/10 to-colorBlue/40">
+                                    </div>
+                                </div>
+                                <!-- Hero Image Block-->
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="relative z-10 py-[60px] sm:py-20 md:py-28 lg:py-40 xl:py-56 xxl:py-[300px]">
+                                <!-- Section Container -->
+                                <div class="container">
+                                    <!-- Hero Area -->
+                                    <div class="mx-auto max-w-5xl text-center text-white">
+                                        <h1 class="mb-6 leading-tight">
+                                            The best innovative technology solutions
+                                        </h1>
+                                        <p class="mb-12">
+                                            We are architects of innovation, trailblazers of
+                                            technological advancement
+                                        </p>
+
+                                        <a href="contact.html" class="btn btn-white">
+                                            Start a Project
+                                            <span>
+                                                <i class="ri-arrow-right-up-line"></i>
+                                                <i class="ri-arrow-right-up-line"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <!-- Hero Area -->
+                                </div>
+                                <!-- Section Container -->
+
+                                <!-- Hero Image Block -->
+                                <div class="absolute inset-0 -z-10">
+                                    <img src="assets/img/images/home-2/hero-slider-2.jpg" alt="hero-img" width="1920"
+                                        height="1080" class="hero-bg-img absolute inset-0 h-full w-full object-cover" />
+                                    <div class="absolute inset-0 bg-colorDark/70"></div>
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-r from-colorBlue/40 via-colorBlue/10 to-colorBlue/40">
+                                    </div>
+                                </div>
+                                <!-- Hero Image Block-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="absolute top-1/2 z-20 flex w-full justify-between">
+                        <div
+                            class="hero-button-prev invisible inline-flex size-[60px] -translate-y-1/2 items-center justify-center rounded-full border border-white/20 text-white opacity-0 transition-all duration-300 hover:bg-white hover:text-colorBlue group-hover:visible group-hover:translate-x-[60px] group-hover:opacity-100">
+                            <i class="ri-arrow-left-s-line"></i>
+                        </div>
+                        <div
+                            class="hero-button-next invisible inline-flex size-[60px] -translate-y-1/2 items-center justify-center rounded-full border border-white/20 text-white opacity-0 transition-all duration-300 hover:bg-white hover:text-colorBlue group-hover:visible group-hover:-translate-x-[60px] group-hover:opacity-100">
+                            <i class="ri-arrow-right-s-line"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- Section Space -->
+            </section>
+            <!--...::: Hero Section End :::... -->
+
+            <!--...::: About Section Start :::... -->
+            <section class="section-about">
+                <!-- Section Space -->
+                <div class="section-space">
+                    <!-- Section Container -->
+                    <div class="container">
+                        <!-- About Area -->
+                        <div
+                            class="grid grid-cols-1 items-center gap-10 md:gap-[60px] lg:grid-cols-[minmax(0,0.7fr)_1fr] lg:gap-20 xl:grid-cols-2 xxl:gap-28">
+                            <!-- Image Block -->
+                            <div class="jos relative order-2 overflow-hidden lg:order-1"
+                                data-jos_animation="fade-right">
+                                <img src="assets/img/images/home-2/content-img-1.jpg" alt="content-img-1" width="593"
+                                    height="600" class="h-full w-full object-cover" />
+                                <!-- Card -->
+                                <div class="jos absolute bottom-6 left-6 z-20 flex items-center gap-4 bg-white p-6 shadow-customOne"
+                                    data-jos_delay="1">
+                                    <div class="flex -space-x-2">
+                                        <img class="inline-block h-11 w-11 overflow-hidden rounded-full ring-2 ring-white"
+                                            src="assets/img/images/home-1/hero-review-thumb-img-1.jpg"
+                                            alt="hero-review-thumb-img-1" width="44" height="44" />
+                                        <img class="inline-block h-11 w-11 overflow-hidden rounded-full ring-2 ring-white"
+                                            src="assets/img/images/home-1/hero-review-thumb-img-2.jpg"
+                                            alt="hero-review-thumb-img-2" width="44" height="44" />
+                                        <div
+                                            class="inline-flex h-11 w-11 items-center justify-center overflow-hidden rounded-full bg-colorDark text-base font-semibold text-white ring-2 ring-white">
+                                            14k
+                                        </div>
+                                    </div>
+                                    <div class="max-w-44 flex-1 text-lg">
+                                        <p class="mb-3 max-w-56 lg:max-w-full">
+                                            Avg rating 4.8 makes us world best agency.
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- Card -->
+                                <div class="absolute inset-0 z-10 bg-colorDark/40"></div>
+                            </div>
+                            <!-- Image Block -->
+
+                            <!-- Content Block -->
+                            <div class="order-1 lg:order-2">
+                                <!-- Section Block -->
+                                <div class="mb-7">
+                                    <h2 class="section-title right mb-10">
+                                        We are increasing business success with technology
+                                    </h2>
+                                </div>
+                                <!-- Section Block -->
+
+                                <!-- Content List -->
+                                <ul class="mb-10 flex flex-col gap-y-8">
+                                    <!-- Content Item -->
+                                    <li>
+                                        <div class="flex gap-4">
+                                            <span class="font-normal text-colorBlue">
+                                                <i class="ri-medal-fill"></i>
+                                            </span>
+                                            <div>
+                                                <span class="mb-2.5 block text-[26px] font-semibold">
+                                                    Quality Solution for Business
+                                                </span>
+                                                <p>
+                                                    We are architects of innovation, trailblazers of
+                                                    technological advancement, and partners in your
+                                                    success dynamic
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- Content Item -->
+                                    <!-- Content Item -->
+                                    <li>
+                                        <div class="flex gap-4">
+                                            <span class="font-normal text-colorBlue">
+                                                <i class="ri-team-fill"></i>
+                                            </span>
+                                            <div>
+                                                <span class="mb-2.5 block text-[26px] font-semibold">
+                                                    Amazing Expert Teams
+                                                </span>
+                                                <p>
+                                                    Support company that will learn the intimate details
+                                                    of your business technology and process while also
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- Content Item -->
+                                </ul>
+                                <!-- Content List -->
+
+                                <a href="about.html" class="btn btn-primary">
+                                    More About
+                                    <span>
+                                        <i class="ri-arrow-right-up-line"></i>
+                                        <i class="ri-arrow-right-up-line"></i>
+                                    </span>
+                                </a>
+                            </div>
+                            <!-- Content Block -->
+                        </div>
+                        <!-- About Area -->
+                    </div>
+                    <!-- Section Container -->
+                </div>
+                <!-- Section Space -->
+            </section>
+            <!--...::: About Section End :::... -->
+
+            <!--...::: Fun-fact Section Start :::... -->
+            <div class="section-funfact">
+                <!-- Section Space -->
+                <div class="section-space-bottom">
+                    <!-- Section Container -->
+                    <div class="container">
+                        <!-- Fun-fact List -->
+                        <ul
+                            class="grid grid-cols-1 divide-y divide-colorGrey border-b border-t border-colorGrey md:grid-cols-2 md:divide-y-0 lg:grid-cols-3 lg:divide-x lg:divide-y">
+                            <!-- Fun-fact Item -->
+                            <li class="px-10 py-9 text-center">
+                                <div class="display-heading display-heading-2 mb-4" data-module="countup">
+                                    <span class="start-number" data-countup-number="26">26</span>+
+                                </div>
+                                <span class="mb-2.5 block text-[26px] font-semibold leading-snug text-colorDark">Years
+                                    of Experience</span>
+                                <span class="text-xl">To succeed, every software solution be deeply integrated
+                                    into the</span>
+                            </li>
+                            <!-- Fun-fact Item -->
+                            <!-- Fun-fact Item -->
+                            <li class="px-10 py-9 text-center">
+                                <div class="display-heading display-heading-2 mb-4" data-module="countup">
+                                    <span class="start-number" data-countup-number="730">730</span>+
+                                </div>
+                                <span
+                                    class="mb-2.5 block text-[26px] font-semibold leading-snug text-colorDark">Successfully
+                                    Projects Done</span>
+                                <span class="text-xl">To succeed, every software solution be deeply integrated
+                                    into the</span>
+                            </li>
+                            <!-- Fun-fact Item -->
+                            <!-- Fun-fact Item -->
+                            <li class="px-10 py-9 text-center">
+                                <div class="display-heading display-heading-2 mb-4" data-module="countup">
+                                    <span class="start-number" data-countup-number="198">198</span>+
+                                </div>
+                                <span
+                                    class="mb-2.5 block text-[26px] font-semibold leading-snug text-colorDark">Satisfied
+                                    Happy Clients</span>
+                                <span class="text-xl">To succeed, every software solution be deeply integrated
+                                    into the</span>
+                            </li>
+                            <!-- Fun-fact Item -->
+                        </ul>
+                        <!-- Fun-fact List-->
+                    </div>
+                    <!-- Section Container -->
+                </div>
+                <!-- Section Space -->
+            </div>
+            <!--...::: Fun-fact Section End :::... -->
+
+            <!--...::: Service Section Start :::... -->
+            <section class="section-service">
+                <!-- Section Background -->
+                <div class="bg-colorGreyTwo">
+                    <!-- Section Space -->
+                    <div class="section-space">
+                        <!-- Section Container -->
+                        <div class="container">
+                            <!-- Section Block -->
+                            <div class="mx-auto mb-14 max-w-2xl text-center">
+                                <h2 class="section-title right">
+                                    We deal with the aspects of professional IT services
+                                </h2>
+                            </div>
+                            <!-- Section Block -->
+
+                            <!-- Service List -->
+                            <ul class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+                                <!-- Service Item -->
+                                <li class="jos" data-jos_animation="flip-down">
+                                    <a href="service-details.html"
+                                        class="flex flex-col gap-6 bg-white px-7 py-10 shadow-none transition-all duration-300 hover:shadow-customOne sm:flex-row md:flex-col lg:flex-row xl:flex-col xxl:flex-row">
+                                        <!-- Icon -->
+                                        <div class="size-[52px]">
+                                            <img src="assets/img/images/home-2/service-icon-1.svg" alt="service-icon-1"
+                                                width="52" height="52" />
+                                        </div>
+                                        <!-- Icon -->
+                                        <!-- Content -->
+                                        <div class="flex-1">
+                                            <span class="display-heading display-heading-4 mb-2.5 block">Web
+                                                Development</span>
+                                            <p class="text-xl">
+                                                We are architects technological advancement, and
+                                                partners in your success. As a dynamic
+                                            </p>
+                                        </div>
+                                        <!-- Content -->
+                                    </a>
+                                </li>
+                                <!-- Service Item -->
+                                <!-- Service Item -->
+                                <li class="jos" data-jos_animation="flip-down">
+                                    <a href="service-details.html"
+                                        class="flex flex-col gap-6 bg-white px-7 py-10 shadow-none transition-all duration-300 hover:shadow-customOne sm:flex-row md:flex-col lg:flex-row xl:flex-col xxl:flex-row">
+                                        <!-- Icon -->
+                                        <div class="size-[52px]">
+                                            <img src="assets/img/images/home-2/service-icon-2.svg" alt="service-icon-2"
+                                                width="52" height="52" />
+                                        </div>
+                                        <!-- Icon -->
+                                        <!-- Content -->
+                                        <div class="flex-1">
+                                            <span class="display-heading display-heading-4 mb-2.5 block">App
+                                                Development</span>
+                                            <p class="text-xl">
+                                                We are architects technological advancement, and
+                                                partners in your success. As a dynamic
+                                            </p>
+                                        </div>
+                                        <!-- Content -->
+                                    </a>
+                                </li>
+                                <!-- Service Item -->
+                                <!-- Service Item -->
+                                <li class="jos" data-jos_animation="flip-down">
+                                    <a href="service-details.html"
+                                        class="flex flex-col gap-6 bg-white px-7 py-10 shadow-none transition-all duration-300 hover:shadow-customOne sm:flex-row md:flex-col lg:flex-row xl:flex-col xxl:flex-row">
+                                        <!-- Icon -->
+                                        <div class="size-[52px]">
+                                            <img src="assets/img/images/home-2/service-icon-3.svg" alt="service-icon-3"
+                                                width="52" height="52" />
+                                        </div>
+                                        <!-- Icon -->
+                                        <!-- Content -->
+                                        <div class="flex-1">
+                                            <span class="display-heading display-heading-4 mb-2.5 block">UI/UX
+                                                Design</span>
+                                            <p class="text-xl">
+                                                We are architects technological advancement, and
+                                                partners in your success. As a dynamic
+                                            </p>
+                                        </div>
+                                        <!-- Content -->
+                                    </a>
+                                </li>
+                                <!-- Service Item -->
+                                <!-- Service Item -->
+                                <li class="jos" data-jos_animation="flip-down">
+                                    <a href="service-details.html"
+                                        class="flex flex-col gap-6 bg-white px-7 py-10 shadow-none transition-all duration-300 hover:shadow-customOne sm:flex-row md:flex-col lg:flex-row xl:flex-col xxl:flex-row">
+                                        <!-- Icon -->
+                                        <div class="size-[52px]">
+                                            <img src="assets/img/images/home-2/service-icon-4.svg" alt="service-icon-4"
+                                                width="52" height="52" />
+                                        </div>
+                                        <!-- Icon -->
+                                        <!-- Content -->
+                                        <div class="flex-1">
+                                            <span class="display-heading display-heading-4 mb-2.5 block">Digital
+                                                Marketing</span>
+                                            <p class="text-xl">
+                                                We are architects technological advancement, and
+                                                partners in your success. As a dynamic
+                                            </p>
+                                        </div>
+                                        <!-- Content -->
+                                    </a>
+                                </li>
+                                <!-- Service Item -->
+                                <!-- Service Item -->
+                                <li class="jos" data-jos_animation="flip-down">
+                                    <a href="service-details.html"
+                                        class="flex flex-col gap-6 bg-white px-7 py-10 shadow-none transition-all duration-300 hover:shadow-customOne sm:flex-row md:flex-col lg:flex-row xl:flex-col xxl:flex-row">
+                                        <!-- Icon -->
+                                        <div class="size-[52px]">
+                                            <img src="assets/img/images/home-2/service-icon-5.svg" alt="service-icon-5"
+                                                width="52" height="52" />
+                                        </div>
+                                        <!-- Icon -->
+                                        <!-- Content -->
+                                        <div class="flex-1">
+                                            <span class="display-heading display-heading-4 mb-2.5 block">IT
+                                                Management</span>
+                                            <p class="text-xl">
+                                                We are architects technological advancement, and
+                                                partners in your success. As a dynamic
+                                            </p>
+                                        </div>
+                                        <!-- Content -->
+                                    </a>
+                                </li>
+                                <!-- Service Item -->
+                                <!-- Service Item -->
+                                <li class="jos" data-jos_animation="flip-down">
+                                    <a href="service-details.html"
+                                        class="flex flex-col gap-6 bg-white px-7 py-10 shadow-none transition-all duration-300 hover:shadow-customOne sm:flex-row md:flex-col lg:flex-row xl:flex-col xxl:flex-row">
+                                        <!-- Icon -->
+                                        <div class="size-[52px]">
+                                            <img src="assets/img/images/home-2/service-icon-6.svg" alt="service-icon-6"
+                                                width="52" height="52" />
+                                        </div>
+                                        <!-- Icon -->
+                                        <!-- Content -->
+                                        <div class="flex-1">
+                                            <span class="display-heading display-heading-4 mb-2.5 block">Cyber
+                                                Security</span>
+                                            <p class="text-xl">
+                                                We are architects technological advancement, and
+                                                partners in your success. As a dynamic
+                                            </p>
+                                        </div>
+                                        <!-- Content -->
+                                    </a>
+                                </li>
+                                <!-- Service Item -->
+                            </ul>
+                            <!-- Service List -->
+                        </div>
+                        <!-- Section Container -->
+                    </div>
+                    <!-- Section Space -->
+                </div>
+                <!-- Section Background -->
+            </section>
+            <!--...::: Service Section End :::... -->
+
+            <!--...::: Portfolio Section Start :::... -->
+            <section class="section-portfolio">
+                <!-- Section Background -->
+                <div class="relative z-10">
+                    <!-- Section Space -->
+                    <div class="section-space">
+                        <!-- Section Container -->
+                        <div class="container">
+                            <!-- Section Block -->
+                            <div class="mx-auto mb-14 max-w-2xl text-center">
+                                <h2 class="section-title right">
+                                    Explore our recent projects
+                                </h2>
+                            </div>
+                            <!-- Section Block -->
+
+                            <!-- Portfolio List -->
+                            <ul class="grid grid-cols-12 gap-6">
+                                <!-- Portfolio Item -->
+                                <li class="jos col-span-12 md:col-span-6 lg:col-span-4">
+                                    <div class="group relative flex justify-center overflow-hidden">
+                                        <img src="assets/img/images/home-2/portfolio-img-1.jpg" alt="portfolio-img-1"
+                                            width="416" height="390"
+                                            class="size-full min-h-80 object-cover transition-all duration-300 group-hover:scale-110" />
+                                        <div
+                                            class="absolute -bottom-full z-20 w-[calc(100%-56px)] py-5 text-white transition-all duration-300 group-hover:bottom-[calc(0%+24px)]">
+                                            <a href="portfolio-details.html"
+                                                class="btn-icon mb-1 flex justify-between text-[26px] font-medium tracking-normal">
+                                                Cyber Security Analysis
+                                                <div class="inline-block">
+                                                    <span class="font-normal text-white">
+                                                        <i class="ri-arrow-right-up-line"></i>
+                                                        <i class="ri-arrow-right-up-line"></i>
+                                                    </span>
+                                                </div>
+                                            </a>
+                                            <a href="portfolio.html" class="text-xl">Technology</a>
+                                        </div>
+                                        <div
+                                            class="absolute -bottom-full z-10 size-full bg-gradient-to-t from-colorBlue to-transparent transition-all duration-300 group-hover:bottom-0">
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- Portfolio Item -->
+                                <!-- Portfolio Item -->
+                                <li class="jos col-span-12 md:col-span-6 lg:col-span-4">
+                                    <div class="group relative flex justify-center overflow-hidden">
+                                        <img src="assets/img/images/home-2/portfolio-img-2.jpg" alt="portfolio-img-2"
+                                            width="416" height="390"
+                                            class="size-full min-h-80 object-cover transition-all duration-300 group-hover:scale-110" />
+                                        <div
+                                            class="absolute -bottom-full z-20 w-[calc(100%-56px)] py-5 text-white transition-all duration-300 group-hover:bottom-[calc(0%+24px)]">
+                                            <a href="portfolio-details.html"
+                                                class="btn-icon mb-1 flex justify-between text-[26px] font-medium tracking-normal">
+                                                Cyber Security Analysis
+                                                <div class="inline-block">
+                                                    <span class="font-normal text-white">
+                                                        <i class="ri-arrow-right-up-line"></i>
+                                                        <i class="ri-arrow-right-up-line"></i>
+                                                    </span>
+                                                </div>
+                                            </a>
+                                            <a href="portfolio.html" class="text-xl">Technology</a>
+                                        </div>
+                                        <div
+                                            class="absolute -bottom-full z-10 size-full bg-gradient-to-t from-colorBlue to-transparent transition-all duration-300 group-hover:bottom-0">
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- Portfolio Item -->
+                                <!-- Portfolio Item -->
+                                <li class="jos col-span-12 md:col-span-6 lg:col-span-4">
+                                    <div class="group relative flex justify-center overflow-hidden">
+                                        <img src="assets/img/images/home-2/portfolio-img-3.jpg" alt="portfolio-img-3"
+                                            width="416" height="390"
+                                            class="size-full min-h-80 object-cover transition-all duration-300 group-hover:scale-110" />
+                                        <div
+                                            class="absolute -bottom-full z-20 w-[calc(100%-56px)] py-5 text-white transition-all duration-300 group-hover:bottom-[calc(0%+24px)]">
+                                            <a href="portfolio-details.html"
+                                                class="btn-icon mb-1 flex justify-between text-[26px] font-medium tracking-normal">
+                                                Cyber Security Analysis
+                                                <div class="inline-block">
+                                                    <span class="font-normal text-white">
+                                                        <i class="ri-arrow-right-up-line"></i>
+                                                        <i class="ri-arrow-right-up-line"></i>
+                                                    </span>
+                                                </div>
+                                            </a>
+                                            <a href="portfolio.html" class="text-xl">Technology</a>
+                                        </div>
+                                        <div
+                                            class="absolute -bottom-full z-10 size-full bg-gradient-to-t from-colorBlue to-transparent transition-all duration-300 group-hover:bottom-0">
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- Portfolio Item -->
+                                <!-- Portfolio Item -->
+                                <li class="jos col-span-12 md:col-span-6 lg:col-span-4">
+                                    <div class="group relative flex justify-center overflow-hidden">
+                                        <img src="assets/img/images/home-2/portfolio-img-4.jpg" alt="portfolio-img-4"
+                                            width="416" height="390"
+                                            class="size-full min-h-80 object-cover transition-all duration-300 group-hover:scale-110" />
+                                        <div
+                                            class="absolute -bottom-full z-20 w-[calc(100%-56px)] py-5 text-white transition-all duration-300 group-hover:bottom-[calc(0%+24px)]">
+                                            <a href="portfolio-details.html"
+                                                class="btn-icon mb-1 flex justify-between text-[26px] font-medium tracking-normal">
+                                                Cyber Security Analysis
+                                                <div class="inline-block">
+                                                    <span class="font-normal text-white">
+                                                        <i class="ri-arrow-right-up-line"></i>
+                                                        <i class="ri-arrow-right-up-line"></i>
+                                                    </span>
+                                                </div>
+                                            </a>
+                                            <a href="portfolio.html" class="text-xl">Technology</a>
+                                        </div>
+                                        <div
+                                            class="absolute -bottom-full z-10 size-full bg-gradient-to-t from-colorBlue to-transparent transition-all duration-300 group-hover:bottom-0">
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- Portfolio Item -->
+                                <!-- Portfolio Item -->
+                                <li class="jos col-span-12 md:col-span-6 lg:col-span-8">
+                                    <div class="group relative flex justify-center overflow-hidden">
+                                        <img src="assets/img/images/home-2/portfolio-img-5-wide.jpg"
+                                            alt="portfolio-img-5-wide" width="856" height="392"
+                                            class="size-full min-h-80 object-cover transition-all duration-300 group-hover:scale-110" />
+                                        <div
+                                            class="absolute -bottom-full z-20 w-[calc(100%-56px)] py-5 text-white transition-all duration-300 group-hover:bottom-[calc(0%+24px)]">
+                                            <a href="portfolio-details.html"
+                                                class="btn-icon mb-1 flex justify-between text-[26px] font-medium tracking-normal">
+                                                Cyber Security Analysis
+                                                <div class="inline-block">
+                                                    <span class="font-normal text-white">
+                                                        <i class="ri-arrow-right-up-line"></i>
+                                                        <i class="ri-arrow-right-up-line"></i>
+                                                    </span>
+                                                </div>
+                                            </a>
+                                            <a href="portfolio.html" class="text-xl">Technology</a>
+                                        </div>
+                                        <div
+                                            class="absolute -bottom-full z-10 size-full bg-gradient-to-t from-colorBlue to-transparent transition-all duration-300 group-hover:bottom-0">
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- Portfolio Item -->
+                            </ul>
+                            <!-- Portfolio List -->
+                        </div>
+                    </div>
+                    <!-- Section Space -->
+                </div>
+                <!-- Section Background -->
+            </section>
+            <!--...::: Portfolio Section End :::... -->
+
+            <!--...::: Pricing Section Start :::... -->
+            <section class="section-pricing">
+                <!-- Section Background -->
+                <div class="bg-colorDark">
+                    <!-- Section Space -->
+                    <div class="section-space">
+                        <!-- Section Container -->
+                        <div class="container">
+                            <!-- Section Block -->
+                            <div class="mx-auto mb-14 max-w-2xl text-center">
+                                <h2 class="section-title right text-white">
+                                    Effective & flexible pricing
+                                </h2>
+                            </div>
+                            <!-- Section Block -->
+
+                            <!-- Pricing List -->
+                            <ul class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+                                <!-- Pricing Item -->
+                                <li class="jos bg-white px-6 py-10" data-jos_animation="flip-left">
+                                    <!-- Pricing Content Top -->
+                                    <div class="display-heading display-heading-3 mb-2.5">
+                                        Startup
+                                    </div>
+                                    <p>
+                                        Best for Startup business owners who needs website for
+                                        business.
+                                    </p>
+
+                                    <div
+                                        class="display-heading mb-4 mt-8 text-5xl leading-none md:text-6xl lg:text-7xl xl:text-[5rem]">
+                                        $99<span class="text-xl font-normal">/month</span>
+                                    </div>
+
+                                    <!-- Pricing Content Top -->
+                                    <a href="pricing.html" class="btn btn-outline-dark w-full">
+                                        Select This Package
+                                        <span>
+                                            <i class="ri-arrow-right-up-line"></i>
+                                            <i class="ri-arrow-right-up-line"></i>
+                                        </span>
+                                    </a>
+                                    <!-- Pricing Info List -->
+                                    <ul class="mt-10 flex flex-col gap-2.5">
+                                        <!-- Pricing Info Item -->
+                                        <li class="flex gap-3 text-xl font-semibold">
+                                            <span class="text-colorBlue"><i class="ri-check-line"></i></span>
+                                            10 GB disk space availability
+                                        </li>
+                                        <!-- Pricing Info Item -->
+                                        <!-- Pricing Info Item -->
+                                        <li class="flex gap-3 text-xl font-semibold">
+                                            <span class="text-colorBlue"><i class="ri-check-line"></i></span>
+                                            50 GB NVMe SSD for use
+                                        </li>
+                                        <!-- Pricing Info Item -->
+                                        <!-- Pricing Info Item -->
+                                        <li class="flex gap-3 text-xl font-semibold">
+                                            <span class="text-colorBlue"><i class="ri-check-line"></i></span>
+                                            Free platform access for all
+                                        </li>
+                                        <!-- Pricing Info Item -->
+                                        <!-- Pricing Info Item -->
+                                        <li class="flex gap-3 text-xl font-semibold">
+                                            <span class="text-colorBlue"><i class="ri-check-line"></i></span>
+                                            Free lifetime updates facility
+                                        </li>
+                                        <!-- Pricing Info Item -->
+                                        <!-- Pricing Info Item -->
+                                        <li class="flex gap-3 text-xl font-semibold">
+                                            <span class="text-colorBlue"><i class="ri-check-line"></i></span>
+                                            Free one year support
+                                        </li>
+                                        <!-- Pricing Info Item -->
+                                    </ul>
+                                    <!-- Pricing Info List -->
+                                </li>
+                                <!-- Pricing Item -->
+                                <!-- Pricing Item -->
+                                <li class="jos bg-white px-6 py-10" data-jos_animation="flip-left">
+                                    <!-- Pricing Content Top -->
+                                    <div class="display-heading display-heading-3 mb-2.5">
+                                        Business
+                                    </div>
+                                    <p>
+                                        Best for Startup business owners who needs website for
+                                        business.
+                                    </p>
+
+                                    <div
+                                        class="display-heading mb-4 mt-8 text-5xl leading-none md:text-6xl lg:text-7xl xl:text-[5rem]">
+                                        $299<span class="text-xl font-normal">/month</span>
+                                    </div>
+
+                                    <!-- Pricing Content Top -->
+                                    <a href="pricing.html" class="btn btn-primary w-full">
+                                        Select This Package
+                                        <span>
+                                            <i class="ri-arrow-right-up-line"></i>
+                                            <i class="ri-arrow-right-up-line"></i>
+                                        </span>
+                                    </a>
+                                    <!-- Pricing Info List -->
+                                    <ul class="mt-10 flex flex-col gap-2.5">
+                                        <!-- Pricing Info Item -->
+                                        <li class="flex gap-3 text-xl font-semibold">
+                                            <span class="text-colorBlue"><i class="ri-check-line"></i></span>
+                                            10 GB disk space availability
+                                        </li>
+                                        <!-- Pricing Info Item -->
+                                        <!-- Pricing Info Item -->
+                                        <li class="flex gap-3 text-xl font-semibold">
+                                            <span class="text-colorBlue"><i class="ri-check-line"></i></span>
+                                            50 GB NVMe SSD for use
+                                        </li>
+                                        <!-- Pricing Info Item -->
+                                        <!-- Pricing Info Item -->
+                                        <li class="flex gap-3 text-xl font-semibold">
+                                            <span class="text-colorBlue"><i class="ri-check-line"></i></span>
+                                            Free platform access for all
+                                        </li>
+                                        <!-- Pricing Info Item -->
+                                        <!-- Pricing Info Item -->
+                                        <li class="flex gap-3 text-xl font-semibold">
+                                            <span class="text-colorBlue"><i class="ri-check-line"></i></span>
+                                            Free lifetime updates facility
+                                        </li>
+                                        <!-- Pricing Info Item -->
+                                        <!-- Pricing Info Item -->
+                                        <li class="flex gap-3 text-xl font-semibold">
+                                            <span class="text-colorBlue"><i class="ri-check-line"></i></span>
+                                            Free one year support
+                                        </li>
+                                        <!-- Pricing Info Item -->
+                                    </ul>
+                                    <!-- Pricing Info List -->
+                                </li>
+                                <!-- Pricing Item -->
+                                <!-- Pricing Item -->
+                                <li class="jos bg-white px-6 py-10" data-jos_animation="flip-left">
+                                    <!-- Pricing Content Top -->
+                                    <div class="display-heading display-heading-3 mb-2.5">
+                                        Enterprise
+                                    </div>
+                                    <p>
+                                        Best for Startup business owners who needs website for
+                                        business.
+                                    </p>
+
+                                    <div
+                                        class="display-heading mb-4 mt-8 text-5xl leading-none md:text-6xl lg:text-7xl xl:text-[5rem]">
+                                        $799<span class="text-xl font-normal">/month</span>
+                                    </div>
+
+                                    <!-- Pricing Content Top -->
+                                    <a href="pricing.html" class="btn btn-outline-dark w-full">
+                                        Select This Package
+                                        <span>
+                                            <i class="ri-arrow-right-up-line"></i>
+                                            <i class="ri-arrow-right-up-line"></i>
+                                        </span>
+                                    </a>
+                                    <!-- Pricing Info List -->
+                                    <ul class="mt-10 flex flex-col gap-2.5">
+                                        <!-- Pricing Info Item -->
+                                        <li class="flex gap-3 text-xl font-semibold">
+                                            <span class="text-colorBlue"><i class="ri-check-line"></i></span>
+                                            10 GB disk space availability
+                                        </li>
+                                        <!-- Pricing Info Item -->
+                                        <!-- Pricing Info Item -->
+                                        <li class="flex gap-3 text-xl font-semibold">
+                                            <span class="text-colorBlue"><i class="ri-check-line"></i></span>
+                                            50 GB NVMe SSD for use
+                                        </li>
+                                        <!-- Pricing Info Item -->
+                                        <!-- Pricing Info Item -->
+                                        <li class="flex gap-3 text-xl font-semibold">
+                                            <span class="text-colorBlue"><i class="ri-check-line"></i></span>
+                                            Free platform access for all
+                                        </li>
+                                        <!-- Pricing Info Item -->
+                                        <!-- Pricing Info Item -->
+                                        <li class="flex gap-3 text-xl font-semibold">
+                                            <span class="text-colorBlue"><i class="ri-check-line"></i></span>
+                                            Free lifetime updates facility
+                                        </li>
+                                        <!-- Pricing Info Item -->
+                                        <!-- Pricing Info Item -->
+                                        <li class="flex gap-3 text-xl font-semibold">
+                                            <span class="text-colorBlue"><i class="ri-check-line"></i></span>
+                                            Free one year support
+                                        </li>
+                                        <!-- Pricing Info Item -->
+                                    </ul>
+                                    <!-- Pricing Info List -->
+                                </li>
+                                <!-- Pricing Item -->
+                            </ul>
+                            <!-- Pricing List -->
+                        </div>
+                        <!-- Section Container -->
+                    </div>
+                    <!-- Section Space -->
+                </div>
+                <!-- Section Background -->
+            </section>
+            <!--...::: Pricing Section End :::... -->
+
+            <!--...::: Testimonial Section Start :::... -->
+            <section class="section-testimonial">
+                <!-- Section Space -->
+                <div class="section-space">
+                    <!-- Section Container -->
+                    <div class="container">
+                        <!-- Section Block -->
+                        <div class="mx-auto mb-14 max-w-2xl text-center">
+                            <h2 class="section-title right">
+                                Trusted by more than 200+ client’s around the world
+                            </h2>
+                        </div>
+                        <!-- Section Block -->
+
+                        <!-- Testimonial Slider -->
+                        <div class="relative">
+                            <div class="testimonial-slider-one swiper group">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper">
+                                    <!-- Slides -->
+                                    <div class="swiper-slide">
+                                        <div class="grid grid-cols-12 border border-colorGrey">
+                                            <div class="col-span-12 md:col-span-6 lg:col-span-5">
+                                                <img src="assets/img/images/home-2/testimonial-thumb-1.jpg"
+                                                    alt="testimonial-thumb-1" width="526" height="558"
+                                                    class="size-full object-cover" />
+                                            </div>
+                                            <div class="col-span-12 p-8 md:col-span-6 lg:col-span-7 lg:p-12 xxl:p-16">
+                                                <!-- Review Star -->
+                                                <div class="text-2xl text-colorBlue">
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <!-- Review Star -->
+                                                <blockquote
+                                                    class="mb-8 mt-5 text-3xl leading-tight -tracking-[1px] lg:mb-12 lg:text-[2rem] xl:mb-16 xxl:text-[2.5rem]">
+                                                    “ If you’re looking for a rewarding career and a
+                                                    chance to make an impact, you’ve come to the right
+                                                    place We will transform your business through our
+                                                    techniques! ”
+                                                </blockquote>
+
+                                                <div>
+                                                    <span class="display-heading display-heading-4 block">Alexander
+                                                        Cameron</span>
+                                                    <span class="text-xl">Lead Developer</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="grid grid-cols-12 border border-colorGrey">
+                                            <div class="col-span-12 md:col-span-6 lg:col-span-5">
+                                                <img src="assets/img/images/home-2/testimonial-thumb-2.jpg"
+                                                    alt="testimonial-thumb-2" width="526" height="558"
+                                                    class="size-full object-cover" />
+                                            </div>
+                                            <div class="col-span-12 p-8 md:col-span-6 lg:col-span-7 lg:p-12 xxl:p-16">
+                                                <!-- Review Star -->
+                                                <div class="text-2xl text-colorBlue">
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <!-- Review Star -->
+                                                <blockquote
+                                                    class="mb-8 mt-5 text-3xl leading-tight -tracking-[1px] lg:mb-12 lg:text-[2rem] xl:mb-16 xxl:text-[2.5rem]">
+                                                    “ If you’re looking for a rewarding career and a
+                                                    chance to make an impact, you’ve come to the right
+                                                    place We will transform your business through our
+                                                    techniques! ”
+                                                </blockquote>
+
+                                                <div>
+                                                    <span class="display-heading display-heading-4 block">Brooklyn
+                                                        Simmons</span>
+                                                    <span class="text-xl">Product Designer</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- If we need navigation buttons -->
+                            <div
+                                class="z-20 mt-10 flex w-full justify-center gap-8 sm:absolute sm:top-1/2 sm:mt-0 sm:-translate-y-1/2 sm:justify-between">
+                                <div
+                                    class="testimonial-button-prev inline-flex size-[60px] items-center justify-center rounded-full bg-white text-colorDark shadow-customOne transition-all duration-300 hover:bg-colorBlue hover:text-white sm:-translate-x-[30px]">
+                                    <i class="ri-arrow-left-s-line"></i>
+                                </div>
+                                <div
+                                    class="testimonial-button-next inline-flex size-[60px] items-center justify-center rounded-full bg-white text-colorDark shadow-customOne transition-all duration-300 hover:bg-colorBlue hover:text-white sm:translate-x-[30px]">
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Testimonial Slider -->
+                    </div>
+                    <!-- Section Container -->
+                </div>
+                <!-- Section Space -->
+            </section>
+            <!--...::: Testimonial Section End :::... -->
+
+            <!--...::: Blog Section Start :::... -->
+            <section class="section-blog">
+                <!-- Section Background -->
+                <div class="bg-colorGreyTwo">
+                    <!-- Section Space -->
+                    <div class="section-space">
+                        <!-- Section Container -->
+                        <div class="container">
+                            <!-- Section Block -->
+                            <div class="mb-14 flex flex-wrap items-center justify-between gap-8">
+                                <h2 class="section-title right max-w-lg">
+                                    Recent blog & articles about technology
+                                </h2>
+                                <a href="blog.html" class="btn btn-primary">
+                                    View All Posts
+                                    <span>
+                                        <i class="ri-arrow-right-up-line"></i>
+                                        <i class="ri-arrow-right-up-line"></i>
+                                    </span>
+                                </a>
+                            </div>
+                            <!-- Section Block -->
+
+                            <!-- Blog List -->
+                            <ul class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+                                <!-- Blog Item -->
+                                <li class="jos">
+                                    <div
+                                        class="group border border-colorDark/10 transition-all duration-300 hover:shadow-customOne">
+                                        <!-- Thumbnail Image -->
+                                        <div class="relative block overflow-hidden">
+                                            <!-- Thumbnail -->
+                                            <img src="assets/img/images/home-2/blog-img-1.jpg" alt="blog-img-1"
+                                                width="416" height="480"
+                                                class="size-full object-cover transition-all duration-300 group-hover:scale-110" />
+                                            <!-- Thumbnail -->
+                                            <!-- Contents -->
+                                            <div
+                                                class="absolute left-0 top-0 flex size-full flex-col justify-end bg-gradient-to-t from-colorDark to-transparent px-[28px] py-6 transition-all duration-300 group-hover:from-colorBlue">
+                                                <a href="blog-details.html"
+                                                    class="display-heading display-heading-3 mb-1.5 block text-white">Technology
+                                                    support allows erie non-profit to
+                                                    serve</a>
+                                                <!-- Post Meta Data -->
+                                                <div class="mb-1.5 flex gap-6 text-xl">
+                                                    <a href="blog.html"
+                                                        class="relative text-white after:absolute after:left-[calc(100%+12px)] after:top-1/2 after:size-1.5 after:-translate-y-1/2 after:rounded-full after:bg-white last-of-type:after:hidden hover:underline">Technology</a>
+                                                    <a href="blog.html"
+                                                        class="relative text-white after:absolute after:left-[calc(100%+12px)] after:top-1/2 after:size-1.5 after:-translate-y-1/2 after:rounded-full after:bg-white last-of-type:after:hidden hover:underline">26
+                                                        June 2025</a>
+                                                </div>
+                                                <!-- Post Meta Data -->
+                                            </div>
+                                            <!-- Contents -->
+                                        </div>
+                                        <!-- Thumbnail Image -->
+                                    </div>
+                                </li>
+                                <!-- Blog Item -->
+                                <!-- Blog Item -->
+                                <li class="jos">
+                                    <div
+                                        class="group border border-colorDark/10 transition-all duration-300 hover:shadow-customOne">
+                                        <!-- Thumbnail Image -->
+                                        <div class="relative block overflow-hidden">
+                                            <!-- Thumbnail -->
+                                            <img src="assets/img/images/home-2/blog-img-2.jpg" alt="blog-img-2"
+                                                width="416" height="480"
+                                                class="size-full object-cover transition-all duration-300 group-hover:scale-110" />
+                                            <!-- Thumbnail -->
+                                            <!-- Contents -->
+                                            <div
+                                                class="absolute left-0 top-0 flex size-full flex-col justify-end bg-gradient-to-t from-colorDark to-transparent px-[28px] py-6 transition-all duration-300 group-hover:from-colorBlue">
+                                                <a href="blog-details.html"
+                                                    class="display-heading display-heading-3 mb-1.5 block text-white">The
+                                                    act of knowledge & the act of design
+                                                    thinking</a>
+                                                <!-- Post Meta Data -->
+                                                <div class="mb-1.5 flex gap-6 text-xl">
+                                                    <a href="blog.html"
+                                                        class="relative text-white after:absolute after:left-[calc(100%+12px)] after:top-1/2 after:size-1.5 after:-translate-y-1/2 after:rounded-full after:bg-white last-of-type:after:hidden hover:underline">Technology</a>
+                                                    <a href="blog.html"
+                                                        class="relative text-white after:absolute after:left-[calc(100%+12px)] after:top-1/2 after:size-1.5 after:-translate-y-1/2 after:rounded-full after:bg-white last-of-type:after:hidden hover:underline">12
+                                                        August 2025</a>
+                                                </div>
+                                                <!-- Post Meta Data -->
+                                            </div>
+                                            <!-- Contents -->
+                                        </div>
+                                        <!-- Thumbnail Image -->
+                                    </div>
+                                </li>
+                                <!-- Blog Item -->
+                                <!-- Blog Item -->
+                                <li class="jos">
+                                    <div
+                                        class="group border border-colorDark/10 transition-all duration-300 hover:shadow-customOne">
+                                        <!-- Thumbnail Image -->
+                                        <div class="relative block overflow-hidden">
+                                            <!-- Thumbnail -->
+                                            <img src="assets/img/images/home-2/blog-img-3.jpg" alt="blog-img-3"
+                                                width="416" height="480"
+                                                class="size-full object-cover transition-all duration-300 group-hover:scale-110" />
+                                            <!-- Thumbnail -->
+                                            <!-- Contents -->
+                                            <div
+                                                class="absolute left-0 top-0 flex size-full flex-col justify-end bg-gradient-to-t from-colorDark to-transparent px-[28px] py-6 transition-all duration-300 group-hover:from-colorBlue">
+                                                <a href="blog-details.html"
+                                                    class="display-heading display-heading-3 mb-1.5 block text-white">Core
+                                                    on web vitals, a smas magazine case study</a>
+                                                <!-- Post Meta Data -->
+                                                <div class="mb-1.5 flex gap-6 text-xl">
+                                                    <a href="blog.html"
+                                                        class="relative text-white after:absolute after:left-[calc(100%+12px)] after:top-1/2 after:size-1.5 after:-translate-y-1/2 after:rounded-full after:bg-white last-of-type:after:hidden hover:underline">Technology</a>
+                                                    <a href="blog.html"
+                                                        class="relative text-white after:absolute after:left-[calc(100%+12px)] after:top-1/2 after:size-1.5 after:-translate-y-1/2 after:rounded-full after:bg-white last-of-type:after:hidden hover:underline">9
+                                                        March 2025</a>
+                                                </div>
+                                                <!-- Post Meta Data -->
+                                            </div>
+                                            <!-- Contents -->
+                                        </div>
+                                        <!-- Thumbnail Image -->
+                                    </div>
+                                </li>
+                                <!-- Blog Item -->
+                            </ul>
+                            <!-- Blog List -->
+                        </div>
+                        <!-- Section Container -->
+                    </div>
+                    <!-- Section Space -->
+                </div>
+                <!-- Section Background -->
+            </section>
+            <!--...::: Blog Section End :::... -->
+        </main>
+        <!-- Main Wrapper -->
+
+        <!--...::: Footer Section Start :::... -->
+        <footer class="section-footer">
+            <!-- Footer Background -->
+            <div class="bg-colorDark text-xl text-white">
+                <!-- Footer Top -->
+                <div class="section-space">
+                    <!-- Section Container -->
+                    <div class="container">
+                        <!-- Footer Top Area -->
+                        <div class="flex flex-wrap gap-x-10 gap-y-[60px] lg:justify-between">
+                            <!-- Footer Widget - Navigation -->
+                            <div>
+                                <span class="mb-7 block text-[26px] font-semibold leading-[1.3]">Quick Links</span>
+                                <nav class="flex flex-col gap-y-3">
+                                    <a href="about.html">
+                                        <span
+                                            class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">
+                                            About Us
+                                        </span>
+                                    </a>
+                                    <a href="team.html">
+                                        <span
+                                            class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Our
+                                            Team</span>
+                                    </a>
+                                    <a href="pricing.html">
+                                        <span
+                                            class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Pricing
+                                            Plans</span>
+                                    </a>
+                                    <a href="blog.html">
+                                        <span
+                                            class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Blogs</span>
+                                    </a>
+                                    <a href="contact.html">
+                                        <span
+                                            class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Contact
+                                            Us</span>
+                                    </a>
+                                </nav>
+                            </div>
+                            <!-- Footer Widget - Navigation -->
+
+                            <!-- Footer Widget - Navigation -->
+                            <div>
+                                <span class="mb-7 block text-[26px] font-semibold leading-[1.3]">Services</span>
+                                <nav class="flex flex-col gap-y-3">
+                                    <a href="services.html">
+                                        <span
+                                            class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">
+                                            UI/UX Design
+                                        </span>
+                                    </a>
+                                    <a href="services.html">
+                                        <span
+                                            class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">App
+                                            Development</span>
+                                    </a>
+                                    <a href="services.html">
+                                        <span
+                                            class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Digital
+                                            Marketing</span>
+                                    </a>
+                                    <a href="services.html">
+                                        <span
+                                            class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Web
+                                            Development</span>
+                                    </a>
+                                    <a href="services.html">
+                                        <span
+                                            class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Cyber
+                                            Security</span>
+                                    </a>
+                                </nav>
+                            </div>
+                            <!-- Footer Widget - Navigation -->
+
+                            <!-- Footer Widget - Navigation -->
+                            <div>
+                                <span class="mb-7 block text-[26px] font-semibold leading-[1.3]">Information</span>
+                                <nav class="flex flex-col gap-y-3">
+                                    <a href="contact.html">
+                                        <span
+                                            class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">
+                                            Working Process
+                                        </span>
+                                    </a>
+                                    <a href="contact.html">
+                                        <span
+                                            class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Privacy
+                                            Policy</span>
+                                    </a>
+                                    <a href="contact.html">
+                                        <span
+                                            class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Terms
+                                            & Conditions</span>
+                                    </a>
+                                    <a href="faq.html">
+                                        <span
+                                            class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Faqs</span>
+                                    </a>
+                                </nav>
+                            </div>
+                            <!-- Footer Widget - Navigation -->
+
+                            <!-- Footer Widget - About -->
+                            <div class="max-w-80 xl:max-w-[416px]">
+                                <span class="mb-7 block text-[26px] font-semibold leading-[1.3]">Subscribe Our
+                                    Newsletter</span>
+                                <p class="mb-6">
+                                    Get ready to work together for the better solution for your
+                                    business
+                                </p>
+
+                                <form action="#" method="post" class="relative mb-6">
+                                    <input type="email" placeholder="Enter your email"
+                                        class="required w-full border border-[#252634] bg-colorDark px-6 py-4 pr-16 text-white outline-none transition-all duration-300 placeholder:text-white/40 focus-visible:border-white" />
+                                    <button type="submit" class="absolute right-0 top-0 h-full px-5 text-xl text-white">
+                                        <i class="ri-send-plane-fill"></i>
+                                    </button>
+                                </form>
+                                <!-- Social Links -->
+                                <div class="flex gap-2">
+                                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"
+                                        class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#1F202E] text-lg hover:bg-colorBlue hover:text-white">
+                                        <i class="ri-facebook-fill"></i>
+                                    </a>
+                                    <a href="https://www.x.com" target="_blank" rel="noopener noreferrer"
+                                        class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#1F202E] text-lg hover:bg-colorBlue hover:text-white">
+                                        <i class="ri-twitter-x-line"></i>
+                                    </a>
+
+                                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"
+                                        class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#1F202E] text-lg hover:bg-colorBlue hover:text-white">
+                                        <i class="ri-instagram-line"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"
+                                        class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#1F202E] text-lg hover:bg-colorBlue hover:text-white">
+                                        <i class="ri-linkedin-fill"></i>
+                                    </a>
+                                </div>
+                                <!-- Social Links -->
+                            </div>
+                            <!-- Footer Widget - About -->
+                        </div>
+                        <!-- Footer Top Area -->
+                    </div>
+                    <!-- Section Container -->
+                </div>
+                <!-- Footer Top -->
+                <div class="container border-t border-white/10"></div>
+                <!-- Footer Bottom -->
+                <div class="py-11">
+                    <!-- Section Container -->
+                    <div class="container">
+                        <!-- Footer Area -->
+                        <div class="text-center">
+                            <p class="mb-0">
+                                Copyright &copy;
+                                <span id="copyright-year">2024</span> Mthemeus. All rights
+                                reserved.
+                            </p>
+                        </div>
+                        <!-- Footer Area -->
+                    </div>
+                    <!-- Section Container -->
+                </div>
+                <!-- Footer Bottom -->
+            </div>
+            <!-- Footer Background -->
+        </footer>
+        <!--...::: Footer Section End :::... -->
+    </div>
+
+    <!--Vendor js-->
+
+    <script src="assets/js/vendors/gsap.min.js"></script>
+    <script src="assets/js/vendors/SplitText3.min.js"></script>
+    <script src="assets/js/vendors/ScrollTrigger.min.js"></script>
+    <script src="assets/js/vendors/gsap-animate.js"></script>
+    <script src="assets/js/vendors/counterup.js"></script>
+    <script src="assets/js/vendors/swiper-bundle.min.js"></script>
+    <script src="assets/js/vendors/fslightbox.js"></script>
+    <script src="assets/js/vendors/jos.min.js"></script>
+    <script src="assets/js/vendors/menu.js"></script>
+
+    <!-- Main js -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

@@ -100,11 +100,11 @@ document.addEventListener('DOMContentLoaded', function() {
 </header>
 <!--...::: Header End :::... -->
 
-<!-- Info Offcanvas Block -->
+
 <div id="info-menu-block"
     class="fixed right-0 top-0 z-[999] flex min-h-dvh max-w-md translate-x-full flex-col justify-between gap-10 bg-white px-12 py-16 transition-all duration-300">
     <button class="absolute right-8 top-8 text-[2rem] leading-none text-[#6E6E77] hover:text-colorBlue"
-        onclick="btnCloseInfoMenu()">
+        onclick="closeInfoMenu()">
         <i class="ri-close-large-fill"></i>
     </button>
 
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- Info Offcanvas Block -->
 
 <!-- Overlay Block -->
-<div class="overlay-block fixed left-0 top-0 z-50 hidden size-full bg-black/85" onclick="closeUserEvent()">
+<div class="overlay-block fixed left-0 top-0 z-50 hidden size-full bg-black/85" onclick="closeOverlay()">
 </div>
 <!-- Overlay Block -->`;
 
@@ -221,30 +221,21 @@ document.addEventListener('DOMContentLoaded', function() {
                         <span class="mb-7 block text-[26px] font-semibold leading-[1.3]">Services</span>
                         <nav class="flex flex-col gap-y-3">
                             <a href="services.html">
-                                <span
-                                    class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">
+                                <span class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">
                                     UI/UX Design
                                 </span>
                             </a>
                             <a href="services.html">
-                                <span
-                                    class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">App
-                                    Development</span>
+                                <span class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">App Development</span>
                             </a>
                             <a href="services.html">
-                                <span
-                                    class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Digital
-                                    Marketing</span>
+                                <span class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Digital Marketing</span>
                             </a>
                             <a href="services.html">
-                                <span
-                                    class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Web
-                                    Development</span>
+                                <span class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Web Development</span>
                             </a>
                             <a href="services.html">
-                                <span
-                                    class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Cyber
-                                    Security</span>
+                                <span class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Cyber Security</span>
                             </a>
                         </nav>
                     </div>
@@ -420,8 +411,8 @@ function initializeMenuScripts() {
     }
 }
 
-// Función para cerrar el menú de información (usada en el header)
-function btnCloseInfoMenuHeader() {
+// Función para cerrar el menú de información
+function closeInfoMenu() {
     const headerInfoMenuBlock = document.getElementById('info-menu-block');
     const headerOverlayBlock = document.querySelector('.overlay-block');
     
@@ -433,11 +424,11 @@ function btnCloseInfoMenuHeader() {
     }
 }
 
-// Función para cerrar eventos del usuario (usada en el overlay)
-function closeUserEventHeader() {
-    btnCloseInfoMenuHeader();
+// Función para cerrar overlay
+function closeOverlay() {
+    closeInfoMenu();
 }
 
 // Hacer las funciones globales para que puedan ser llamadas desde el HTML
-window.btnCloseInfoMenuHeader = btnCloseInfoMenuHeader;
-window.closeUserEventHeader = closeUserEventHeader;
+window.closeInfoMenu = closeInfoMenu;
+window.closeOverlay = closeOverlay;

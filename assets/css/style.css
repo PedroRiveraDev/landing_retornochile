@@ -1133,6 +1133,11 @@ p:last-child {
   height: 22px;
 }
 
+.size-\[52px\] {
+  width: 52px;
+  height: 52px;
+}
+
 .size-\[60px\] {
   width: 60px;
   height: 60px;
@@ -1146,11 +1151,6 @@ p:last-child {
 .size-full {
   width: 100%;
   height: 100%;
-}
-
-.size-\[52px\] {
-  width: 52px;
-  height: 52px;
 }
 
 .h-1\.5 {
@@ -1185,12 +1185,12 @@ p:last-child {
   height: 100%;
 }
 
-.min-h-dvh {
-  min-height: 100dvh;
-}
-
 .min-h-80 {
   min-height: 20rem;
+}
+
+.min-h-dvh {
+  min-height: 100dvh;
 }
 
 .w-11 {
@@ -1529,6 +1529,12 @@ p:last-child {
   margin-left: calc(-0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+
 .divide-y > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-y-reverse: 0;
   border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
@@ -1557,6 +1563,10 @@ p:last-child {
   border-radius: 9999px;
 }
 
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
 .border {
   border-width: 1px;
 }
@@ -1579,6 +1589,10 @@ p:last-child {
   border-color: rgb(1 25 255 / var(--tw-border-opacity, 1));
 }
 
+.border-colorDark\/10 {
+  border-color: rgb(13 14 29 / 0.1);
+}
+
 .border-colorGrey {
   --tw-border-opacity: 1;
   border-color: rgb(231 231 232 / var(--tw-border-opacity, 1));
@@ -1599,15 +1613,6 @@ p:last-child {
 
 .border-white\/50 {
   border-color: rgb(255 255 255 / 0.5);
-}
-
-.border-\[\#252634\] {
-  --tw-border-opacity: 1;
-  border-color: rgb(37 38 52 / var(--tw-border-opacity, 1));
-}
-
-.border-colorDark\/10 {
-  border-color: rgb(13 14 29 / 0.1);
 }
 
 .bg-\[\#1F202E\] {
@@ -1816,6 +1821,11 @@ p:last-child {
   padding-bottom: 1rem;
 }
 
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -1844,11 +1854,6 @@ p:last-child {
 .py-\[60px\] {
   padding-top: 60px;
   padding-bottom: 60px;
-}
-
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
 }
 
 .pb-10 {
@@ -1965,16 +1970,16 @@ p:last-child {
   font-weight: 700;
 }
 
+.font-medium {
+  font-weight: 500;
+}
+
 .font-normal {
   font-weight: 400;
 }
 
 .font-semibold {
   font-weight: 600;
-}
-
-.font-medium {
-  font-weight: 500;
 }
 
 .not-italic {
@@ -2526,14 +2531,6 @@ p:last-child {
   color: rgb(255 255 255 / 0.6);
 }
 
-.placeholder\:text-white\/40::-moz-placeholder {
-  color: rgb(255 255 255 / 0.4);
-}
-
-.placeholder\:text-white\/40::placeholder {
-  color: rgb(255 255 255 / 0.4);
-}
-
 .before\:bg-colorBlue::before {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
@@ -2754,11 +2751,6 @@ p:last-child {
   color: rgb(1 25 255 / var(--tw-text-opacity, 1));
 }
 
-.group:hover .group-hover\:text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-
 .group:hover .group-hover\:opacity-100 {
   opacity: 1;
 }
@@ -2944,12 +2936,12 @@ p:last-child {
     margin-bottom: 2.5rem;
   }
 
-  .lg\:mt-20 {
-    margin-top: 5rem;
-  }
-
   .lg\:mb-12 {
     margin-bottom: 3rem;
+  }
+
+  .lg\:mt-20 {
+    margin-top: 5rem;
   }
 
   .lg\:hidden {
@@ -3084,10 +3076,6 @@ p:last-child {
 
   .xl\:max-w-\[330px\] {
     max-width: 330px;
-  }
-
-  .xl\:max-w-\[416px\] {
-    max-width: 416px;
   }
 
   .xl\:grid-cols-2 {

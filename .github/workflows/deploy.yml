@@ -24,6 +24,12 @@ jobs:
           npm ci
           npm run build
 
+      - name: Test FTP connectivity
+        run: |
+          echo "Testing FTP server connectivity..."
+          ping -c 3 ${{ secrets.FTP_HOST }} || echo "Ping failed, but FTP might still work"
+          nslookup ${{ secrets.FTP_HOST }} || echo "DNS lookup failed"
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
@@ -34,3 +40,4 @@ jobs:
           local-dir: dist/
           server-dir: /
           dangerous-clean-slate: true
+          timeout: 60000

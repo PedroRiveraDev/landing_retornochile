@@ -38,9 +38,9 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <a class="nav-link-item text-colorDark" href="#about" aria-label="Ver información del servicio">Servicio</a>
                             </li>
 
-                            <!-- Pricing -->
+                            <!-- Comunidad -->
                             <li class="nav-item">
-                                <a class="nav-link-item text-colorDark" href="#precios" aria-label="Ver precios">Precio</a>
+                                <a class="nav-link-item text-colorDark" href="#comunidad" aria-label="Ver comunidad">Comunidad</a>
                             </li>
 
                             <!-- FAQ -->
@@ -149,8 +149,8 @@ document.addEventListener('DOMContentLoaded', function () {
                             <a href="#about" class="footer-link">
                                 Servicio
                             </a>
-                            <a href="#precios" class="footer-link">
-                                Precios
+                            <a href="#comunidad" class="footer-link">
+                                Comunidad
                             </a>
                             <a href="#faq" class="footer-link">
                                 FAQ

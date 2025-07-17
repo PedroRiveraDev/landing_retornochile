@@ -38,6 +38,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
           local-dir: dist/
-          server-dir: /
+          server-dir: /retornochile
           dangerous-clean-slate: true
           timeout: 60000

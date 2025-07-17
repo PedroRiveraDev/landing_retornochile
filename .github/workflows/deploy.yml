@@ -24,14 +24,6 @@ jobs:
           npm ci
           npm run build
 
-      - name: Prepare deployment package
-        run: |
-          mkdir dist
-          cp index.html dist/
-          cp favicon.ico dist/
-          cp LICENSE dist/
-          cp -r assets dist/
-
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:

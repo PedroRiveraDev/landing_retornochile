@@ -188,7 +188,33 @@ const btnDecrement = () => {
 // =========== Dynamic Year =============
 const currentYear = new Date().getFullYear();
 const copyrightYear = document.getElementById("copyright-year");
-copyrightYear.textContent = currentYear;
+if (copyrightYear) {
+  copyrightYear.textContent = currentYear;
+}
+
+// =========== Smooth Scroll to Sections =============
+document.addEventListener("DOMContentLoaded", function () {
+  // Función para manejar el scroll suave a las secciones
+  const smoothScrollToSection = (targetId) => {
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
+  // Escuchar clicks en enlaces que apuntan a secciones
+  document.addEventListener('click', function(e) {
+    const link = e.target.closest('a[href^="#"]');
+    if (link) {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      smoothScrollToSection(targetId);
+    }
+  });
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   const removeButtons = document.querySelectorAll(".btn-remove-product");

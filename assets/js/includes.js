@@ -33,41 +33,33 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <a class="nav-link-item text-colorDark" href="index.html">Inicio</a>
                             </li>
 
-                            <!-- About -->
+
+                            <!-- Servicio -->
                             <li class="nav-item">
-                                <a class="nav-link-item text-colorDark" href="about.html">Sobre Nosotros</a>
+                                <a class="nav-link-item text-colorDark" href="#about">Servicio</a>
                             </li>
 
-                            <!-- Services (con submenu) -->
-                            <li class="nav-item nav-item-has-children">
-                                <a href="#" class="nav-link-item drop-trigger text-colorDark">
-                                    Soporte <i class="ri-arrow-down-s-line"></i>
-                                </a>
-                                <ul class="sub-menu" id="submenu-services">
-                                    <li class="sub-menu--item">
-                                        <a href="faq.html" data-menu-get="h3" class="drop-trigger">FAQ</a>
-                                    </li>
-                                    <li class="sub-menu--item">
-                                        <a href="testimonials.html" data-menu-get="h3"
-                                            class="drop-trigger">Reseñas</a>
-                                    </li>
-                                </ul>
+                                                        <!-- Pricing -->
+                            <li class="nav-item">
+                                <a class="nav-link-item text-colorDark" href="#precios">Precio</a>
                             </li>
 
-                            <!-- Pricing -->
+
+                                                        <!-- FAQ -->
                             <li class="nav-item">
-                                <a class="nav-link-item text-colorDark" href="pricing.html">Precios</a>
+                                <a class="nav-link-item text-colorDark" href="#faq">FAQ</a>
                             </li>
 
-                            <!-- Blog -->
+                                                        <!-- Reseñas -->
                             <li class="nav-item">
-                                <a class="nav-link-item text-colorDark" href="blog.html">Blog</a>
+                                <a class="nav-link-item text-colorDark" href="#resenas">Reseñas</a>
                             </li>
 
-                            <!-- Contact -->
+                                                        <!-- Contact -->
                             <li class="nav-item">
-                                <a class="nav-link-item text-colorDark" href="contact.html">Contacto</a>
+                                <a class="nav-link-item text-colorDark" href="#contacto">Contacto</a>
                             </li>
+
                         </ul>
                     </nav>
                 </div>
@@ -84,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                     <!-- Responsive Offcanvas Menu Button -->
 
-                    <a href="contact.html" class="btn btn-primary hidden xl:inline-flex">
+                    <a href="#contacto" class="btn btn-primary hidden xl:inline-flex">
                         Contáctanos
                         <span>
                             <i class="ri-arrow-right-up-line"></i>
@@ -193,19 +185,10 @@ document.addEventListener('DOMContentLoaded', function() {
                                     About Us
                                 </span>
                             </a>
-                            <a href="team.html">
-                                <span
-                                    class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Our
-                                    Team</span>
-                            </a>
                             <a href="pricing.html">
                                 <span
                                     class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Pricing
                                     Plans</span>
-                            </a>
-                            <a href="blog.html">
-                                <span
-                                    class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Blogs</span>
                             </a>
                             <a href="contact.html">
                                 <span

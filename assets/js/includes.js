@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                     <!-- Responsive Offcanvas Menu Button -->
 
-                    <a href="#contacto" class="btn btn-primary hidden xl:inline-flex" aria-label="Contactar con RetornosChile">
+                    <a href="#contacto" class="btn btn-primary" aria-label="Contactar con RetornosChile">
                         Contáctanos
                         <span>
                             <i class="ri-arrow-right-up-line"></i>

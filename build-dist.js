@@ -39,13 +39,30 @@ if (fs.existsSync(distDir)) {
 fs.mkdirSync(distDir);
 
 // Copiar archivos individuales
-const filesToCopy = ['index.html', 'favicon.ico', 'LICENSE'];
+const filesToCopy = ['favicon.ico', 'LICENSE'];
 filesToCopy.forEach(file => {
     if (fs.existsSync(file)) {
         copyFileSync(file, distDir);
         console.log(`Copiado: ${file}`);
     }
 });
+
+// Procesar y copiar index.html
+if (fs.existsSync('index.html')) {
+    let indexContent = fs.readFileSync('index.html', 'utf-8');
+    // Cambiar la referencia de CSS a la versión minificada
+    indexContent = indexContent.replace(
+        '<link rel="stylesheet" href="assets/css/style.css" />',
+        '<link rel="stylesheet" href="assets/css/style.min.css" />'
+    );
+    // Opcional: remover el comentario de la versión de producción si existe
+    indexContent = indexContent.replace(
+        '<!-- <link rel="stylesheet" href="/assets/css/style.min.css" /> -->',
+        ''
+    );
+    fs.writeFileSync(path.join(distDir, 'index.html'), indexContent);
+    console.log('Procesado y copiado: index.html');
+}
 
 // Copiar la carpeta assets
 if (fs.existsSync('./assets')) {

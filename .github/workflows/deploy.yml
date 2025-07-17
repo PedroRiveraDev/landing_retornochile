@@ -24,6 +24,13 @@ jobs:
           npm ci
           npm run build
 
+      - name: Prepare deployment package
+        run: |
+          mkdir dist
+          cp index.html dist/
+          cp favicon.ico dist/
+          cp LICENSE dist/
+          cp -r assets dist/
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
@@ -32,6 +39,6 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
-          local-dir: ./
+          local-dir: dist/
           server-dir: /
           dangerous-clean-slate: true

@@ -7,7 +7,7 @@
         "start:server": "live-server --port=3000 --open=./index.html",
         "dev:css": "tailwindcss -i ./src/tailwind.css -o ./assets/css/style.css --watch",
         "start": "concurrently \"npm:start:server\" \"npm run dev:css\"",
-        "build": "tailwindcss -i ./src/tailwind.css -o ./assets/css/style.min.css --minify",
+        "build": "rimraf dist; tailwindcss -i ./src/tailwind.css -o ./assets/css/style.min.css --minify; mkdir dist; Copy-Item -Path index.html, favicon.ico, LICENSE -Destination dist; Copy-Item -Path assets -Destination dist -Recurse",
         "minify": "tailwindcss -o ./assets/css/style.min.css --minify"
     },
     "keywords": [],
@@ -15,9 +15,11 @@
     "license": "ISC",
     "devDependencies": {
         "concurrently": "^8.2.2",
+        "copyfiles": "^2.4.1",
         "live-server": "^1.2.2",
         "prettier": "^3.4.2",
         "prettier-plugin-tailwindcss": "^0.5.14",
+        "rimraf": "^6.0.1",
         "tailwindcss": "^3.4.17"
     }
 }

@@ -19,7 +19,9 @@ window.addEventListener("load", function () {
 // ==== Sticky Menu ====
 window.addEventListener("scroll", function () {
   let header = document.querySelector(".site-header");
-  header.classList.toggle("scrolling", window.scrollY > 0);
+  if (header) {
+    header.classList.toggle("scrolling", window.scrollY > 0);
+  }
 });
 
 // ::::: GLobal Javascript ::::

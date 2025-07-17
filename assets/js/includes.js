@@ -1,7 +1,7 @@
 // Script para cargar header y footer dinámicamente
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     console.log('Includes script loaded');
-    
+
     // Definir el HTML del header directamente
     const headerHTML = `<!--...::: Header Start :::... -->
 <header class="section-header relative z-30 w-full">
@@ -177,120 +177,103 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="flex flex-wrap gap-x-10 gap-y-[60px] lg:justify-between">
                     <!-- Footer Widget - Navigation -->
                     <div>
-                        <span class="mb-7 block text-[26px] font-semibold leading-[1.3]">Quick Links</span>
+                        <span class="mb-7 block text-[26px] font-semibold leading-[1.3]">Enlaces Rápidos</span>
                         <nav class="flex flex-col gap-y-3">
-                            <a href="about.html">
+                            <a href="#about">
                                 <span
                                     class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">
-                                    About Us
+                                    Servicio
                                 </span>
                             </a>
-                            <a href="pricing.html">
+                            <a href="#precios">
                                 <span
-                                    class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Pricing
-                                    Plans</span>
+                                    class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Precios</span>
                             </a>
-                            <a href="contact.html">
+                            <a href="#faq">
                                 <span
-                                    class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Contact
-                                    Us</span>
+                                    class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">FAQ</span>
+                            </a>
+                            <a href="#resenas">
+                                <span
+                                    class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Reseñas</span>
+                            </a>
+                            <a href="#contacto">
+                                <span
+                                    class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Contacto</span>
                             </a>
                         </nav>
                     </div>
                     <!-- Footer Widget - Navigation -->
 
-                    <!-- Footer Widget - Navigation -->
-                    <div>
-                        <span class="mb-7 block text-[26px] font-semibold leading-[1.3]">Services</span>
-                        <nav class="flex flex-col gap-y-3">
-                            <a href="services.html">
-                                <span class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">
-                                    UI/UX Design
-                                </span>
-                            </a>
-                            <a href="services.html">
-                                <span class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">App Development</span>
-                            </a>
-                            <a href="services.html">
-                                <span class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Digital Marketing</span>
-                            </a>
-                            <a href="services.html">
-                                <span class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Web Development</span>
-                            </a>
-                            <a href="services.html">
-                                <span class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Cyber Security</span>
-                            </a>
-                        </nav>
-                    </div>
-                    <!-- Footer Widget - Navigation -->
 
-                    <!-- Footer Widget - Navigation -->
+
+                    <!-- Footer Widget - Information -->
                     <div>
-                        <span class="mb-7 block text-[26px] font-semibold leading-[1.3]">Information</span>
+                        <span class="mb-7 block text-[26px] font-semibold leading-[1.3]">Información</span>
                         <nav class="flex flex-col gap-y-3">
-                            <a href="contact.html">
+                            <a href="#about">
                                 <span
                                     class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">
-                                    Working Process
+                                    Cómo Funciona
                                 </span>
                             </a>
-                            <a href="contact.html">
+                            <a href="#">
                                 <span
-                                    class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Privacy
-                                    Policy</span>
+                                    class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Política de Privacidad</span>
                             </a>
-                            <a href="contact.html">
+                            <a href="#">
                                 <span
-                                    class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Terms
-                                    & Conditions</span>
+                                    class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Términos y Condiciones</span>
                             </a>
-                            <a href="faq.html">
+                            <a href="#faq">
                                 <span
-                                    class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Faqs</span>
+                                    class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Preguntas Frecuentes</span>
                             </a>
                         </nav>
                     </div>
-                    <!-- Footer Widget - Navigation -->
+                    <!-- Footer Widget - Information -->
 
-                    <!-- Footer Widget - About -->
+                    <!-- Footer Widget - Contact -->
                     <div class="max-w-80 xl:max-w-[416px]">
-                        <span class="mb-7 block text-[26px] font-semibold leading-[1.3]">Subscribe Our
-                            Newsletter</span>
+                        <span class="mb-7 block text-[26px] font-semibold leading-[1.3]">Contáctanos</span>
                         <p class="mb-6">
-                            Get ready to work together for the better solution for your
-                            business
+                            ¿Listo para optimizar tus retornos? Únete a la comunidad de transporte más confiable de Chile.
                         </p>
 
-                        <form action="#" method="post" class="relative mb-6">
-                            <input type="email" placeholder="Enter your email"
-                                class="required w-full border border-[#252634] bg-colorDark px-6 py-4 pr-16 text-white outline-none transition-all duration-300 placeholder:text-white/40 focus-visible:border-white" />
-                            <button type="submit" class="absolute right-0 top-0 h-full px-5 text-xl text-white">
-                                <i class="ri-send-plane-fill"></i>
-                            </button>
-                        </form>
+                        <!-- Contact Info -->
+                        <div class="mb-6 space-y-4">
+                            <div class="flex items-center gap-3">
+                                <i class="ri-mail-fill text-colorBlue"></i>
+                                <a href="mailto:contacto@retornoschile.cl" class="hover:text-colorBlue">contacto@retornoschile.cl</a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="ri-whatsapp-fill text-colorBlue"></i>
+                                <a href="https://wa.me/56912345678" class="hover:text-colorBlue">+56 9 1234 5678</a>
+                            </div>
+                        </div>
+
                         <!-- Social Links -->
                         <div class="flex gap-2">
-                            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"
+                            <a href="https://www.facebook.com/retornoschile" target="_blank" rel="noopener noreferrer"
                                 class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#1F202E] text-lg hover:bg-colorBlue hover:text-white">
                                 <i class="ri-facebook-fill"></i>
                             </a>
-                            <a href="https://www.x.com" target="_blank" rel="noopener noreferrer"
-                                class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#1F202E] text-lg hover:bg-colorBlue hover:text-white">
-                                <i class="ri-twitter-x-line"></i>
-                            </a>
-
-                            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"
+                            <a href="https://www.instagram.com/retornoschile" target="_blank" rel="noopener noreferrer"
                                 class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#1F202E] text-lg hover:bg-colorBlue hover:text-white">
                                 <i class="ri-instagram-line"></i>
                             </a>
-                            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"
+                            <a href="https://www.linkedin.com/company/retornoschile" target="_blank" rel="noopener noreferrer"
                                 class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#1F202E] text-lg hover:bg-colorBlue hover:text-white">
                                 <i class="ri-linkedin-fill"></i>
+                            </a>
+                            <a href="https://wa.me/56912345678" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#1F202E] text-lg hover:bg-colorBlue hover:text-white">
+                                <i class="ri-whatsapp-fill"></i>
                             </a>
                         </div>
                         <!-- Social Links -->
                     </div>
-                    <!-- Footer Widget - About -->
+                    <!-- Footer Widget - Contact -->
                 </div>
                 <!-- Footer Top Area -->
             </div>
@@ -306,8 +289,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="text-center">
                     <p class="mb-0">
                         Copyright &copy;
-                        <span id="copyright-year">2024</span> Mthemeus. All rights
-                        reserved.
+                        <span id="copyright-year">2025</span> RetornosChile. Todos los derechos reservados.
                     </p>
                 </div>
                 <!-- Footer Area -->
@@ -324,36 +306,36 @@ document.addEventListener('DOMContentLoaded', function() {
     function injectHTML() {
         const headerPlaceholder = document.getElementById('header-placeholder');
         const footerPlaceholder = document.getElementById('footer-placeholder');
-        
+
         if (headerPlaceholder) {
             headerPlaceholder.innerHTML = headerHTML;
             console.log('Header inyectado exitosamente');
         } else {
             console.error('Header placeholder no encontrado');
         }
-        
+
         if (footerPlaceholder) {
             footerPlaceholder.innerHTML = footerHTML;
             console.log('Footer inyectado exitosamente');
         } else {
             console.error('Footer placeholder no encontrado');
         }
-        
+
         // Inicializar scripts del menú después de un breve delay
         setTimeout(initializeMenuScripts, 100);
     }
 
     // Ejecutar inmediatamente
     injectHTML();
-    
+
     // También intentar cargar desde archivos como fallback/debugging
     loadHTMLFromFiles();
-    
+
     function loadHTMLFromFiles() {
         // Función para cargar archivos HTML con XMLHttpRequest como fallback
         function loadHTML(file, elementId) {
             const xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
+            xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4) {
                     if (xhr.status === 200) {
                         console.log('Archivo cargado exitosamente:', file);
@@ -365,10 +347,6 @@ document.addEventListener('DOMContentLoaded', function() {
             xhr.open('GET', file, true);
             xhr.send();
         }
-
-        // Intentar cargar archivos (solo para debugging)
-        loadHTML('includes/header.html', 'header-placeholder');
-        loadHTML('includes/footer.html', 'footer-placeholder');
     }
 });
 
@@ -378,14 +356,14 @@ function initializeMenuScripts() {
     if (typeof window.initMenu === 'function') {
         window.initMenu();
     }
-    
+
     // Reinicializar eventos del header si es necesario
     const openBtn = document.getElementById('openBtn');
     const headerInfoMenuBlock = document.getElementById('info-menu-block');
     const headerOverlayBlock = document.querySelector('.overlay-block');
-    
+
     if (openBtn && headerInfoMenuBlock) {
-        openBtn.addEventListener('click', function() {
+        openBtn.addEventListener('click', function () {
             headerInfoMenuBlock.classList.remove('translate-x-full');
             if (headerOverlayBlock) {
                 headerOverlayBlock.classList.remove('hidden');
@@ -398,7 +376,7 @@ function initializeMenuScripts() {
 function closeInfoMenu() {
     const headerInfoMenuBlock = document.getElementById('info-menu-block');
     const headerOverlayBlock = document.querySelector('.overlay-block');
-    
+
     if (headerInfoMenuBlock) {
         headerInfoMenuBlock.classList.add('translate-x-full');
     }

@@ -1,0 +1,495 @@
+/* Header Improvements */
+.site-header {
+  transition: all 0.3s ease-in-out;
+}
+
+.scrolling {
+  animation: fadeInDown 0.9s 1;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 5px 2px rgb(0 0 0 / 10%);
+  background: rgba(255, 255, 255, 0.95);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+}
+
+.scrolling.is-bg-transparent-text-white {
+  background: rgba(1, 25, 255, 0.95);
+}
+
+.scrolling.is-bg-transparent-text-dark {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Simple Mobile Menu Button */
+.mobile-menu-trigger {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+  min-width: 48px;
+  min-height: 48px;
+}
+
+.mobile-menu-trigger:hover {
+  opacity: 0.7;
+}
+
+.mobile-menu-trigger:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Larger mobile menu icon */
+.mobile-menu-trigger span {
+  width: 28px !important;
+  height: 3px !important;
+}
+
+.mobile-menu-trigger span:before,
+.mobile-menu-trigger span:after {
+  width: 28px !important;
+  height: 3px !important;
+}
+
+/* Mobile Responsive Improvements */
+@media (max-width: 768px) {
+  .site-header {
+    padding: 12px 20px !important;
+  }
+  
+  .enhanced-mobile-trigger {
+    margin-left: 8px;
+  }
+  
+  .mobile-contact-btn {
+    font-size: 13px !important;
+    padding: 6px 12px !important;
+    min-height: 40px;
+  }
+  
+  .brand-logo img {
+    max-height: 36px;
+    width: auto;
+  }
+  
+  /* Mejor espaciado en header mobile */
+  .site-header .flex {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    padding: 10px 16px !important;
+  }
+  
+  .mobile-contact-btn {
+    font-size: 12px !important;
+    padding: 6px 10px !important;
+    min-height: 38px;
+  }
+  
+  .mobile-contact-btn .btn-icon {
+    font-size: 14px;
+  }
+  
+  .brand-logo img {
+    max-height: 32px;
+  }
+  
+  /* Ajustes para pantallas muy pequeñas */
+  .enhanced-mobile-trigger {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 10px !important;
+  }
+  
+  .enhanced-mobile-trigger span {
+    width: 24px !important;
+    height: 2.5px !important;
+  }
+  
+  .enhanced-mobile-trigger span:before,
+  .enhanced-mobile-trigger span:after {
+    width: 24px !important;
+    height: 2.5px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    padding: 8px 12px !important;
+  }
+  
+  .mobile-contact-btn {
+    font-size: 11px !important;
+    padding: 5px 8px !important;
+    min-height: 36px;
+  }
+  
+  .brand-logo img {
+    max-height: 28px;
+  }
+  
+  /* Ocultar botón en pantallas muy pequeñas si es necesario */
+  .mobile-contact-btn {
+    display: none;
+  }
+}
+
+/* Landscape phone optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+  .site-header {
+    padding: 8px 16px !important;
+  }
+  
+  .brand-logo img {
+    max-height: 30px;
+  }
+  
+  .mobile-menu-trigger {
+    min-width: 40px;
+    min-height: 40px;
+  }
+}
+
+/* Tablet improvements */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .site-header {
+    padding: 16px 24px !important;
+  }
+  
+  .brand-logo img {
+    max-height: 40px;
+  }
+}
+
+/* Footer Improvements */
+.section-footer {
+  margin-top: auto;
+}
+
+.section-space-small {
+  padding: 60px 0;
+}
+
+.footer-link {
+  color: #d1d5db;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  color: #3b82f6;
+  transform: translateX(5px);
+}
+
+.footer-link:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Footer responsive improvements */
+@media (max-width: 768px) {
+  .section-space-small {
+    padding: 40px 0;
+  }
+  
+  .section-footer h3 {
+    font-size: 18px !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .section-footer .grid {
+    gap: 2rem;
+  }
+  
+  .section-footer .social-links {
+    justify-content: center;
+  }
+  
+  .footer-bottom-text,
+  .footer-bottom-links {
+    text-align: center !important;
+  }
+  
+  .footer-bottom-links .flex {
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-space-small {
+    padding: 32px 0;
+  }
+  
+  .section-footer .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .section-footer h3 {
+    font-size: 16px !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .section-footer .grid {
+    gap: 1.5rem;
+  }
+  
+  .footer-bottom-links .flex {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .footer-bottom-links span {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-space-small {
+    padding: 24px 0;
+  }
+  
+  .section-footer .py-6 {
+    padding: 1rem 0;
+  }
+  
+  .section-footer .social-links .flex {
+    gap: 0.5rem;
+  }
+  
+  .section-footer .social-links a {
+    height: 2rem;
+    width: 2rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Navigation Link Improvements - Simple hover */
+.nav-link-item {
+  transition: color 0.3s ease;
+}
+
+.nav-link-item:hover {
+  color: #3b82f6 !important;
+}
+
+.nav-link-item:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Logo Improvements - Simple hover */
+.brand-logo img {
+  transition: opacity 0.3s ease;
+}
+
+.brand-logo:hover img {
+  opacity: 0.8;
+}
+
+.brand-logo:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Simple Button Styles */
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Mobile Responsive Improvements */
+@media (max-width: 768px) {
+  .site-header {
+    padding: 12px 20px !important;
+  }
+  
+  .mobile-menu-trigger {
+    margin-left: 8px;
+  }
+  
+  .brand-logo img {
+    max-height: 36px;
+    width: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    padding: 10px 16px !important;
+  }
+  
+  .brand-logo img {
+    max-height: 32px;
+  }
+  
+  .mobile-menu-trigger {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 10px !important;
+  }
+  
+  .mobile-menu-trigger span {
+    width: 24px !important;
+    height: 2.5px !important;
+  }
+  
+  .mobile-menu-trigger span:before,
+  .mobile-menu-trigger span:after {
+    width: 24px !important;
+    height: 2.5px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    padding: 8px 12px !important;
+  }
+  
+  .brand-logo img {
+    max-height: 28px;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  .enhanced-mobile-trigger {
+    padding: 14px !important;
+    min-width: 52px;
+    min-height: 52px;
+  }
+  
+  .mobile-contact-btn {
+    min-height: 48px;
+    padding: 10px 16px !important;
+  }
+  
+  .site-menu-main > li > a {
+    min-height: 56px;
+    line-height: 56px !important;
+    height: 56px !important;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+.swiper-wrapper {
+  transition-timing-function: linear;
+}
+
+.reveal-text {
+  display: inline-block;
+  position: relative;
+  transform: translateY(100%);
+  transform-origin: top left;
+  animation: text-reveal 2s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+}
+
+/* Other CSS */
+.hero-slider .swiper-slide {
+  overflow: hidden;
+}
+.hero-slider .swiper-slide .hero-bg-img {
+  transform: scale(1.25);
+  transition: all 1.5s ease;
+}
+.hero-slider .swiper-slide-active .hero-bg-img {
+  transform: scale(1);
+}
+
+.hero-slider .swiper-slide h4,
+.hero-slider .swiper-slide h1,
+.hero-slider .swiper-slide p,
+.hero-slider .swiper-slide a {
+  transform: translateY(25%);
+  opacity: 0;
+  transition: all 0.65s ease;
+  transition-delay: 1.25s;
+}
+.hero-slider .swiper-slide h4,
+.hero-slider .swiper-slide-active h1,
+.hero-slider .swiper-slide-active p,
+.hero-slider .swiper-slide-active a {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+/* Style for the loader */
+.fullpage_loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0d0e1d; /* Light background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure the loader is on top of everything */
+}
+
+/* Loader spinner */
+.spinner {
+  border: 4px solid #fff; /* Light gray */
+  border-top: 4px solid #0119ff; /* Blue color for the spinner */
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 1s linear infinite;
+}
+
+/* Animation for the spinner */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* The ripple effect */
+.ripple-button .ripple {
+  animation: ripple-animation 2s infinite;
+}
+
+/* Ripple animation */
+@keyframes ripple-animation {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}

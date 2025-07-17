@@ -7,7 +7,7 @@
         "start:server": "live-server --port=3000 --open=./index.html",
         "dev:css": "tailwindcss -i ./src/tailwind.css -o ./assets/css/style.css --watch",
         "start": "concurrently \"npm:start:server\" \"npm run dev:css\"",
-        "build": "rimraf dist; tailwindcss -i ./src/tailwind.css -o ./assets/css/style.min.css --minify; mkdir dist; Copy-Item -Path index.html, favicon.ico, LICENSE -Destination dist; Copy-Item -Path assets -Destination dist -Recurse",
+        "build": "tailwindcss -i ./src/tailwind.css -o ./assets/css/style.min.css --minify && node build-dist.js",
         "minify": "tailwindcss -o ./assets/css/style.min.css --minify"
     },
     "keywords": [],

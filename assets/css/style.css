@@ -1203,6 +1203,10 @@ p:last-child {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
+.bg-transparent {
+  background-color: transparent;
+}
+
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -1407,6 +1411,10 @@ p:last-child {
 
 .text-white\/60 {
   color: rgb(255 255 255 / 0.6);
+}
+
+.text-colorDark\/80 {
+  color: rgb(13 14 29 / 0.8);
 }
 
 .opacity-80 {

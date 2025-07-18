@@ -282,7 +282,8 @@
                             <!-- Section Block -->
                             <div class="mx-auto mb-14 max-w-2xl text-center">
                                 <h2 class="section-title right">
-                                    Conecta cargas y camiones con tecnología <span class="text-colorBlue">simple</span> y <span class="text-colorBlue">confiable</span>
+                                    Conecta cargas y camiones con tecnología <span class="text-colorBlue">simple</span>
+                                    y <span class="text-colorBlue">confiable</span>
                                 </h2>
                             </div>
                             <!-- Section Block -->
@@ -494,7 +495,8 @@
                                 <!-- Section Block -->
                                 <div class="mb-10">
                                     <h2 class="section-title right mb-6">
-                                        Comunidad de Transporte <span class="text-colorBlue">Verificada</span> en WhatsApp
+                                        Comunidad de Transporte <span class="text-colorBlue">Verificada</span> en
+                                        WhatsApp
                                     </h2>
                                     <p class="jos">
                                         Ofrecemos un espacio seguro y confiable donde transportistas verificados
@@ -538,44 +540,69 @@
                                 <!-- Form Block -->
                                 <form class="grid grid-cols-1 gap-y-6 text-xl" action="https://formspree.io/f/{form_id}"
                                     method="post">
-                                    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-                                        <input type="text" placeholder="Nombre completo"
-                                            class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue"
-                                            required />
-                                        <input type="text" placeholder="RUT o cédula"
-                                            class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue"
-                                            required />
+                                    <!-- Tipo de usuario -->
+                                    <div class="grid grid-cols-1 gap-6">
+                                        <label class="block">
+                                            <span class="block mb-1 text-colorDark/80">Tipo de registro</span>
+                                            <select id="tipoRegistro" name="tipo_registro" required
+                                                class="w-full border-b border-colorGrey py-3 bg-transparent outline-none text-colorDark/80 focus-visible:border-colorBlue">
+                                                <option value="">Selecciona una opción</option>
+                                                <option value="persona">Persona Natural</option>
+                                                <option value="empresa">Empresa</option>
+                                            </select>
+                                        </label>
                                     </div>
 
                                     <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-                                        <input type="text" placeholder="Ciudad base"
-                                            class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue"
-                                            required />
-                                        <input type="tel" placeholder="WhatsApp"
-                                            class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue"
-                                            required />
+                                        <input type="text" name="nombre" placeholder="Nombre completo o razón social"
+                                            required
+                                            class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue" />
+                                        <input type="text" name="rut" placeholder="RUT o cédula" required
+                                            class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue" />
+                                    </div>
+
+                                    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                                        <input type="text" name="ciudad" placeholder="Ciudad base" required
+                                            class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue" />
+                                        <input type="tel" name="whatsapp" placeholder="WhatsApp" required
+                                            class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue" />
+                                    </div>
+
+                                    <!-- Conductores a cargo -->
+                                    <div class="grid grid-cols-1 gap-6">
+                                        <label class="block">
+                                            <span class="block mb-1 text-colorDark/80">¿Tiene conductores a
+                                                cargo?</span>
+                                            <select id="tieneConductores" name="tiene_conductores" required
+                                                class="w-full border-b border-colorGrey py-3 bg-transparent outline-none text-colorDark/80 focus-visible:border-colorBlue"
+                                                onchange="document.getElementById('campoCantidadConductores').style.display = this.value === 'sí' ? 'block' : 'none'">
+                                                <option value="">Selecciona una opción</option>
+                                                <option value="sí">Sí</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                        </label>
+
+                                        <input type="number" id="campoCantidadConductores" name="cantidad_conductores"
+                                            placeholder="¿Cuántos conductores tiene a cargo?" style="display:none"
+                                            class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue" />
                                     </div>
 
                                     <div class="grid grid-cols-1 gap-6">
-                                        <input type="text" placeholder="¿Tiene conductores a cargo? (SÍ / NO)"
-                                            class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue" />
-
-                                        <input type="text" placeholder="¿Qué tipo de carga suele mover?"
+                                        <input type="text" name="tipo_carga"
+                                            placeholder="¿Qué tipo de carga suele mover?"
                                             class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue" />
                                     </div>
 
                                     <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-                                        <input type="text" placeholder="Tipo de vehículo"
+                                        <input type="text" name="tipo_vehiculo" placeholder="Tipo de vehículo"
                                             class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue" />
-                                        <input type="text" placeholder="Capacidad de carga"
+                                        <input type="text" name="capacidad_carga" placeholder="Capacidad de carga"
                                             class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue" />
                                     </div>
 
                                     <button type="submit" class="btn btn-primary mt-4">
                                         Enviar registro
-                                        <span>
-                                            <i class="ri-arrow-right-up-line"></i>
-                                        </span>
+                                        <span><i class="ri-arrow-right-up-line"></i></span>
                                     </button>
                                 </form>
                                 <!-- Form Block -->
@@ -624,8 +651,11 @@
                                     <h2 class="section-title right mb-10">Comunidad de Transporte Verificada en
                                         WhatsApp</h2>
                                     <p>
-                                        Pensando en las <strong class="text-colorBlue">principales problematicas de la comunidad</strong>, ofrecemos un <strong>espacio seguro y confiable</strong> donde transportistas verificados
-                                        encuentren oportunidades reales de carga, <strong>reduciendo el riesgo de estafas y deudas.</strong>
+                                        Pensando en las <strong class="text-colorBlue">principales problematicas de la
+                                            comunidad</strong>, ofrecemos un <strong>espacio seguro y confiable</strong>
+                                        donde transportistas verificados
+                                        encuentren oportunidades reales de carga, <strong>reduciendo el riesgo de
+                                            estafas y deudas.</strong>
                                     </p>
                                 </div>
 
@@ -783,7 +813,8 @@
                         <div class="container">
                             <div class="mx-auto mb-14 max-w-2xl text-center">
                                 <h2 class="section-title right text-black">
-                                    Pensamos en tu <span class="text-colorBlue">SEGURIDAD</span>: Sistema de reputación, reporte validado y seguridad
+                                    Pensamos en tu <span class="text-colorBlue">SEGURIDAD</span>: Sistema de reputación,
+                                    reporte validado y seguridad
                                 </h2>
                                 <p class="text-black text-lg mt-4">
                                     Los primeros 30 usuarios registrados entran gratis el primer mes.
@@ -794,7 +825,9 @@
                                         Compromiso de Seguridad
                                     </div>
                                     <p class="text-gray-700 text-base mt-2 max-w-xl">
-                                        Nuestra prioridad es la protección de la comunidad: todos los datos son tratados de forma confidencial, se verifica la identidad de los usuarios y se monitorean las actividades para prevenir fraudes y malas prácticas.
+                                        Nuestra prioridad es la protección de la comunidad: todos los datos son tratados
+                                        de forma confidencial, se verifica la identidad de los usuarios y se monitorean
+                                        las actividades para prevenir fraudes y malas prácticas.
                                     </p>
                                 </div>
                             </div>
@@ -865,7 +898,8 @@
                                             Sistema de Reportes y Seguridad
                                         </h3>
                                         <p class="text-lg text-gray-600">
-                                            Mantenemos la comunidad protegida con protocolos de seguridad avanzados y respuesta rápida ante incidencias.
+                                            Mantenemos la comunidad protegida con protocolos de seguridad avanzados y
+                                            respuesta rápida ante incidencias.
                                         </p>
                                     </div>
 
@@ -899,7 +933,8 @@
                                     <div class="mt-8 p-4 bg-red-50 rounded-lg">
                                         <div class="flex items-center gap-3">
                                             <i class="ri-shield-check-line text-red-500"></i>
-                                            <span class="text-sm text-gray-600">Respuesta a reportes y alertas: &lt; 24 horas</span>
+                                            <span class="text-sm text-gray-600">Respuesta a reportes y alertas: &lt; 24
+                                                horas</span>
                                         </div>
                                     </div>
                                 </div>

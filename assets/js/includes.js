@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <!-- Responsive Offcanvas Menu Button -->
 
                     <a href="#contacto" class="btn btn-primary" aria-label="Registrarse en RetornosChile">
-                        Regístrate Gratis
+                        Regístrate
                         <span>
                             <i class="ri-arrow-right-up-line"></i>
                         </span>

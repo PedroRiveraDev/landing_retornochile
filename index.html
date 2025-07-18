@@ -538,72 +538,115 @@
                                 <p>Accede a la comunidad verificada completando los datos</p>
 
                                 <!-- Form Block -->
-                                <form class="grid grid-cols-1 gap-y-6 text-xl" action="https://formspree.io/f/{form_id}"
-                                    method="post">
+                                <form id="registroForm" class="grid grid-cols-1 gap-y-6 text-xl" novalidate>
+
+                                    <!-- Mensaje de estado del formulario -->
+                                    <div id="form-message" class="hidden p-4 rounded-lg text-center font-medium">
+                                        <span id="message-text"></span>
+                                    </div>
+
                                     <!-- Tipo de usuario -->
                                     <div class="grid grid-cols-1 gap-6">
                                         <label class="block">
-                                            <span class="block mb-1 text-colorDark/80">Tipo de registro</span>
-                                            <select id="tipoRegistro" name="tipo_registro" required
-                                                class="w-full border-b border-colorGrey py-3 bg-transparent outline-none text-colorDark/80 focus-visible:border-colorBlue">
+                                            <span class="block mb-1 text-colorDark/80">Tipo de registro *</span>
+                                            <select id="tipoRegistro" name="registration_type" required
+                                                class="w-full border-b border-colorGrey py-3 bg-transparent outline-none text-colorDark/80 focus-visible:border-colorBlue transition-colors">
                                                 <option value="">Selecciona una opción</option>
-                                                <option value="persona">Persona Natural</option>
-                                                <option value="empresa">Empresa</option>
+                                                <option value="individual">Persona Natural</option>
+                                                <option value="company">Empresa</option>
                                             </select>
+                                            <span class="error-message text-red-500 text-sm mt-1 hidden"></span>
                                         </label>
                                     </div>
 
                                     <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-                                        <input type="text" name="nombre" placeholder="Nombre completo o razón social"
-                                            required
-                                            class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue" />
-                                        <input type="text" name="rut" placeholder="RUT o cédula" required
-                                            class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue" />
+                                        <div class="field-container">
+                                            <input type="text" id="nombre" name="name"
+                                                placeholder="Nombre completo o razón social" required
+                                                class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue transition-colors" />
+                                            <span class="error-message text-red-500 text-sm mt-1 hidden"></span>
+                                        </div>
+                                        <div class="field-container">
+                                            <input type="text" id="rut" name="rut" placeholder="RUT (ej: 12.345.678-9)"
+                                                required pattern="[0-9]{1,2}\.[0-9]{3}\.[0-9]{3}-[0-9kK]{1}"
+                                                class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue transition-colors" />
+                                            <span class="error-message text-red-500 text-sm mt-1 hidden"></span>
+                                        </div>
                                     </div>
 
                                     <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-                                        <input type="text" name="ciudad" placeholder="Ciudad base" required
-                                            class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue" />
-                                        <input type="tel" name="whatsapp" placeholder="WhatsApp" required
-                                            class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue" />
+                                        <div class="field-container">
+                                            <input type="text" id="ciudad" name="city" placeholder="Ciudad base"
+                                                required
+                                                class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue transition-colors" />
+                                            <span class="error-message text-red-500 text-sm mt-1 hidden"></span>
+                                        </div>
+                                        <div class="field-container">
+                                            <input type="tel" id="whatsapp" name="whatsapp"
+                                                placeholder="WhatsApp (+56 9 1234 5678)" required
+                                                pattern="(\+56\s?)?9\s?[0-9]{4}\s?[0-9]{4}"
+                                                class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue transition-colors" />
+                                            <span class="error-message text-red-500 text-sm mt-1 hidden"></span>
+                                        </div>
                                     </div>
 
                                     <!-- Conductores a cargo -->
                                     <div class="grid grid-cols-1 gap-6">
                                         <label class="block">
-                                            <span class="block mb-1 text-colorDark/80">¿Tiene conductores a
-                                                cargo?</span>
-                                            <select id="tieneConductores" name="tiene_conductores" required
-                                                class="w-full border-b border-colorGrey py-3 bg-transparent outline-none text-colorDark/80 focus-visible:border-colorBlue"
-                                                onchange="document.getElementById('campoCantidadConductores').style.display = this.value === 'sí' ? 'block' : 'none'">
+                                            <span class="block mb-1 text-colorDark/80">¿Tiene conductores a cargo?
+                                                *</span>
+                                            <select id="tieneConductores" name="has_drivers" required
+                                                class="w-full border-b border-colorGrey py-3 bg-transparent outline-none text-colorDark/80 focus-visible:border-colorBlue transition-colors">
                                                 <option value="">Selecciona una opción</option>
-                                                <option value="sí">Sí</option>
+                                                <option value="yes">Sí</option>
                                                 <option value="no">No</option>
                                             </select>
+                                            <span class="error-message text-red-500 text-sm mt-1 hidden"></span>
                                         </label>
 
-                                        <input type="number" id="campoCantidadConductores" name="cantidad_conductores"
-                                            placeholder="¿Cuántos conductores tiene a cargo?" style="display:none"
-                                            class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue" />
+                                        <div class="field-container">
+                                            <input type="number" id="campoCantidadConductores"
+                                                name="drivers_count"
+                                                placeholder="¿Cuántos conductores tiene a cargo?" min="1" max="100"
+                                                style="display:none"
+                                                class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue transition-colors" />
+                                            <span class="error-message text-red-500 text-sm mt-1 hidden"></span>
+                                        </div>
                                     </div>
 
                                     <div class="grid grid-cols-1 gap-6">
-                                        <input type="text" name="tipo_carga"
-                                            placeholder="¿Qué tipo de carga suele mover?"
-                                            class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue" />
+                                        <div class="field-container">
+                                            <input type="text" id="tipoCarga" name="cargo_type"
+                                                placeholder="¿Qué tipo de carga suele mover?"
+                                                class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue transition-colors" />
+                                            <span class="error-message text-red-500 text-sm mt-1 hidden"></span>
+                                        </div>
                                     </div>
 
                                     <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-                                        <input type="text" name="tipo_vehiculo" placeholder="Tipo de vehículo"
-                                            class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue" />
-                                        <input type="text" name="capacidad_carga" placeholder="Capacidad de carga"
-                                            class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue" />
+                                        <div class="field-container">
+                                            <input type="text" id="tipoVehiculo" name="vehicle_type"
+                                                placeholder="Tipo de vehículo"
+                                                class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue transition-colors" />
+                                            <span class="error-message text-red-500 text-sm mt-1 hidden"></span>
+                                        </div>
+                                        <div class="field-container">
+                                            <input type="text" id="capacidadCarga" name="cargo_capacity"
+                                                placeholder="Capacidad de carga"
+                                                class="w-full border-b border-colorGrey py-3 outline-none placeholder:text-colorDark/60 focus-visible:border-colorBlue transition-colors" />
+                                            <span class="error-message text-red-500 text-sm mt-1 hidden"></span>
+                                        </div>
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary mt-4">
+                                    <button type="submit" id="submitBtn"
+                                        class="btn btn-primary mt-4 w-full">
                                         Enviar registro
                                         <span><i class="ri-arrow-right-up-line"></i></span>
                                     </button>
+
+                                    <p class="text-sm text-colorDark/60 text-center">
+                                        Los campos marcados con * son obligatorios
+                                    </p>
                                 </form>
                                 <!-- Form Block -->
                             </div>

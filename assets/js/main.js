@@ -457,3 +457,366 @@ var productGallery = new Swiper(".product-gallery", {
     swiper: productThumb,
   },
 });
+
+// ================================ VALIDACIONES DEL FORMULARIO DE REGISTRO ================================
+
+// Utilidades para validaciones
+const FormValidator = {
+  // Validar RUT chileno
+  validateRUT: function(rut) {
+    // Remover puntos y guión, convertir a mayúsculas
+    const cleanRUT = rut.replace(/\./g, '').replace('-', '').toUpperCase();
+    
+    if (cleanRUT.length < 8 || cleanRUT.length > 9) {
+      return false;
+    }
+    
+    const rutBody = cleanRUT.slice(0, -1);
+    const checkDigit = cleanRUT.slice(-1);
+    
+    // Verificar que el cuerpo del RUT sean números
+    if (!/^\d+$/.test(rutBody)) {
+      return false;
+    }
+    
+    // Calcular dígito verificador
+    let sum = 0;
+    let multiplier = 2;
+    
+    for (let i = rutBody.length - 1; i >= 0; i--) {
+      sum += parseInt(rutBody[i]) * multiplier;
+      multiplier = multiplier === 7 ? 2 : multiplier + 1;
+    }
+    
+    const remainder = sum % 11;
+    const calculatedCheckDigit = remainder === 0 ? '0' : remainder === 1 ? 'K' : (11 - remainder).toString();
+    
+    return checkDigit === calculatedCheckDigit;
+  },
+
+  // Formatear RUT mientras se escribe
+  formatRUT: function(rut) {
+    // Remover todo excepto números y K
+    let cleanRUT = rut.replace(/[^0-9kK]/g, '').toUpperCase();
+    
+    if (cleanRUT.length <= 1) return cleanRUT;
+    
+    // Separar cuerpo y dígito verificador
+    const body = cleanRUT.slice(0, -1);
+    const checkDigit = cleanRUT.slice(-1);
+    
+    // Formatear el cuerpo con puntos
+    let formattedBody = '';
+    for (let i = body.length - 1, count = 0; i >= 0; i--, count++) {
+      if (count > 0 && count % 3 === 0) {
+        formattedBody = '.' + formattedBody;
+      }
+      formattedBody = body[i] + formattedBody;
+    }
+    
+    return formattedBody + '-' + checkDigit;
+  },
+
+  // Validar WhatsApp chileno
+  validateWhatsApp: function(phone) {
+    const cleanPhone = phone.replace(/\s/g, '');
+    // Formatos aceptados: +56912345678, 56912345678, 912345678
+    const patterns = [
+      /^\+56\s?9\s?\d{4}\s?\d{4}$/,
+      /^56\s?9\s?\d{4}\s?\d{4}$/,
+      /^9\s?\d{4}\s?\d{4}$/
+    ];
+    
+    return patterns.some(pattern => pattern.test(cleanPhone));
+  },
+
+  // Formatear WhatsApp
+  formatWhatsApp: function(phone) {
+    let cleanPhone = phone.replace(/\D/g, '');
+    
+    if (cleanPhone.startsWith('569')) {
+      cleanPhone = cleanPhone.substring(2);
+    } else if (cleanPhone.startsWith('56')) {
+      cleanPhone = cleanPhone.substring(2);
+    }
+    
+    if (cleanPhone.startsWith('9') && cleanPhone.length === 9) {
+      return `+56 9 ${cleanPhone.substring(1, 5)} ${cleanPhone.substring(5)}`;
+    }
+    
+    return phone;
+  },
+
+  // Validar email
+  validateEmail: function(email) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+  },
+
+  // Mostrar mensaje de error
+  showError: function(field, message) {
+    const errorSpan = field.parentNode.querySelector('.error-message') || 
+                     field.parentNode.parentNode.querySelector('.error-message');
+    if (errorSpan) {
+      errorSpan.textContent = message;
+      errorSpan.classList.remove('hidden');
+    }
+    field.classList.add('border-red-500');
+    field.classList.remove('border-green-500');
+  },
+
+  // Ocultar mensaje de error
+  hideError: function(field) {
+    const errorSpan = field.parentNode.querySelector('.error-message') ||
+                     field.parentNode.parentNode.querySelector('.error-message');
+    if (errorSpan) {
+      errorSpan.classList.add('hidden');
+    }
+    field.classList.remove('border-red-500');
+    field.classList.add('border-green-500');
+  },
+
+  // Mostrar mensaje general del formulario
+  showFormMessage: function(message, type = 'error') {
+    const messageDiv = document.getElementById('form-message');
+    const messageText = document.getElementById('message-text');
+    
+    if (messageDiv && messageText) {
+      messageText.textContent = message;
+      messageDiv.className = `p-4 rounded-lg text-center font-medium ${
+        type === 'success' 
+          ? 'bg-green-100 text-green-800 border border-green-300' 
+          : 'bg-red-100 text-red-800 border border-red-300'
+      }`;
+      messageDiv.classList.remove('hidden');
+      
+      // Scroll hacia el mensaje
+      messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  },
+
+  // Ocultar mensaje del formulario
+  hideFormMessage: function() {
+    const messageDiv = document.getElementById('form-message');
+    if (messageDiv) {
+      messageDiv.classList.add('hidden');
+    }
+  }
+};
+
+// Inicialización del formulario cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('registroForm');
+  if (!form) return;
+
+  // Referencias a elementos del formulario
+  const tipoRegistro = document.getElementById('tipoRegistro');
+  const nombre = document.getElementById('nombre');
+  const rut = document.getElementById('rut');
+  const ciudad = document.getElementById('ciudad');
+  const whatsapp = document.getElementById('whatsapp');
+  const tieneConductores = document.getElementById('tieneConductores');
+  const cantidadConductores = document.getElementById('campoCantidadConductores');
+  const submitBtn = document.getElementById('submitBtn');
+
+  // Formateo automático del RUT
+  if (rut) {
+    rut.addEventListener('input', function(e) {
+      const cursorPos = e.target.selectionStart;
+      const oldValue = e.target.value;
+      e.target.value = FormValidator.formatRUT(e.target.value);
+      
+      // Mantener posición del cursor
+      const newValue = e.target.value;
+      const lengthDiff = newValue.length - oldValue.length;
+      e.target.setSelectionRange(cursorPos + lengthDiff, cursorPos + lengthDiff);
+    });
+
+    rut.addEventListener('blur', function() {
+      if (this.value && !FormValidator.validateRUT(this.value)) {
+        FormValidator.showError(this, 'Ingrese un RUT válido (ej: 12.345.678-9)');
+      } else if (this.value) {
+        FormValidator.hideError(this);
+      }
+    });
+  }
+
+  // Formateo automático del WhatsApp
+  if (whatsapp) {
+    whatsapp.addEventListener('input', function(e) {
+      // Solo permitir números, espacios, + y guiones
+      const value = e.target.value.replace(/[^\d\s\+\-]/g, '');
+      e.target.value = value;
+    });
+
+    whatsapp.addEventListener('blur', function() {
+      if (this.value) {
+        if (FormValidator.validateWhatsApp(this.value)) {
+          this.value = FormValidator.formatWhatsApp(this.value);
+          FormValidator.hideError(this);
+        } else {
+          FormValidator.showError(this, 'Ingrese un número de WhatsApp válido (+56 9 XXXX XXXX)');
+        }
+      }
+    });
+  }
+
+  // Mostrar/ocultar campo de cantidad de conductores
+  if (tieneConductores && cantidadConductores) {
+    tieneConductores.addEventListener('change', function() {
+      if (this.value === 'si') {
+        cantidadConductores.style.display = 'block';
+        cantidadConductores.required = true;
+      } else {
+        cantidadConductores.style.display = 'none';
+        cantidadConductores.required = false;
+        cantidadConductores.value = '';
+        FormValidator.hideError(cantidadConductores);
+      }
+    });
+  }
+
+  // Validación en tiempo real para campos requeridos
+  const requiredFields = [tipoRegistro, nombre, ciudad, tieneConductores];
+  
+  requiredFields.forEach(field => {
+    if (field) {
+      field.addEventListener('blur', function() {
+        if (this.required && !this.value) {
+          FormValidator.showError(this, 'Este campo es obligatorio');
+        } else {
+          FormValidator.hideError(this);
+        }
+      });
+
+      field.addEventListener('input', function() {
+        if (this.value) {
+          FormValidator.hideError(this);
+        }
+      });
+    }
+  });
+
+  // Validación del formulario completo
+  function validateForm() {
+    let isValid = true;
+    FormValidator.hideFormMessage();
+
+    // Validar tipo de registro
+    if (!tipoRegistro.value) {
+      FormValidator.showError(tipoRegistro, 'Seleccione un tipo de registro');
+      isValid = false;
+    }
+
+    // Validar nombre
+    if (!nombre.value.trim()) {
+      FormValidator.showError(nombre, 'Ingrese su nombre o razón social');
+      isValid = false;
+    } else if (nombre.value.trim().length < 2) {
+      FormValidator.showError(nombre, 'El nombre debe tener al menos 2 caracteres');
+      isValid = false;
+    }
+
+    // Validar RUT
+    if (!rut.value) {
+      FormValidator.showError(rut, 'Ingrese su RUT');
+      isValid = false;
+    } else if (!FormValidator.validateRUT(rut.value)) {
+      FormValidator.showError(rut, 'Ingrese un RUT válido');
+      isValid = false;
+    }
+
+    // Validar ciudad
+    if (!ciudad.value.trim()) {
+      FormValidator.showError(ciudad, 'Ingrese su ciudad');
+      isValid = false;
+    }
+
+    // Validar WhatsApp
+    if (!whatsapp.value) {
+      FormValidator.showError(whatsapp, 'Ingrese su número de WhatsApp');
+      isValid = false;
+    } else if (!FormValidator.validateWhatsApp(whatsapp.value)) {
+      FormValidator.showError(whatsapp, 'Ingrese un número de WhatsApp válido');
+      isValid = false;
+    }
+
+    // Validar conductores a cargo
+    if (!tieneConductores.value) {
+      FormValidator.showError(tieneConductores, 'Seleccione una opción');
+      isValid = false;
+    }
+
+    // Validar cantidad de conductores (si corresponde)
+    if (tieneConductores.value === 'si') {
+      if (!cantidadConductores.value) {
+        FormValidator.showError(cantidadConductores, 'Ingrese la cantidad de conductores');
+        isValid = false;
+      } else if (parseInt(cantidadConductores.value) < 1) {
+        FormValidator.showError(cantidadConductores, 'La cantidad debe ser mayor a 0');
+        isValid = false;
+      }
+    }
+
+    return isValid;
+  }
+
+  // Envío del formulario
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      if (!validateForm()) {
+        FormValidator.showFormMessage('Por favor, agregue los datos faltantes en el formulario');
+        return;
+      }
+
+      // Mostrar estado de carga
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="ri-loader-4-line animate-spin mr-2"></i> Enviando...';
+
+      // Preparar datos del formulario
+      const formData = new FormData(form);
+      
+      // Agregar timestamp
+      formData.append('fecha_registro', new Date().toISOString());
+      
+      // Agregar información adicional
+      formData.append('origen', 'landing_retornochile');
+      formData.append('user_agent', navigator.userAgent);
+
+      // Enviar formulario al backend personalizado
+      fetch('/api/registro', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          FormValidator.showFormMessage(
+            '¡Registro exitoso! Nos pondremos en contacto contigo pronto.', 
+            'success'
+          );
+          form.reset();
+          cantidadConductores.style.display = 'none';
+        } else {
+          throw new Error(data.message || 'Error en el envío');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        FormValidator.showFormMessage(
+          'Hubo un error al enviar el formulario. Por favor, inténtelo nuevamente.'
+        );
+      })
+      .finally(() => {
+        // Restaurar estado del botón
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Enviar registro <span><i class="ri-arrow-right-up-line"></i></span>';
+      });
+    });
+  }
+});

@@ -493,3 +493,179 @@
     opacity: 0;
   }
 }
+
+/* ================================ ESTILOS PARA VALIDACIONES DEL FORMULARIO ================================ */
+
+/* Contenedor de campos del formulario */
+.field-container {
+  position: relative;
+}
+
+/* Estilos para campos con error */
+.field-container input.border-red-500,
+.field-container select.border-red-500 {
+  border-bottom-color: #ef4444 !important;
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Estilos para campos válidos */
+.field-container input.border-green-500,
+.field-container select.border-green-500 {
+  border-bottom-color: #10b981 !important;
+}
+
+/* Animación de shake para errores */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Mensajes de error */
+.error-message {
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #ef4444;
+  margin-top: 0.25rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.error-message:not(.hidden) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Estilos para el checkbox de términos */
+input[type="checkbox"]:checked {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+input[type="checkbox"]:focus {
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+/* Botón de envío con estados */
+.btn.btn-primary {
+  position: relative;
+  overflow: visible !important;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  text-overflow: clip;
+}
+
+.btn.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn.btn-primary:disabled:hover {
+  transform: none;
+}
+
+/* Forzar que el botón muestre todo el texto */
+#submitBtn {
+  overflow: visible !important;
+  text-overflow: unset !important;
+  white-space: nowrap !important;
+  min-width: 200px;
+  padding: 12px 24px;
+}
+
+/* Animación de loading en el botón */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Estilos para el mensaje del formulario */
+#form-message {
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  animation: slideInDown 0.3s ease;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mejoras para campos de formulario */
+.field-container input:focus,
+.field-container select:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos responsivos para el formulario */
+@media (max-width: 768px) {
+  .grid.md\\:grid-cols-2 {
+    gap: 1rem;
+  }
+  
+  .field-container input,
+  .field-container select {
+    font-size: 1rem;
+    padding: 0.75rem 0;
+  }
+}
+
+/* Estilos para campos requeridos */
+label span:after {
+  content: "";
+}
+
+label span:has-text("*"):after {
+  content: " *";
+  color: #ef4444;
+}
+
+/* Mejoras visuales para select */
+select {
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="%23666"><path d="M8 11L3 6h10l-5 5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+  background-size: 1rem auto;
+  padding-right: 2.5rem;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Estados hover mejorados */
+.field-container input:hover:not(:focus),
+.field-container select:hover:not(:focus) {
+  border-bottom-color: #6b7280;
+}
+
+/* Transiciones suaves */
+.field-container input,
+.field-container select {
+  transition: all 0.3s ease;
+}
+
+/* Estilos para campos numericos */
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

@@ -1,6 +1,6 @@
-// Script para cargar header y footer dinámicamente - v2025071802
+// Script para cargar header y footer dinámicamente - v2025071804
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('Includes script loaded - v2025071802');
+    console.log('Includes script loaded - v2025071804');
     console.log('Current timestamp:', new Date().toISOString());
 
     // Definir el HTML del header directamente
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const footerHTML = `<!--...::: Footer Section Start :::... -->
 <footer class="section-footer">
     <!-- Footer Background -->
-    <div class="bg-colorDark text-xl text-white">
+    <div style="background-color: #0D0E1D;" class="text-xl text-white">
         <!-- Footer Top -->
         <div class="section-space-small">
             <!-- Section Container -->
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 Conecta
                             </a>
                             <a href="#comunidad" class="footer-link">
-                                Comunidad Verificada
+                                Verificados
                             </a>
                             <a href="#sistema-reputacion" class="footer-link">
                                 Seguridad
@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <!-- Footer Top -->
         
         <!-- Footer Bottom -->
-        <div class="border-t border-gray-700 padding bottom-0">
+        <div class="border-t border-gray-700 py-6">
             <div class="container">
                 <div class="py-6">
                     <!-- Footer Bottom Content -->

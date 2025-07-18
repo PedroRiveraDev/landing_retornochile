@@ -33,30 +33,32 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <a class="nav-link-item text-colorDark" href="index.html" aria-label="Ir a inicio">Inicio</a>
                             </li>
 
-                            <!-- Servicio -->
+                            <!-- Cómo Funciona -->
                             <li class="nav-item">
-                                <a class="nav-link-item text-colorDark" href="#about" aria-label="Ver información del servicio">Servicio</a>
+                                <a class="nav-link-item text-colorDark" href="#about" aria-label="Ver cómo funciona">Comunidad Gratuita</a>
+                            </li>
+
+                            <!-- Servicios -->
+                            <li class="nav-item">
+                                <a class="nav-link-item text-colorDark" href="#servicios" aria-label="Ver servicios y características">Conecta</a>
+                            </li>
+
+                            <!-- Registro -->
+                            <li class="nav-item">
+                                <a class="nav-link-item text-colorDark" href="#contacto" aria-label="Registrarse en la plataforma">Registro</a>
                             </li>
 
                             <!-- Comunidad -->
                             <li class="nav-item">
-                                <a class="nav-link-item text-colorDark" href="#comunidad" aria-label="Ver comunidad">Comunidad</a>
+                                <a class="nav-link-item text-colorDark" href="#comunidad" aria-label="Ver comunidad verificada">Verificados</a>
+                            </li>
+                            
+                            <!-- Seguridad -->
+                            <li class="nav-item">
+                                <a class="nav-link-item text-colorDark" href="#sistema-reputacion" aria-label="Ver sistema de seguridad">Seguridad</a>
                             </li>
 
-                            <!-- FAQ -->
-                            <li class="nav-item">
-                                <a class="nav-link-item text-colorDark" href="#faq" aria-label="Ver preguntas frecuentes">FAQ</a>
-                            </li>
 
-                            <!-- Reseñas -->
-                            <li class="nav-item">
-                                <a class="nav-link-item text-colorDark" href="#resenas" aria-label="Ver reseñas de clientes">Reseñas</a>
-                            </li>
-
-                            <!-- Contact -->
-                            <li class="nav-item">
-                                <a class="nav-link-item text-colorDark" href="#contacto" aria-label="Ir a contacto">Contacto</a>
-                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -76,8 +78,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                     <!-- Responsive Offcanvas Menu Button -->
 
-                    <a href="#contacto" class="btn btn-primary" aria-label="Contactar con RetornosChile">
-                        Contáctanos
+                    <a href="#contacto" class="btn btn-primary" aria-label="Registrarse en RetornosChile">
+                        Regístrate Gratis
                         <span>
                             <i class="ri-arrow-right-up-line"></i>
                         </span>
@@ -147,19 +149,22 @@ document.addEventListener('DOMContentLoaded', function () {
                         <h3 class="mb-6 text-xl font-semibold text-white">Enlaces Rápidos</h3>
                         <nav class="flex flex-col gap-3">
                             <a href="#about" class="footer-link">
-                                Servicio
+                                Comunidad Gratuita
+                            </a>
+                            <a href="#servicios" class="footer-link">
+                                Conecta
                             </a>
                             <a href="#comunidad" class="footer-link">
-                                Comunidad
+                                Comunidad Verificada
                             </a>
-                            <a href="#faq" class="footer-link">
-                                FAQ
+                            <a href="#sistema-reputacion" class="footer-link">
+                                Seguridad
                             </a>
                             <a href="#resenas" class="footer-link">
-                                Reseñas
+                                Testimonios
                             </a>
                             <a href="#contacto" class="footer-link">
-                                Contacto
+                                Registro
                             </a>
                         </nav>
                     </div>
@@ -169,16 +174,16 @@ document.addEventListener('DOMContentLoaded', function () {
                         <h3 class="mb-6 text-xl font-semibold text-white">Información</h3>
                         <nav class="flex flex-col gap-3">
                             <a href="#about" class="footer-link">
-                                Cómo Funciona
+                                Comunidad Gratuita
+                            </a>
+                            <a href="#faq" class="footer-link">
+                                Preguntas Frecuentes
                             </a>
                             <a href="#" class="footer-link">
                                 Política de Privacidad
                             </a>
                             <a href="#" class="footer-link">
                                 Términos y Condiciones
-                            </a>
-                            <a href="#faq" class="footer-link">
-                                Preguntas Frecuentes
                             </a>
                             <a href="#" class="footer-link">
                                 Ayuda
@@ -220,14 +225,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // Inyectar el HTML directamente
     function injectHTML() {
         console.log('Iniciando inyección de HTML...');
-        
+
         const headerPlaceholder = document.getElementById('header-placeholder');
         const footerPlaceholder = document.getElementById('footer-placeholder');
 
         if (headerPlaceholder) {
             headerPlaceholder.innerHTML = headerHTML;
             console.log('Header inyectado exitosamente');
-            
+
             // Verificar que se haya inyectado correctamente
             const injectedHeader = headerPlaceholder.querySelector('header');
             if (injectedHeader) {
@@ -266,11 +271,11 @@ function closeOverlay() {
     const menu = document.querySelector(".menu-block");
     const menuOverlay = document.querySelector(".menu-overlay");
     const overlayBlock = document.querySelector('.overlay-block');
-    
+
     if (menu && menu.classList.contains('active')) {
         toggleMobileMenu();
     }
-    
+
     if (overlayBlock) {
         overlayBlock.classList.add('hidden');
     }
@@ -281,10 +286,10 @@ function toggleMobileMenu() {
     const menu = document.querySelector(".menu-block");
     const menuOverlay = document.querySelector(".menu-overlay");
     const menuTrigger = document.querySelector(".mobile-menu-trigger");
-    
+
     if (menu) {
         menu.classList.toggle("active");
-        
+
         // Actualizar aria-expanded del botón del menú
         if (menuTrigger) {
             const isOpen = menu.classList.contains('active');
@@ -299,13 +304,13 @@ function toggleMobileMenu() {
 // Función para reinicializar los scripts del menú después de cargar el header
 function initializeMenuScripts() {
     console.log('Inicializando scripts del menú...');
-    
+
     // Reinicializar el menú móvil
     initializeMobileMenu();
-    
+
     // Inicializar smooth scroll para navegación
     initializeSmoothScroll();
-    
+
     // Inicializar sticky header si no está ya inicializado
     if (!window.stickyHeaderInitialized) {
         initializeStickyHeader();
@@ -331,7 +336,7 @@ function initializeMobileMenu() {
     menuTrigger.parentNode.replaceChild(newMenuTrigger, menuTrigger);
 
     // Agregar nuevo event listener
-    newMenuTrigger.addEventListener('click', function(e) {
+    newMenuTrigger.addEventListener('click', function (e) {
         e.preventDefault();
         toggleMobileMenu();
     });
@@ -339,21 +344,21 @@ function initializeMobileMenu() {
     if (closeMenu) {
         const newCloseMenu = closeMenu.cloneNode(true);
         closeMenu.parentNode.replaceChild(newCloseMenu, closeMenu);
-        
-        newCloseMenu.addEventListener('click', function(e) {
+
+        newCloseMenu.addEventListener('click', function (e) {
             e.preventDefault();
             toggleMobileMenu();
         });
     }
 
     if (menuOverlay) {
-        menuOverlay.addEventListener('click', function() {
+        menuOverlay.addEventListener('click', function () {
             toggleMobileMenu();
         });
     }
 
     // Cerrar menú cuando se redimensiona la ventana
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
         if (window.innerWidth > 991 && menu.classList.contains('active')) {
             toggleMobileMenu();
         }
@@ -367,11 +372,11 @@ function initializeSmoothScroll() {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
-            
+
             if (targetElement) {
                 const headerHeight = document.querySelector('.site-header')?.offsetHeight || 80;
                 const targetPosition = targetElement.offsetTop - headerHeight;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'

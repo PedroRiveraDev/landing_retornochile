@@ -116,7 +116,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="mb-6">
                             <img src="assets/img/images/logo-light.png" alt="RetornosChile Logo" width="143" height="44" class="mb-4" />
                             <p class="text-lg text-gray-300 leading-relaxed">
-                                La plataforma que conecta transportistas con oportunidades de carga de retorno en Chile.
+                                Retornos Chile no es una empresa de transporte.
+
+                                <p class="text-lg text-gray-300 leading-relaxed">Gestionamos información con <strong>inteligencia artificial</strong> para ayudarte a tomar mejores decisiones.
+                                <p class="text-lg text-gray-300 leading-relaxed"><strong>Nuestro objetivo:</strong> que el transporte sea más justo, rentable y seguro para todos.</p>
+
                             </p>
                         </div>
                         

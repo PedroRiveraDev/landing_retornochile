@@ -775,42 +775,68 @@ document.addEventListener('DOMContentLoaded', function() {
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<i class="ri-loader-4-line animate-spin mr-2"></i> Enviando...';
 
-      // Preparar datos del formulario
+      // Preparar datos del formulario para n8n
+      const formDataObject = {};
       const formData = new FormData(form);
       
-      // Agregar timestamp
-      formData.append('fecha_registro', new Date().toISOString());
+      // Convertir FormData a objeto JSON
+      for (let [key, value] of formData.entries()) {
+        formDataObject[key] = value;
+      }
       
-      // Agregar información adicional
-      formData.append('origen', 'landing_retornochile');
-      formData.append('user_agent', navigator.userAgent);
+      // Agregar metadatos adicionales
+      formDataObject.fecha_registro = new Date().toISOString();
+      formDataObject.origen = 'landing_retornochile';
+      formDataObject.user_agent = navigator.userAgent;
+      formDataObject.url_origen = window.location.href;
 
-      // Enviar formulario al backend personalizado
-      fetch('/api/registro', {
+      // URL del webhook de n8n
+      const webhookUrl = 'https://n8n.skinslabs.cl/webhook-test/registroretornochile';
+
+      // Enviar formulario al webhook de n8n
+      fetch(webhookUrl, {
         method: 'POST',
-        body: formData,
         headers: {
-          'Accept': 'application/json'
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          // Si necesitas autenticación, agregar aquí:
+          // 'Authorization': 'Bearer tu-token-aqui',
+          // o 'X-API-Key': 'tu-api-key-aqui'
+        },
+        body: JSON.stringify(formDataObject)
+      })
+      .then(response => {
+        // n8n devuelve diferentes códigos de estado
+        if (response.ok) {
+          return response.json().catch(() => ({})); // Si no hay JSON, retornar objeto vacío
+        } else {
+          throw new Error(`Error ${response.status}: ${response.statusText}`);
         }
       })
-      .then(response => response.json())
       .then(data => {
-        if (data.success) {
-          FormValidator.showFormMessage(
-            '¡Registro exitoso! Nos pondremos en contacto contigo pronto.', 
-            'success'
-          );
-          form.reset();
+        // Mostrar mensaje de éxito
+        FormValidator.showFormMessage(
+          '¡Registro exitoso! Nos pondremos en contacto contigo pronto.', 
+          'success'
+        );
+        form.reset();
+        if (cantidadConductores) {
           cantidadConductores.style.display = 'none';
-        } else {
-          throw new Error(data.message || 'Error en el envío');
         }
       })
       .catch(error => {
-        console.error('Error:', error);
-        FormValidator.showFormMessage(
-          'Hubo un error al enviar el formulario. Por favor, inténtelo nuevamente.'
-        );
+        console.error('Error al enviar formulario:', error);
+        
+        // Verificar si es un error de CORS
+        if (error.message.includes('fetch')) {
+          FormValidator.showFormMessage(
+            'Error de conexión. Verifique su conexión a internet e inténtelo nuevamente.'
+          );
+        } else {
+          FormValidator.showFormMessage(
+            'Hubo un error al enviar el formulario. Por favor, inténtelo nuevamente.'
+          );
+        }
       })
       .finally(() => {
         // Restaurar estado del botón

@@ -784,16 +784,6 @@ p:last-child {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
-.btn-outline-dark {
-  border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(13 14 29 / var(--tw-border-opacity, 1));
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
-  --tw-text-opacity: 1;
-  color: rgb(13 14 29 / var(--tw-text-opacity, 1));
-}
-
 .absolute {
   position: absolute;
 }
@@ -1257,6 +1247,16 @@ p:last-child {
   border-color: rgb(231 231 232 / var(--tw-border-opacity, 1));
 }
 
+.border-gray-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
+}
+
+.border-gray-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+}
+
 .bg-colorBlue\/10 {
   background-color: rgb(1 25 255 / 0.1);
 }
@@ -1351,6 +1351,11 @@ p:last-child {
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .px-5 {

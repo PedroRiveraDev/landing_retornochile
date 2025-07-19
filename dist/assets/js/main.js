@@ -606,8 +606,15 @@ const FormValidator = {
 
 // Inicialización del formulario cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM cargado - inicializando formulario');
+  
   const form = document.getElementById('registroForm');
-  if (!form) return;
+  if (!form) {
+    console.error('Formulario no encontrado');
+    return;
+  }
+  
+  console.log('Formulario encontrado:', form);
 
   // Referencias a elementos del formulario
   const tipoRegistro = document.getElementById('tipoRegistro');
@@ -764,12 +771,18 @@ document.addEventListener('DOMContentLoaded', function() {
   // Envío del formulario
   if (form) {
     form.addEventListener('submit', function(e) {
+      console.log('Formulario enviado - iniciando validación');
       e.preventDefault();
       
+      console.log('preventDefault ejecutado');
+      
       if (!validateForm()) {
+        console.log('Validación falló');
         FormValidator.showFormMessage('Por favor, agregue los datos faltantes en el formulario');
         return;
       }
+
+      console.log('Validación exitosa - iniciando envío');
 
       // Mostrar estado de carga
       submitBtn.disabled = true;
@@ -790,8 +803,12 @@ document.addEventListener('DOMContentLoaded', function() {
       formDataObject.user_agent = navigator.userAgent;
       formDataObject.url_origen = window.location.href;
 
+      console.log('Datos a enviar:', formDataObject);
+
       // URL del webhook de n8n
       const webhookUrl = 'https://n8n.skinslabs.cl/webhook-test/registroretornochile';
+      
+      console.log('Enviando al webhook:', webhookUrl);
 
       // Enviar formulario al webhook de n8n
       fetch(webhookUrl, {
@@ -826,6 +843,8 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       .catch(error => {
         console.error('Error al enviar formulario:', error);
+        console.error('Tipo de error:', typeof error);
+        console.error('Mensaje del error:', error.message);
         
         // Verificar si es un error de CORS
         if (error.message.includes('fetch')) {

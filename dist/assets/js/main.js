@@ -4,6 +4,46 @@
 :: GLobal Javascript ::
 ::::::::::::::::::::::: */
 
+// DIAGNÓSTICO INICIAL - v2025071903
+console.log('=== DIAGNÓSTICO MAIN.JS v2025071903 ===');
+console.log('Fecha de carga:', new Date().toISOString());
+console.log('URL actual:', window.location.href);
+console.log('User Agent:', navigator.userAgent);
+
+// Verificar si DOMContentLoaded ya ocurrió
+if (document.readyState === 'loading') {
+  console.log('DOM aún cargando...');
+} else if (document.readyState === 'interactive') {
+  console.log('DOM interactivo');
+} else if (document.readyState === 'complete') {
+  console.log('DOM completamente cargado');
+}
+
+// Verificar bibliotecas requeridas
+console.log('JOS disponible:', typeof JOS !== 'undefined');
+console.log('Swiper disponible:', typeof Swiper !== 'undefined');
+
+// Detectar errores de JavaScript
+window.addEventListener('error', function(e) {
+  console.error('Error de JavaScript detectado:', {
+    message: e.message,
+    filename: e.filename,
+    lineno: e.lineno,
+    colno: e.colno,
+    error: e.error
+  });
+});
+
+window.addEventListener('unhandledrejection', function(e) {
+  console.error('Promise rechazada:', e.reason);
+});
+
+console.log('=== FIN DIAGNÓSTICO INICIAL ===');
+
+/* ::::::::::::::::::::
+:: GLobal Javascript ::
+::::::::::::::::::::::: */
+
 // Loader JS
 window.addEventListener("load", function () {
   var loader = document.querySelector(".fullpage_loader");
@@ -606,15 +646,27 @@ const FormValidator = {
 
 // Inicialización del formulario cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
+  console.log('=== DIAGNÓSTICO FORMULARIO v2025071903 ===');
+  console.log('DOMContentLoaded disparado a las:', new Date().toISOString());
   console.log('DOM cargado - inicializando formulario');
   
   const form = document.getElementById('registroForm');
+  console.log('Formulario encontrado:', !!form);
+  
   if (!form) {
-    console.error('Formulario no encontrado');
+    console.error('Formulario no encontrado - IDs disponibles:');
+    const allIds = Array.from(document.querySelectorAll('[id]')).map(el => el.id);
+    console.error('IDs encontrados:', allIds);
     return;
   }
   
   console.log('Formulario encontrado:', form);
+  console.log('Formulario tag name:', form.tagName);
+  console.log('Formulario action:', form.action);
+  console.log('Formulario method:', form.method);
+  
+  // Verificar que el event listener se añade correctamente
+  console.log('Añadiendo event listener al formulario...');
 
   // Referencias a elementos del formulario
   const tipoRegistro = document.getElementById('tipoRegistro');
@@ -770,19 +822,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Envío del formulario
   if (form) {
+    console.log('Configurando submit event listener...');
     form.addEventListener('submit', function(e) {
+      console.log('=== EVENT LISTENER SUBMIT EJECUTADO ===');
+      console.log('Evento submit disparado a las:', new Date().toISOString());
+      console.log('Evento:', e);
+      console.log('Tipo de evento:', e.type);
+      console.log('Target:', e.target);
       console.log('Formulario enviado - iniciando validación');
+      
+      console.log('Ejecutando preventDefault...');
       e.preventDefault();
+      console.log('preventDefault ejecutado exitosamente');
       
-      console.log('preventDefault ejecutado');
-      
+      console.log('Iniciando validateForm()...');
       if (!validateForm()) {
-        console.log('Validación falló');
+        console.log('Validación falló - mostrando mensaje de error');
         FormValidator.showFormMessage('Por favor, agregue los datos faltantes en el formulario');
         return;
       }
 
-      console.log('Validación exitosa - iniciando envío');
+      console.log('Validación exitosa - iniciando envío al webhook');
 
       // Mostrar estado de carga
       submitBtn.disabled = true;
@@ -863,5 +923,11 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.innerHTML = 'Enviar registro <span><i class="ri-arrow-right-up-line"></i></span>';
       });
     });
+    
+    console.log('Event listener del formulario configurado exitosamente');
+  } else {
+    console.error('No se pudo configurar el event listener - formulario no encontrado');
   }
+  
+  console.log('=== FIN INICIALIZACIÓN FORMULARIO ===');
 });

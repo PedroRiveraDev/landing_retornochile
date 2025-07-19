@@ -39,7 +39,7 @@ if (fs.existsSync(distDir)) {
 fs.mkdirSync(distDir);
 
 // Copiar archivos individuales
-const filesToCopy = ['favicon.ico', 'LICENSE'];
+const filesToCopy = ['favicon.ico', 'LICENSE', '.htaccess'];
 filesToCopy.forEach(file => {
     if (fs.existsSync(file)) {
         copyFileSync(file, distDir);
@@ -50,18 +50,30 @@ filesToCopy.forEach(file => {
 // Procesar y copiar index.html
 if (fs.existsSync('index.html')) {
     let indexContent = fs.readFileSync('index.html', 'utf-8');
-    // Cambiar la referencia de CSS a la versión minificada
+    
+    // Generar timestamp para cache busting
+    const timestamp = Date.now();
+    
+    // Cambiar la referencia de CSS a la versión minificada con cache busting
     indexContent = indexContent.replace(
         '<link rel="stylesheet" href="assets/css/style.css" />',
-        '<link rel="stylesheet" href="assets/css/style.min.css" />'
+        `<link rel="stylesheet" href="assets/css/style.min.css?v=${timestamp}" />`
     );
+    
+    // Añadir cache busting al archivo JS
+    indexContent = indexContent.replace(
+        '<script src="assets/js/main.js"></script>',
+        `<script src="assets/js/main.js?v=${timestamp}"></script>`
+    );
+    
     // Opcional: remover el comentario de la versión de producción si existe
     indexContent = indexContent.replace(
         '<!-- <link rel="stylesheet" href="/assets/css/style.min.css" /> -->',
         ''
     );
+    
     fs.writeFileSync(path.join(distDir, 'index.html'), indexContent);
-    console.log('Procesado y copiado: index.html');
+    console.log(`Procesado y copiado: index.html (con cache busting v=${timestamp})`);
 }
 
 // Copiar la carpeta assets
@@ -71,3 +83,10 @@ if (fs.existsSync('./assets')) {
 }
 
 console.log('✅ Carpeta dist creada exitosamente con todos los archivos necesarios');
+console.log('');
+console.log('🚀 Para subir a producción:');
+console.log('   1. Sube todo el contenido de la carpeta "dist/" a tu servidor');
+console.log('   2. Los archivos ahora tienen cache busting automático');
+console.log('   3. Los usuarios verán los cambios inmediatamente');
+console.log('');
+console.log('📁 Archivos listos en: ./dist/');

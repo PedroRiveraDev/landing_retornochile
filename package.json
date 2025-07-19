@@ -8,6 +8,8 @@
         "dev:css": "tailwindcss -i ./src/tailwind.css -o ./assets/css/style.css --watch",
         "start": "concurrently \"npm:start:server\" \"npm run dev:css\"",
         "build": "tailwindcss -i ./src/tailwind.css -o ./assets/css/style.min.css --minify && node build-dist.js",
+        "build:prod": "npm run build && echo. && echo ✅ Build de producción completado && echo 📁 Archivos listos en ./dist/ && echo 🚀 Sube todo el contenido de ./dist/ a tu servidor",
+        "check": "node check-changes.js",
         "minify": "tailwindcss -o ./assets/css/style.min.css --minify"
     },
     "keywords": [],

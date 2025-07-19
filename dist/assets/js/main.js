@@ -4,25 +4,6 @@
 :: GLobal Javascript ::
 ::::::::::::::::::::::: */
 
-// DIAGNÓSTICO INICIAL - v20250719164100
-console.log('=== DIAGNÓSTICO MAIN.JS v20250719164100 ===');
-console.log('Fecha de carga:', new Date().toISOString());
-console.log('URL actual:', window.location.href);
-console.log('User Agent:', navigator.userAgent);
-
-// Verificar si DOMContentLoaded ya ocurrió
-if (document.readyState === 'loading') {
-  console.log('DOM aún cargando...');
-} else if (document.readyState === 'interactive') {
-  console.log('DOM interactivo');
-} else if (document.readyState === 'complete') {
-  console.log('DOM completamente cargado');
-}
-
-// Verificar bibliotecas requeridas
-console.log('JOS disponible:', typeof JOS !== 'undefined');
-console.log('Swiper disponible:', typeof Swiper !== 'undefined');
-
 // Detectar errores de JavaScript
 window.addEventListener('error', function(e) {
   console.error('Error de JavaScript detectado:', {
@@ -37,8 +18,6 @@ window.addEventListener('error', function(e) {
 window.addEventListener('unhandledrejection', function(e) {
   console.error('Promise rechazada:', e.reason);
 });
-
-console.log('=== FIN DIAGNÓSTICO INICIAL ===');
 
 /* ::::::::::::::::::::
 :: GLobal Javascript ::
@@ -623,11 +602,36 @@ const FormValidator = {
     
     if (messageDiv && messageText) {
       messageText.textContent = message;
-      messageDiv.className = `p-4 rounded-lg text-center font-medium ${
-        type === 'success' 
-          ? 'bg-green-100 text-green-800 border border-green-300' 
-          : 'bg-red-100 text-red-800 border border-red-300'
-      }`;
+      
+      // Aplicar estilos CSS básicos directamente
+      if (type === 'success') {
+        messageDiv.style.cssText = `
+          padding: 16px;
+          margin: 16px 0;
+          border-radius: 8px;
+          text-align: center;
+          font-weight: 500;
+          background-color: #f0fdf4;
+          color: #166534;
+          border: 2px solid #86efac;
+          box-shadow: 0 4px 6px rgba(34, 197, 94, 0.1);
+          display: block;
+        `;
+      } else {
+        messageDiv.style.cssText = `
+          padding: 16px;
+          margin: 16px 0;
+          border-radius: 8px;
+          text-align: center;
+          font-weight: 500;
+          background-color: #fef2f2;
+          color: #991b1b;
+          border: 2px solid #fca5a5;
+          box-shadow: 0 4px 6px rgba(239, 68, 68, 0.1);
+          display: block;
+        `;
+      }
+      
       messageDiv.classList.remove('hidden');
       
       // Scroll hacia el mensaje
@@ -646,27 +650,12 @@ const FormValidator = {
 
 // Inicialización del formulario cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('=== DIAGNÓSTICO FORMULARIO v20250719164100 ===');
-  console.log('DOMContentLoaded disparado a las:', new Date().toISOString());
-  console.log('DOM cargado - inicializando formulario');
-  
   const form = document.getElementById('registroForm');
-  console.log('Formulario encontrado:', !!form);
   
   if (!form) {
-    console.error('Formulario no encontrado - IDs disponibles:');
-    const allIds = Array.from(document.querySelectorAll('[id]')).map(el => el.id);
-    console.error('IDs encontrados:', allIds);
+    console.error('Formulario no encontrado');
     return;
   }
-  
-  console.log('Formulario encontrado:', form);
-  console.log('Formulario tag name:', form.tagName);
-  console.log('Formulario action:', form.action);
-  console.log('Formulario method:', form.method);
-  
-  // Verificar que el event listener se añade correctamente
-  console.log('Añadiendo event listener al formulario...');
 
   // Referencias a elementos del formulario
   const tipoRegistro = document.getElementById('tipoRegistro');
@@ -723,7 +712,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Mostrar/ocultar campo de cantidad de conductores
   if (tieneConductores && cantidadConductores) {
     tieneConductores.addEventListener('change', function() {
-      if (this.value === 'si') {
+      if (this.value === 'yes') {
         cantidadConductores.style.display = 'block';
         cantidadConductores.required = true;
       } else {
@@ -807,7 +796,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Validar cantidad de conductores (si corresponde)
-    if (tieneConductores.value === 'si') {
+    if (tieneConductores.value === 'yes') {
       if (!cantidadConductores.value) {
         FormValidator.showError(cantidadConductores, 'Ingrese la cantidad de conductores');
         isValid = false;
@@ -822,27 +811,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Envío del formulario
   if (form) {
-    console.log('Configurando submit event listener...');
     form.addEventListener('submit', function(e) {
-      console.log('=== EVENT LISTENER SUBMIT EJECUTADO ===');
-      console.log('Evento submit disparado a las:', new Date().toISOString());
-      console.log('Evento:', e);
-      console.log('Tipo de evento:', e.type);
-      console.log('Target:', e.target);
-      console.log('Formulario enviado - iniciando validación');
-      
-      console.log('Ejecutando preventDefault...');
       e.preventDefault();
-      console.log('preventDefault ejecutado exitosamente');
       
-      console.log('Iniciando validateForm()...');
       if (!validateForm()) {
-        console.log('Validación falló - mostrando mensaje de error');
         FormValidator.showFormMessage('Por favor, agregue los datos faltantes en el formulario');
         return;
       }
-
-      console.log('Validación exitosa - iniciando envío al webhook');
 
       // Mostrar estado de carga
       submitBtn.disabled = true;
@@ -863,12 +838,8 @@ document.addEventListener('DOMContentLoaded', function() {
       formDataObject.user_agent = navigator.userAgent;
       formDataObject.url_origen = window.location.href;
 
-      console.log('Datos a enviar:', formDataObject);
-
       // URL del webhook de n8n
       const webhookUrl = 'https://n8n.skinslabs.cl/webhook-test/registroretornochile';
-      
-      console.log('Enviando al webhook:', webhookUrl);
 
       // Enviar formulario al webhook de n8n
       fetch(webhookUrl, {
@@ -903,8 +874,6 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       .catch(error => {
         console.error('Error al enviar formulario:', error);
-        console.error('Tipo de error:', typeof error);
-        console.error('Mensaje del error:', error.message);
         
         // Verificar si es un error de CORS
         if (error.message.includes('fetch')) {
@@ -923,11 +892,5 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.innerHTML = 'Enviar registro <span><i class="ri-arrow-right-up-line"></i></span>';
       });
     });
-    
-    console.log('Event listener del formulario configurado exitosamente');
-  } else {
-    console.error('No se pudo configurar el event listener - formulario no encontrado');
   }
-  
-  console.log('=== FIN INICIALIZACIÓN FORMULARIO ===');
 });

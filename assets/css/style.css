@@ -1,4 +1,6 @@
-*, ::before, ::after {
+*,
+::before,
+::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -8,19 +10,19 @@
   --tw-skew-y: 0;
   --tw-scale-x: 1;
   --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
   --tw-scroll-snap-strictness: proximity;
-  --tw-gradient-from-position:  ;
-  --tw-gradient-via-position:  ;
-  --tw-gradient-to-position:  ;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
   --tw-ring-color: rgb(59 130 246 / 0.5);
@@ -28,28 +30,28 @@
   --tw-ring-shadow: 0 0 #0000;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
-  --tw-contain-size:  ;
-  --tw-contain-layout:  ;
-  --tw-contain-paint:  ;
-  --tw-contain-style:  ;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: ;
+  --tw-contain-size: ;
+  --tw-contain-layout: ;
+  --tw-contain-paint: ;
+  --tw-contain-style: ;
 }
 
 ::backdrop {
@@ -62,19 +64,19 @@
   --tw-skew-y: 0;
   --tw-scale-x: 1;
   --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
   --tw-scroll-snap-strictness: proximity;
-  --tw-gradient-from-position:  ;
-  --tw-gradient-via-position:  ;
-  --tw-gradient-to-position:  ;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
   --tw-ring-color: rgb(59 130 246 / 0.5);
@@ -82,28 +84,28 @@
   --tw-ring-shadow: 0 0 #0000;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
-  --tw-contain-size:  ;
-  --tw-contain-layout:  ;
-  --tw-contain-paint:  ;
-  --tw-contain-style:  ;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: ;
+  --tw-contain-size: ;
+  --tw-contain-layout: ;
+  --tw-contain-paint: ;
+  --tw-contain-style: ;
 }
 
 /*
@@ -152,7 +154,7 @@ html,
   -moz-tab-size: 4;
   /* 3 */
   -o-tab-size: 4;
-     tab-size: 4;
+  tab-size: 4;
   /* 3 */
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
@@ -197,7 +199,7 @@ Add the correct text decoration in Chrome, Edge, and Safari.
 
 abbr:where([title]) {
   -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
 }
 
 /*
@@ -486,7 +488,8 @@ textarea {
 2. Set the default placeholder color to the user's configured gray 400 color.
 */
 
-input::-moz-placeholder, textarea::-moz-placeholder {
+input::-moz-placeholder,
+textarea::-moz-placeholder {
   opacity: 1;
   /* 1 */
   color: #9ca3af;
@@ -559,7 +562,7 @@ html {
 }
 
 body,
-  .page-wrapper {
+.page-wrapper {
   min-height: 100vh;
   overflow-x: clip;
   font-family: Afacad, sans-serif;
@@ -572,22 +575,23 @@ body,
 /* Default Heading */
 
 h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  .display-heading {
+h2,
+h3,
+h4,
+h5,
+h6,
+.display-heading {
   font-weight: 600;
 }
 
 h1,
-  .display-heading-1 {
+.display-heading-1 {
   font-size: 2.5rem;
   line-height: 1;
 }
 
 @media (min-width: 576px) {
+
   h1,
   .display-heading-1 {
     font-size: 3rem;
@@ -596,6 +600,7 @@ h1,
 }
 
 @media (min-width: 768px) {
+
   h1,
   .display-heading-1 {
     font-size: 3.75rem;
@@ -604,6 +609,7 @@ h1,
 }
 
 @media (min-width: 992px) {
+
   h1,
   .display-heading-1 {
     font-size: 4.5rem;
@@ -613,6 +619,7 @@ h1,
 }
 
 @media (min-width: 1200px) {
+
   h1,
   .display-heading-1 {
     font-size: 6.25rem;
@@ -620,13 +627,14 @@ h1,
 }
 
 h2,
-  .display-heading-2 {
+.display-heading-2 {
   font-size: 2.25rem;
   line-height: 2.5rem;
   line-height: 1;
 }
 
 @media (min-width: 768px) {
+
   h2,
   .display-heading-2 {
     font-size: 3rem;
@@ -635,6 +643,7 @@ h2,
 }
 
 @media (min-width: 992px) {
+
   h2,
   .display-heading-2 {
     font-size: 3.5rem;
@@ -643,31 +652,31 @@ h2,
 }
 
 h3,
-  .display-heading-3 {
+.display-heading-3 {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
 
 h4,
-  .display-heading-4 {
+.display-heading-4 {
   font-size: 1.625rem;
   line-height: 1.375;
 }
 
 h5,
-  .display-heading-5 {
+.display-heading-5 {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
 
 h6,
-  .display-heading-6 {
+.display-heading-6 {
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
 
 a,
-  button {
+button {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
@@ -721,7 +730,7 @@ p:last-child {
   align-items: center;
   justify-content: center;
   -moz-column-gap: 0.75rem;
-       column-gap: 0.75rem;
+  column-gap: 0.75rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-top: 1rem;
@@ -1175,7 +1184,7 @@ p:last-child {
 
 .gap-x-1 {
   -moz-column-gap: 0.25rem;
-       column-gap: 0.25rem;
+  column-gap: 0.25rem;
 }
 
 .gap-y-14 {
@@ -1190,31 +1199,31 @@ p:last-child {
   row-gap: 2rem;
 }
 
-.-space-x-2 > :not([hidden]) ~ :not([hidden]) {
+.-space-x-2> :not([hidden])~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(-0.5rem * var(--tw-space-x-reverse));
   margin-left: calc(-0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-.space-y-1 > :not([hidden]) ~ :not([hidden]) {
+.space-y-1> :not([hidden])~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
 }
 
-.space-y-2 > :not([hidden]) ~ :not([hidden]) {
+.space-y-2> :not([hidden])~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 
-.divide-y > :not([hidden]) ~ :not([hidden]) {
+.divide-y> :not([hidden])~ :not([hidden]) {
   --tw-divide-y-reverse: 0;
   border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
   border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
 }
 
-.divide-colorGrey > :not([hidden]) ~ :not([hidden]) {
+.divide-colorGrey> :not([hidden])~ :not([hidden]) {
   --tw-divide-opacity: 1;
   border-color: rgb(231 231 232 / var(--tw-divide-opacity, 1));
 }
@@ -1257,22 +1266,12 @@ p:last-child {
   border-color: rgb(231 231 232 / var(--tw-border-opacity, 1));
 }
 
-.border-gray-100 {
-  --tw-border-opacity: 1;
-  border-color: rgb(243 244 246 / var(--tw-border-opacity, 1));
-}
-
 .bg-colorBlue\/10 {
   background-color: rgb(1 25 255 / 0.1);
 }
 
 .bg-colorBlue\/5 {
   background-color: rgb(1 25 255 / 0.05);
-}
-
-.bg-colorDark {
-  --tw-bg-opacity: 1;
-  background-color: rgb(13 14 29 / var(--tw-bg-opacity, 1));
 }
 
 .bg-colorDark\/10 {
@@ -1333,7 +1332,7 @@ p:last-child {
 }
 
 .via-colorBlue\/40 {
-  --tw-gradient-to: rgb(1 25 255 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-to: rgb(1 25 255 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), rgb(1 25 255 / 0.4) var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
@@ -1347,7 +1346,7 @@ p:last-child {
 
 .object-cover {
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .p-4 {
@@ -1442,11 +1441,6 @@ p:last-child {
   line-height: 2.25rem;
 }
 
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
-}
-
 .text-\[26px\] {
   font-size: 26px;
 }
@@ -1489,10 +1483,6 @@ p:last-child {
 
 .not-italic {
   font-style: normal;
-}
-
-.leading-none {
-  line-height: 1;
 }
 
 .leading-relaxed {
@@ -1555,7 +1545,7 @@ p:last-child {
 }
 
 .shadow-customOne {
-  --tw-shadow: 0px 16px 50px 0px rgba(13,14,29,0.12);
+  --tw-shadow: 0px 16px 50px 0px rgba(13, 14, 29, 0.12);
   --tw-shadow-colored: 0px 16px 50px 0px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
@@ -1732,7 +1722,7 @@ p:last-child {
   flex-wrap: wrap;
   justify-content: center;
   -moz-column-gap: 2.5rem;
-       column-gap: 2.5rem;
+  column-gap: 2.5rem;
   row-gap: 0.75rem;
 }
 
@@ -1855,7 +1845,7 @@ p:last-child {
   display: flex;
   justify-content: center;
   -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
+  column-gap: 1.5rem;
 }
 
 .page-link {
@@ -2024,7 +2014,7 @@ p:last-child {
   height: 100%;
   min-height: 18rem;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .placeholder\:text-colorDark\/60::-moz-placeholder {
@@ -2066,7 +2056,7 @@ p:last-child {
     align-items: center;
   }
 
-  .sm\:divide-x > :not([hidden]) ~ :not([hidden]) {
+  .sm\:divide-x> :not([hidden])~ :not([hidden]) {
     --tw-divide-x-reverse: 0;
     border-right-width: calc(1px * var(--tw-divide-x-reverse));
     border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
@@ -2095,15 +2085,10 @@ p:last-child {
     gap: 60px;
   }
 
-  .md\:divide-y-0 > :not([hidden]) ~ :not([hidden]) {
+  .md\:divide-y-0> :not([hidden])~ :not([hidden]) {
     --tw-divide-y-reverse: 0;
     border-top-width: calc(0px * calc(1 - var(--tw-divide-y-reverse)));
     border-bottom-width: calc(0px * var(--tw-divide-y-reverse));
-  }
-
-  .md\:text-6xl {
-    font-size: 3.75rem;
-    line-height: 1;
   }
 }
 
@@ -2137,11 +2122,11 @@ p:last-child {
   }
 
   .lg\:grid-cols-\[1fr_minmax\(0\2c 0\.7fr\)\] {
-    grid-template-columns: 1fr minmax(0,0.7fr);
+    grid-template-columns: 1fr minmax(0, 0.7fr);
   }
 
   .lg\:grid-cols-\[minmax\(0\2c 0\.7fr\)_1fr\] {
-    grid-template-columns: minmax(0,0.7fr) 1fr;
+    grid-template-columns: minmax(0, 0.7fr) 1fr;
   }
 
   .lg\:flex-row {
@@ -2174,16 +2159,16 @@ p:last-child {
 
   .lg\:gap-x-20 {
     -moz-column-gap: 5rem;
-         column-gap: 5rem;
+    column-gap: 5rem;
   }
 
-  .lg\:divide-x > :not([hidden]) ~ :not([hidden]) {
+  .lg\:divide-x> :not([hidden])~ :not([hidden]) {
     --tw-divide-x-reverse: 0;
     border-right-width: calc(1px * var(--tw-divide-x-reverse));
     border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
   }
 
-  .lg\:divide-y > :not([hidden]) ~ :not([hidden]) {
+  .lg\:divide-y> :not([hidden])~ :not([hidden]) {
     --tw-divide-y-reverse: 0;
     border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
     border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
@@ -2192,11 +2177,6 @@ p:last-child {
   .lg\:py-28 {
     padding-top: 7rem;
     padding-bottom: 7rem;
-  }
-
-  .lg\:text-7xl {
-    font-size: 4.5rem;
-    line-height: 1;
   }
 }
 
@@ -2229,10 +2209,6 @@ p:last-child {
     padding-top: 8rem;
     padding-bottom: 8rem;
   }
-
-  .xl\:text-\[5rem\] {
-    font-size: 5rem;
-  }
 }
 
 @media (min-width: 1400px) {
@@ -2242,6 +2218,6 @@ p:last-child {
 
   .xxl\:gap-x-\[153px\] {
     -moz-column-gap: 153px;
-         column-gap: 153px;
+    column-gap: 153px;
   }
 }

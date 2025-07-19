@@ -1,6 +1,6 @@
-// Script para cargar header y footer dinámicamente - v2025071804
+// Script para cargar header y footer dinámicamente - v2025071901
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('Includes script loaded - v2025071804');
+    console.log('Includes script loaded - v2025071901');
     console.log('Current timestamp:', new Date().toISOString());
 
     // Definir el HTML del header directamente
@@ -29,30 +29,32 @@ document.addEventListener('DOMContentLoaded', function () {
                             <div class="mobile-menu-close" aria-label="Cerrar menú">&times;</div>
                         </div>
                         <ul class="site-menu-main">
-                            <!-- Home -->
-                            <li class="nav-item">
-                                <a class="nav-link-item text-colorDark" href="index.html" aria-label="Ir a inicio">Inicio</a>
-                            </li>
 
                             <!-- Cómo Funciona -->
                             <li class="nav-item">
-                                <a class="nav-link-item text-colorDark" href="#about" aria-label="Ver cómo funciona">Comunidad Gratuita</a>
+                                <a class="nav-link-item text-colorDark" href="#comofunciona" aria-label="Ver cómo funciona">¿Cómo funciona?</a>
                             </li>
 
                             <!-- Servicios -->
                             <li class="nav-item">
-                                <a class="nav-link-item text-colorDark" href="#servicios" aria-label="Ver servicios y características">Conecta</a>
+                                <a class="nav-link-item text-colorDark" href="#servicios" aria-label="Ver servicios y características">¿Para quién es esto?</a>
                             </li>
 
+                            <!-- Comunidad -->
+                            <li class="nav-item">
+                                <a class="nav-link-item text-colorDark" href="#comunidad" aria-label="Ver comunidad verificada">Comunidad</a>
+                            </li>
+
+                            <!-- Plan Verificado -->
+                            <li class="nav-item">
+                                <a class="nav-link-item text-colorDark" href="#pricing" aria-label="Ver plan verificado">Plan Verificado</a>
+                            </li>
                             <!-- Registro -->
                             <li class="nav-item">
                                 <a class="nav-link-item text-colorDark" href="#contacto" aria-label="Registrarse en la plataforma">Registro</a>
                             </li>
 
-                            <!-- Comunidad -->
-                            <li class="nav-item">
-                                <a class="nav-link-item text-colorDark" href="#comunidad" aria-label="Ver comunidad verificada">Verificados</a>
-                            </li>
+
                             
                             <!-- Seguridad -->
                             <li class="nav-item">
@@ -115,12 +117,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="col-span-1 md:col-span-2 lg:col-span-1">
                         <div class="mb-6">
                             <img src="assets/img/images/logo-light.png" alt="RetornosChile Logo" width="143" height="44" class="mb-4" />
-                            <p class="text-lg text-gray-300 leading-relaxed">
+                            <p class="text-lg text-gray-300 leading-relaxed mb-3">
                                 Retornos Chile no es una empresa de transporte.
-
-                                <p class="text-lg text-gray-300 leading-relaxed">Gestionamos información con <strong>inteligencia artificial</strong> para ayudarte a tomar mejores decisiones.
-                                <p class="text-lg text-gray-300 leading-relaxed"><strong>Nuestro objetivo:</strong> que el transporte sea más justo, rentable y seguro para todos.</p>
-
+                            </p>
+                            <p class="text-lg text-gray-300 leading-relaxed mb-3">
+                                Gestionamos información con <strong>inteligencia artificial</strong> para ayudarte a tomar mejores decisiones.
+                            </p>
+                            <p class="text-lg text-gray-300 leading-relaxed">
+                                <strong>Nuestro objetivo:</strong> que el transporte sea más justo, rentable y seguro para todos.
                             </p>
                         </div>
                         
@@ -153,20 +157,20 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div>
                         <h3 class="mb-6 text-xl font-semibold text-white">Enlaces Rápidos</h3>
                         <nav class="flex flex-col gap-3">
-                            <a href="#about" class="footer-link">
-                                Comunidad Gratuita
+                            <a href="#comofunciona" class="footer-link">
+                                ¿Cómo funciona?
                             </a>
                             <a href="#servicios" class="footer-link">
-                                Conecta
+                                ¿Para quién es esto?
                             </a>
                             <a href="#comunidad" class="footer-link">
-                                Verificados
+                                Comunidad
+                            </a>
+                            <a href="#pricing" class="footer-link">
+                                Plan Verificado
                             </a>
                             <a href="#sistema-reputacion" class="footer-link">
                                 Seguridad
-                            </a>
-                            <a href="#resenas" class="footer-link">
-                                Testimonios
                             </a>
                             <a href="#contacto" class="footer-link">
                                 Registro
@@ -178,8 +182,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div>
                         <h3 class="mb-6 text-xl font-semibold text-white">Información</h3>
                         <nav class="flex flex-col gap-3">
-                            <a href="#about" class="footer-link">
-                                Comunidad Gratuita
+                            <a href="#resenas" class="footer-link">
+                                Testimonios
                             </a>
                             <a href="#faq" class="footer-link">
                                 Preguntas Frecuentes

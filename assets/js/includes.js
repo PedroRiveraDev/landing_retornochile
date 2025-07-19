@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="flex items-center justify-between gap-x-8 gap-y-6 text-xl text-white">
             <div class="flex items-center gap-14">
                 <!-- Header Logo -->
-                <a href="index.html" class="brand-logo" aria-label="RetornosChile - Inicio">
+                <a href="/" class="brand-logo" aria-label="RetornosChile - Inicio">
                     <img src="assets/img/images/logo-dark.png" alt="RetornosChile Logo" width="143" height="44" />
                 </a>
                 <!-- Header Logo -->

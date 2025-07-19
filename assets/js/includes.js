@@ -1,7 +1,5 @@
-// Script para cargar header y footer dinámicamente - v20250719164100
+// Script para cargar header y footer dinámicamente - v20250719170000
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('Includes script loaded - v20250719164100');
-    console.log('Current timestamp:', new Date().toISOString());
 
     // Definir el HTML del header directamente
     const headerHTML = `<!--...::: Header Start :::... -->
@@ -233,20 +231,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Inyectar el HTML directamente
     function injectHTML() {
-        console.log('Iniciando inyección de HTML...');
-
         const headerPlaceholder = document.getElementById('header-placeholder');
         const footerPlaceholder = document.getElementById('footer-placeholder');
 
         if (headerPlaceholder) {
             headerPlaceholder.innerHTML = headerHTML;
-            console.log('Header inyectado exitosamente');
 
             // Verificar que se haya inyectado correctamente
             const injectedHeader = headerPlaceholder.querySelector('header');
-            if (injectedHeader) {
-                console.log('Header verificado correctamente');
-            } else {
+            if (!injectedHeader) {
                 console.error('Error: Header no se inyectó correctamente');
             }
         } else {
@@ -255,7 +248,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (footerPlaceholder) {
             footerPlaceholder.innerHTML = footerHTML;
-            console.log('Footer inyectado exitosamente');
         } else {
             console.error('Error: Footer placeholder no encontrado');
         }
@@ -263,7 +255,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Inicializar scripts del menú después de que el DOM esté listo
         setTimeout(() => {
             initializeMenuScripts();
-            console.log('Scripts del menú inicializados');
         }, 100);
     }
 
@@ -312,8 +303,6 @@ function toggleMobileMenu() {
 
 // Función para reinicializar los scripts del menú después de cargar el header
 function initializeMenuScripts() {
-    console.log('Inicializando scripts del menú...');
-
     // Reinicializar el menú móvil
     initializeMobileMenu();
 
@@ -336,7 +325,6 @@ function initializeMobileMenu() {
     const menuOverlay = document.querySelector(".menu-overlay");
 
     if (!menuTrigger || !menu) {
-        console.warn('Elementos del menú móvil no encontrados');
         return;
     }
 

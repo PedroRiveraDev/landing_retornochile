@@ -60,10 +60,16 @@ if (fs.existsSync('index.html')) {
         `<link rel="stylesheet" href="assets/css/style.min.css?v=${timestamp}" />`
     );
     
-    // Añadir cache busting al archivo JS
+    // Añadir cache busting al archivo JS principal
     indexContent = indexContent.replace(
         '<script src="assets/js/main.js"></script>',
         `<script src="assets/js/main.js?v=${timestamp}"></script>`
+    );
+    
+    // Añadir cache busting al archivo includes.js
+    indexContent = indexContent.replace(
+        /assets\/js\/includes\.js(\?v=\d+)?/g,
+        `assets/js/includes.js?v=${timestamp}`
     );
     
     // Opcional: remover el comentario de la versión de producción si existe

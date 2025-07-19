@@ -1274,6 +1274,11 @@ p:last-child {
   border-color: rgb(231 231 232 / var(--tw-divide-opacity, 1));
 }
 
+.divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-divide-opacity, 1));
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -1380,6 +1385,28 @@ p:last-child {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
+.bg-blue-500\/5 {
+  background-color: rgb(59 130 246 / 0.05);
+}
+
+.bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
+}
+
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
+}
+
+.bg-gray-900\/70 {
+  background-color: rgb(17 24 39 / 0.7);
+}
+
+.bg-gray-900\/10 {
+  background-color: rgb(17 24 39 / 0.1);
+}
+
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
@@ -1422,6 +1449,24 @@ p:last-child {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-gray-100 {
+  --tw-gradient-from: #f3f4f6 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(243 244 246 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-blue-500\/40 {
+  --tw-gradient-from: rgb(59 130 246 / 0.4) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(59 130 246 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-blue-500\/70 {
+  --tw-gradient-from: rgb(59 130 246 / 0.7) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(59 130 246 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .via-colorBlue\/40 {
   --tw-gradient-to: rgb(1 25 255 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), rgb(1 25 255 / 0.4) var(--tw-gradient-via-position), var(--tw-gradient-to);
@@ -1430,6 +1475,11 @@ p:last-child {
 .via-gray-50 {
   --tw-gradient-to: rgb(249 250 251 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), #f9fafb var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
+.via-blue-500\/40 {
+  --tw-gradient-to: rgb(59 130 246 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(59 130 246 / 0.4) var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
 .to-blue-600 {
@@ -1450,6 +1500,10 @@ p:last-child {
 
 .to-white {
   --tw-gradient-to: #fff var(--tw-gradient-to-position);
+}
+
+.to-blue-500\/70 {
+  --tw-gradient-to: rgb(59 130 246 / 0.7) var(--tw-gradient-to-position);
 }
 
 .object-cover {
@@ -1685,6 +1739,11 @@ p:last-child {
   color: rgb(255 255 255 / 0.6);
 }
 
+.text-blue-600 {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity, 1));
+}
+
 .opacity-80 {
   opacity: 0.8;
 }
@@ -1710,6 +1769,10 @@ p:last-child {
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.outline {
+  outline-style: solid;
 }
 
 .ring-2 {
@@ -2212,6 +2275,11 @@ p:last-child {
 .hover\:text-colorBlue:hover {
   --tw-text-opacity: 1;
   color: rgb(1 25 255 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-blue-600:hover {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity, 1));
 }
 
 .hover\:shadow-2xl:hover {

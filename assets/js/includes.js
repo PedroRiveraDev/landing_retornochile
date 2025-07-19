@@ -1,6 +1,6 @@
-// Script para cargar header y footer dinámicamente - v2025071902
+// Script para cargar header y footer dinámicamente - v20250719164100
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('Includes script loaded - v2025071902');
+    console.log('Includes script loaded - v20250719164100');
     console.log('Current timestamp:', new Date().toISOString());
 
     // Definir el HTML del header directamente

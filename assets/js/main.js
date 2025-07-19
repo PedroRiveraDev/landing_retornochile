@@ -4,8 +4,8 @@
 :: GLobal Javascript ::
 ::::::::::::::::::::::: */
 
-// DIAGNÓSTICO INICIAL - v2025071903
-console.log('=== DIAGNÓSTICO MAIN.JS v2025071903 ===');
+// DIAGNÓSTICO INICIAL - v20250719164100
+console.log('=== DIAGNÓSTICO MAIN.JS v20250719164100 ===');
 console.log('Fecha de carga:', new Date().toISOString());
 console.log('URL actual:', window.location.href);
 console.log('User Agent:', navigator.userAgent);
@@ -646,7 +646,7 @@ const FormValidator = {
 
 // Inicialización del formulario cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('=== DIAGNÓSTICO FORMULARIO v2025071903 ===');
+  console.log('=== DIAGNÓSTICO FORMULARIO v20250719164100 ===');
   console.log('DOMContentLoaded disparado a las:', new Date().toISOString());
   console.log('DOM cargado - inicializando formulario');
   

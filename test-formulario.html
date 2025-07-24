@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Formulario RetornoChile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
+        <h1 class="text-3xl font-bold text-center mb-8">🧪 Test del Formulario RetornoChile</h1>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Pruebas de Validación -->
+            <div class="border rounded-lg p-6">
+                <h2 class="text-xl font-semibold mb-4">📋 Pruebas de Validación</h2>
+                
+                <div class="space-y-4">
+                    <button id="test-empty" class="w-full bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                        Enviar formulario vacío
+                    </button>
+                    
+                    <button id="test-invalid-whatsapp" class="w-full bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">
+                        WhatsApp inválido (123456)
+                    </button>
+                    
+                    <button id="test-invalid-name" class="w-full bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">
+                        Nombre inválido (123ABC<>)
+                    </button>
+                    
+                    <button id="test-valid-transportista" class="w-full bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                        Datos válidos - Transportista
+                    </button>
+                    
+                    <button id="test-valid-generador" class="w-full bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                        Datos válidos - Generador
+                    </button>
+                    
+                    <button id="test-clear" class="w-full bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">
+                        Limpiar formulario
+                    </button>
+                </div>
+                
+                <!-- Log de pruebas -->
+                <div class="mt-6">
+                    <h3 class="font-semibold mb-2">📝 Log de Pruebas:</h3>
+                    <div id="test-log" class="bg-gray-100 p-3 rounded text-sm max-h-40 overflow-y-auto">
+                        <p class="text-gray-600">Las pruebas aparecerán aquí...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Información de Estado -->
+            <div class="border rounded-lg p-6">
+                <h2 class="text-xl font-semibold mb-4">📊 Estado del Formulario</h2>
+                
+                <div class="space-y-3">
+                    <div>
+                        <span class="font-medium">Estado:</span>
+                        <span id="form-status" class="ml-2 px-2 py-1 bg-gray-200 rounded text-sm">Listo</span>
+                    </div>
+                    
+                    <div>
+                        <span class="font-medium">Errores:</span>
+                        <span id="error-count" class="ml-2 px-2 py-1 bg-red-100 text-red-700 rounded text-sm">0</span>
+                    </div>
+                    
+                    <div>
+                        <span class="font-medium">Último test:</span>
+                        <span id="last-test" class="ml-2 text-sm text-gray-600">Ninguno</span>
+                    </div>
+                </div>
+                
+                <!-- Checklist de Producción -->
+                <div class="mt-6">
+                    <h3 class="font-semibold mb-2">✅ Checklist Producción:</h3>
+                    <div class="space-y-2 text-sm">
+                        <div id="check-validation" class="flex items-center">
+                            <span class="w-4 h-4 mr-2">✅</span>
+                            <span>Validaciones front-end</span>
+                        </div>
+                        <div id="check-sanitization" class="flex items-center">
+                            <span class="w-4 h-4 mr-2">✅</span>
+                            <span>Sanitización de datos</span>
+                        </div>
+                        <div id="check-accessibility" class="flex items-center">
+                            <span class="w-4 h-4 mr-2">✅</span>
+                            <span>Accesibilidad (ARIA)</span>
+                        </div>
+                        <div id="check-security" class="flex items-center">
+                            <span class="w-4 h-4 mr-2">✅</span>
+                            <span>Seguridad (XSS, timeout)</span>
+                        </div>
+                        <div id="check-ux" class="flex items-center">
+                            <span class="w-4 h-4 mr-2">✅</span>
+                            <span>UX (loading, errores)</span>
+                        </div>
+                        <div id="check-webhook" class="flex items-center">
+                            <span class="w-4 h-4 mr-2">⚠️</span>
+                            <span>Webhook funcional (requiere prueba real)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Iframe con el formulario real -->
+    <div class="max-w-4xl mx-auto mt-8 bg-white rounded-lg shadow-lg p-8">
+        <h2 class="text-2xl font-bold text-center mb-6">🎯 Formulario de Prueba</h2>
+        <iframe src="http://localhost:8000#contacto" width="100%" height="800" class="border rounded-lg"></iframe>
+    </div>
+
+    <script>
+        // Variables de prueba
+        let testCounter = 0;
+        let errorCount = 0;
+        
+        function log(message, type = 'info') {
+            const logDiv = document.getElementById('test-log');
+            const timestamp = new Date().toLocaleTimeString();
+            const color = type === 'error' ? 'text-red-600' : type === 'success' ? 'text-green-600' : 'text-gray-700';
+            
+            const logEntry = document.createElement('p');
+            logEntry.className = color;
+            logEntry.textContent = `[${timestamp}] ${message}`;
+            
+            logDiv.appendChild(logEntry);
+            logDiv.scrollTop = logDiv.scrollHeight;
+            
+            if (type === 'error') {
+                errorCount++;
+                document.getElementById('error-count').textContent = errorCount;
+            }
+        }
+        
+        function updateStatus(status) {
+            document.getElementById('form-status').textContent = status;
+            document.getElementById('form-status').className = 
+                status === 'Enviando' ? 'ml-2 px-2 py-1 bg-yellow-200 text-yellow-700 rounded text-sm' :
+                status === 'Error' ? 'ml-2 px-2 py-1 bg-red-200 text-red-700 rounded text-sm' :
+                status === 'Éxito' ? 'ml-2 px-2 py-1 bg-green-200 text-green-700 rounded text-sm' :
+                'ml-2 px-2 py-1 bg-gray-200 rounded text-sm';
+        }
+        
+        function updateLastTest(testName) {
+            document.getElementById('last-test').textContent = testName;
+        }
+        
+        function sendMessageToForm(data) {
+            const iframe = document.querySelector('iframe');
+            if (iframe && iframe.contentWindow) {
+                iframe.contentWindow.postMessage(data, '*');
+            }
+        }
+        
+        // Event listeners para los botones de prueba
+        document.getElementById('test-empty').addEventListener('click', () => {
+            log('🧪 Iniciando prueba: Formulario vacío', 'info');
+            updateLastTest('Formulario vacío');
+            sendMessageToForm({ action: 'test-empty' });
+        });
+        
+        document.getElementById('test-invalid-whatsapp').addEventListener('click', () => {
+            log('🧪 Iniciando prueba: WhatsApp inválido', 'info');
+            updateLastTest('WhatsApp inválido');
+            sendMessageToForm({ action: 'test-invalid-whatsapp' });
+        });
+        
+        document.getElementById('test-invalid-name').addEventListener('click', () => {
+            log('🧪 Iniciando prueba: Nombre inválido', 'info');
+            updateLastTest('Nombre inválido');
+            sendMessageToForm({ action: 'test-invalid-name' });
+        });
+        
+        document.getElementById('test-valid-transportista').addEventListener('click', () => {
+            log('🧪 Iniciando prueba: Transportista válido', 'info');
+            updateLastTest('Transportista válido');
+            sendMessageToForm({ action: 'test-valid-transportista' });
+        });
+        
+        document.getElementById('test-valid-generador').addEventListener('click', () => {
+            log('🧪 Iniciando prueba: Generador válido', 'info');
+            updateLastTest('Generador válido');
+            sendMessageToForm({ action: 'test-valid-generador' });
+        });
+        
+        document.getElementById('test-clear').addEventListener('click', () => {
+            log('🧹 Limpiando formulario', 'info');
+            updateLastTest('Limpiar formulario');
+            sendMessageToForm({ action: 'clear-form' });
+            updateStatus('Listo');
+        });
+        
+        // Escuchar mensajes del iframe
+        window.addEventListener('message', (event) => {
+            const data = event.data;
+            
+            if (data.type === 'test-result') {
+                if (data.success) {
+                    log(`✅ ${data.message}`, 'success');
+                    updateStatus('Éxito');
+                } else {
+                    log(`❌ ${data.message}`, 'error');
+                    updateStatus('Error');
+                }
+            } else if (data.type === 'validation-error') {
+                log(`⚠️ Validación: ${data.message}`, 'error');
+            } else if (data.type === 'form-status') {
+                updateStatus(data.status);
+            }
+        });
+        
+        // Inicializar
+        log('🚀 Sistema de pruebas iniciado', 'success');
+        log('💡 Usa los botones para probar diferentes escenarios', 'info');
+    </script>
+</body>
+</html>

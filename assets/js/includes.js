@@ -1,4 +1,4 @@
-// Script para cargar header y footer dinámicamente - v20250719170000
+// Script para cargar header y footer dinámicamente - v20250724140000
 document.addEventListener('DOMContentLoaded', function () {
 
     // Definir el HTML del header directamente
@@ -46,11 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
                             <!-- Para quién es -->
                             <li class="nav-item">
                                 <a class="nav-link-item text-colorDark" href="#servicios" aria-label="Ver para quién es esto">¿Para quién es?</a>
-                            </li>
-
-                            <!-- Comunidad -->
-                            <li class="nav-item">
-                                <a class="nav-link-item text-colorDark" href="#comunidad" aria-label="Ver comunidad verificada">Comunidad</a>
                             </li>
 
                             <!-- Registro -->
@@ -141,9 +136,6 @@ document.addEventListener('DOMContentLoaded', function () {
                             </a>
                             <a href="#servicios" class="footer-link">
                                 ¿Para quién es?
-                            </a>
-                            <a href="#comunidad" class="footer-link">
-                                Comunidad
                             </a>
                             <a href="#contacto" class="footer-link">
                                 Registro

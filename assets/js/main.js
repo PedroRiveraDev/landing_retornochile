@@ -2,6 +2,7 @@
 
 /* ::::::::::::::::::::
 :: GLobal Javascript ::
+:: v20250724140000    ::
 ::::::::::::::::::::::: */
 
 // Detectar errores de JavaScript
@@ -539,11 +540,13 @@ const FormValidator = {
   // Validar WhatsApp chileno
   validateWhatsApp: function(phone) {
     const cleanPhone = phone.replace(/\s/g, '');
-    // Formatos aceptados: +56912345678, 56912345678, 912345678
+    // Formatos aceptados: +56912345678, 56912345678, 912345678, 9-1234-5678, +56 9 1234 5678
     const patterns = [
       /^\+56\s?9\s?\d{4}\s?\d{4}$/,
       /^56\s?9\s?\d{4}\s?\d{4}$/,
-      /^9\s?\d{4}\s?\d{4}$/
+      /^9\s?\d{4}\s?\d{4}$/,
+      /^9-\d{4}-\d{4}$/,
+      /^\+56\s9\s\d{4}\s\d{4}$/
     ];
     
     return patterns.some(pattern => pattern.test(cleanPhone));
@@ -570,6 +573,34 @@ const FormValidator = {
   validateEmail: function(email) {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
+  },
+
+  // Validar nombre (solo letras, espacios y algunos caracteres especiales)
+  validateName: function(name) {
+    const namePattern = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s\.\''-]{2,50}$/;
+    return namePattern.test(name.trim());
+  },
+
+  // Validar ciudad (letras, espacios, guiones y algunos caracteres especiales)
+  validateCity: function(city) {
+    const cityPattern = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s\.\,''-]{2,50}$/;
+    return cityPattern.test(city.trim());
+  },
+
+  // Limpiar y validar texto libre
+  sanitizeText: function(text) {
+    return text.trim().replace(/\s+/g, ' '); // Remover espacios extra
+  },
+
+  // Validar contenido para prevenir XSS
+  sanitizeInput: function(input) {
+    // Remover caracteres potencialmente peligrosos
+    return input.replace(/[<>\"'&]/g, '').trim();
+  },
+
+  // Validar longitud máxima de campos
+  validateLength: function(text, maxLength = 100) {
+    return text.length <= maxLength;
   },
 
   // Mostrar mensaje de error
@@ -662,8 +693,95 @@ document.addEventListener('DOMContentLoaded', function() {
   const whatsapp = document.getElementById('whatsapp');
   const tipoUsuario = document.getElementById('tipoUsuario');
   const ciudad = document.getElementById('ciudad');
-  const interesPremium = document.getElementById('interesPremium');
+  const tipoVehiculoContainer = document.getElementById('tipoVehiculoContainer');
+  const tipoVehiculo = document.getElementById('tipoVehiculo');
+  const otroVehiculoContainer = document.getElementById('otroVehiculoContainer');
+  const otroVehiculo = document.getElementById('otroVehiculo');
+  const tipoCargaContainer = document.getElementById('tipoCargaContainer');
+  const tipoCarga = document.getElementById('tipoCarga');
+  const otroCargaContainer = document.getElementById('otroCargaContainer');
+  const otroCarga = document.getElementById('otroCarga');
+  const interesVerificado = document.getElementById('interesVerificado');
   const submitBtn = document.getElementById('submitBtn');
+
+  // Función para mostrar/ocultar campos específicos según el tipo de usuario
+  function toggleSpecificFields() {
+    if (!tipoUsuario || !tipoVehiculoContainer || !tipoCargaContainer) return;
+    
+    const userType = tipoUsuario.value;
+    
+    // Ocultar ambos contenedores inicialmente
+    tipoVehiculoContainer.classList.add('hidden');
+    tipoCargaContainer.classList.add('hidden');
+    
+    // Limpiar validaciones previas
+    if (tipoVehiculo) {
+      tipoVehiculo.removeAttribute('required');
+      FormValidator.hideError(tipoVehiculo);
+    }
+    if (tipoCarga) {
+      tipoCarga.removeAttribute('required');
+      FormValidator.hideError(tipoCarga);
+    }
+    
+    // Ocultar y limpiar campos de "otro"
+    toggleOtherFields();
+    
+    // Mostrar el campo correspondiente según el tipo de usuario
+    if (userType === 'transportista_independiente' || userType === 'empresa_transporte') {
+      tipoVehiculoContainer.classList.remove('hidden');
+      if (tipoVehiculo) {
+        tipoVehiculo.setAttribute('required', 'required');
+      }
+    } else if (userType === 'generador_carga') {
+      tipoCargaContainer.classList.remove('hidden');
+      if (tipoCarga) {
+        tipoCarga.setAttribute('required', 'required');
+      }
+    }
+  }
+
+  // Función para mostrar/ocultar campos de "otro"
+  function toggleOtherFields() {
+    // Para tipo de vehículo
+    if (otroVehiculoContainer && otroVehiculo) {
+      if (tipoVehiculo && tipoVehiculo.value === 'otro') {
+        otroVehiculoContainer.classList.remove('hidden');
+        otroVehiculo.setAttribute('required', 'required');
+      } else {
+        otroVehiculoContainer.classList.add('hidden');
+        otroVehiculo.removeAttribute('required');
+        otroVehiculo.value = '';
+        FormValidator.hideError(otroVehiculo);
+      }
+    }
+
+    // Para tipo de carga
+    if (otroCargaContainer && otroCarga) {
+      if (tipoCarga && tipoCarga.value === 'otro') {
+        otroCargaContainer.classList.remove('hidden');
+        otroCarga.setAttribute('required', 'required');
+      } else {
+        otroCargaContainer.classList.add('hidden');
+        otroCarga.removeAttribute('required');
+        otroCarga.value = '';
+        FormValidator.hideError(otroCarga);
+      }
+    }
+  }
+
+  // Event listeners para cambios en tipo de usuario y selects específicos
+  if (tipoUsuario) {
+    tipoUsuario.addEventListener('change', toggleSpecificFields);
+  }
+
+  if (tipoVehiculo) {
+    tipoVehiculo.addEventListener('change', toggleOtherFields);
+  }
+
+  if (tipoCarga) {
+    tipoCarga.addEventListener('change', toggleOtherFields);
+  }
 
   // Formateo automático del WhatsApp
   if (whatsapp) {
@@ -686,7 +804,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Validación en tiempo real para campos requeridos
-  const requiredFields = [nombre, whatsapp, tipoUsuario, ciudad, interesPremium];
+  const requiredFields = [nombre, whatsapp, tipoUsuario, ciudad, interesVerificado];
   
   requiredFields.forEach(field => {
     if (field) {
@@ -694,7 +812,24 @@ document.addEventListener('DOMContentLoaded', function() {
         if (this.required && !this.value) {
           FormValidator.showError(this, 'Este campo es obligatorio');
         } else {
-          FormValidator.hideError(this);
+          // Validaciones específicas
+          if (this === nombre && this.value) {
+            if (!FormValidator.validateName(this.value)) {
+              FormValidator.showError(this, 'Ingrese un nombre válido (solo letras y espacios)');
+            } else {
+              this.value = FormValidator.sanitizeText(this.value);
+              FormValidator.hideError(this);
+            }
+          } else if (this === ciudad && this.value) {
+            if (!FormValidator.validateCity(this.value)) {
+              FormValidator.showError(this, 'Ingrese una ciudad válida');
+            } else {
+              this.value = FormValidator.sanitizeText(this.value);
+              FormValidator.hideError(this);
+            }
+          } else {
+            FormValidator.hideError(this);
+          }
         }
       });
 
@@ -705,6 +840,60 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
+
+  // Validación para campos específicos de tipo de usuario
+  if (tipoVehiculo) {
+    tipoVehiculo.addEventListener('blur', function() {
+      if (this.required && !this.value) {
+        FormValidator.showError(this, 'Seleccione el tipo de vehículo');
+      } else {
+        FormValidator.hideError(this);
+      }
+    });
+  }
+
+  if (tipoCarga) {
+    tipoCarga.addEventListener('blur', function() {
+      if (this.required && !this.value) {
+        FormValidator.showError(this, 'Seleccione el tipo de carga');
+      } else {
+        FormValidator.hideError(this);
+      }
+    });
+  }
+
+  // Validación para campos de "otro"
+  if (otroVehiculo) {
+    otroVehiculo.addEventListener('blur', function() {
+      if (this.required && !this.value.trim()) {
+        FormValidator.showError(this, 'Especifique el tipo de vehículo');
+      } else {
+        FormValidator.hideError(this);
+      }
+    });
+
+    otroVehiculo.addEventListener('input', function() {
+      if (this.value.trim()) {
+        FormValidator.hideError(this);
+      }
+    });
+  }
+
+  if (otroCarga) {
+    otroCarga.addEventListener('blur', function() {
+      if (this.required && !this.value.trim()) {
+        FormValidator.showError(this, 'Especifique el tipo de carga');
+      } else {
+        FormValidator.hideError(this);
+      }
+    });
+
+    otroCarga.addEventListener('input', function() {
+      if (this.value.trim()) {
+        FormValidator.hideError(this);
+      }
+    });
+  }
 
   // Validación del formulario completo
   function validateForm() {
@@ -718,6 +907,12 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (nombre.value.trim().length < 2) {
       FormValidator.showError(nombre, 'El nombre debe tener al menos 2 caracteres');
       isValid = false;
+    } else if (!FormValidator.validateName(nombre.value)) {
+      FormValidator.showError(nombre, 'Ingrese un nombre válido (solo letras y espacios)');
+      isValid = false;
+    } else {
+      // Limpiar el nombre
+      nombre.value = FormValidator.sanitizeText(nombre.value);
     }
 
     // Validar WhatsApp
@@ -739,11 +934,59 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!ciudad || !ciudad.value.trim()) {
       if (ciudad) FormValidator.showError(ciudad, 'Ingrese su ciudad');
       isValid = false;
+    } else if (ciudad.value.trim().length < 2) {
+      FormValidator.showError(ciudad, 'La ciudad debe tener al menos 2 caracteres');
+      isValid = false;
+    } else if (!FormValidator.validateCity(ciudad.value)) {
+      FormValidator.showError(ciudad, 'Ingrese una ciudad válida');
+      isValid = false;
+    } else {
+      // Limpiar la ciudad
+      ciudad.value = FormValidator.sanitizeText(ciudad.value);
     }
 
-    // Validar interés premium
-    if (!interesPremium || !interesPremium.value) {
-      if (interesPremium) FormValidator.showError(interesPremium, 'Seleccione su nivel de interés');
+    // Validar campos específicos según tipo de usuario
+    const userType = tipoUsuario ? tipoUsuario.value : '';
+    
+    if (userType === 'transportista_independiente' || userType === 'empresa_transporte') {
+      if (!tipoVehiculo || !tipoVehiculo.value) {
+        if (tipoVehiculo) FormValidator.showError(tipoVehiculo, 'Seleccione el tipo de vehículo');
+        isValid = false;
+      } else if (tipoVehiculo.value === 'otro') {
+        // Validar campo de especificación cuando se selecciona "otro"
+        if (!otroVehiculo || !otroVehiculo.value.trim()) {
+          if (otroVehiculo) FormValidator.showError(otroVehiculo, 'Especifique el tipo de vehículo');
+          isValid = false;
+        } else if (otroVehiculo.value.trim().length < 3) {
+          FormValidator.showError(otroVehiculo, 'La especificación debe tener al menos 3 caracteres');
+          isValid = false;
+        } else {
+          // Limpiar el texto
+          otroVehiculo.value = FormValidator.sanitizeText(otroVehiculo.value);
+        }
+      }
+    } else if (userType === 'generador_carga') {
+      if (!tipoCarga || !tipoCarga.value) {
+        if (tipoCarga) FormValidator.showError(tipoCarga, 'Seleccione el tipo de carga');
+        isValid = false;
+      } else if (tipoCarga.value === 'otro') {
+        // Validar campo de especificación cuando se selecciona "otro"
+        if (!otroCarga || !otroCarga.value.trim()) {
+          if (otroCarga) FormValidator.showError(otroCarga, 'Especifique el tipo de carga');
+          isValid = false;
+        } else if (otroCarga.value.trim().length < 3) {
+          FormValidator.showError(otroCarga, 'La especificación debe tener al menos 3 caracteres');
+          isValid = false;
+        } else {
+          // Limpiar el texto
+          otroCarga.value = FormValidator.sanitizeText(otroCarga.value);
+        }
+      }
+    }
+
+    // Validar interés en grupo verificado
+    if (!interesVerificado || !interesVerificado.value) {
+      if (interesVerificado) FormValidator.showError(interesVerificado, 'Seleccione su nivel de interés');
       isValid = false;
     }
 
@@ -752,13 +995,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Envío del formulario
   if (form) {
+    let isSubmitting = false; // Variable para prevenir doble envío
+    
     form.addEventListener('submit', function(e) {
       e.preventDefault();
+      
+      // Prevenir doble envío
+      if (isSubmitting) {
+        console.log('Formulario ya está siendo enviado...');
+        return;
+      }
       
       if (!validateForm()) {
         FormValidator.showFormMessage('Por favor, complete todos los campos requeridos');
         return;
       }
+
+      // Marcar como enviando
+      isSubmitting = true;
 
       // Mostrar estado de carga
       if (submitBtn) {
@@ -770,9 +1024,18 @@ document.addEventListener('DOMContentLoaded', function() {
       const formDataObject = {};
       const formData = new FormData(form);
       
-      // Convertir FormData a objeto JSON
+      // Convertir FormData a objeto JSON con sanitización
       for (let [key, value] of formData.entries()) {
-        formDataObject[key] = value;
+        // Sanitizar y validar cada campo
+        let sanitizedValue = FormValidator.sanitizeInput(value);
+        
+        // Validar longitud máxima
+        if (!FormValidator.validateLength(sanitizedValue, key === 'name' || key === 'city' ? 50 : 100)) {
+          FormValidator.showFormMessage('Algunos campos exceden la longitud máxima permitida');
+          return;
+        }
+        
+        formDataObject[key] = sanitizedValue;
       }
       
       // Agregar metadatos adicionales
@@ -786,6 +1049,10 @@ document.addEventListener('DOMContentLoaded', function() {
       // URL del webhook de n8n
       const webhookUrl = 'https://n8n.skinslabs.cl/webhook/registroretornochile';
 
+      // Crear AbortController para timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 segundos timeout
+
       // Enviar formulario al webhook de n8n
       fetch(webhookUrl, {
         method: 'POST',
@@ -793,9 +1060,15 @@ document.addEventListener('DOMContentLoaded', function() {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify(formDataObject)
+        body: JSON.stringify(formDataObject),
+        // Configuración adicional para producción
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'omit',
+        signal: controller.signal
       })
       .then(response => {
+        clearTimeout(timeoutId); // Limpiar timeout si la request es exitosa
         console.log('Respuesta del servidor:', response);
         if (response.ok) {
           return response.json().catch(() => ({ success: true }));
@@ -807,22 +1080,62 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Datos recibidos:', data);
         // Mostrar mensaje de éxito
         FormValidator.showFormMessage(
-          '¡Registro exitoso! Nos pondremos en contacto contigo pronto.', 
+          '¡Registro exitoso! Nos pondremos en contacto contigo pronto para validar tu información y agregarte al grupo Verificado.', 
           'success'
         );
+        
+        // Limpiar formulario después del éxito
         form.reset();
+        
+        // Ocultar campos específicos después del reset
+        if (tipoVehiculoContainer) tipoVehiculoContainer.classList.add('hidden');
+        if (tipoCargaContainer) tipoCargaContainer.classList.add('hidden');
+        if (otroVehiculoContainer) otroVehiculoContainer.classList.add('hidden');
+        if (otroCargaContainer) otroCargaContainer.classList.add('hidden');
+        
+        // Remover requerimientos después del reset
+        [tipoVehiculo, tipoCarga, otroVehiculo, otroCarga].forEach(field => {
+          if (field) {
+            field.removeAttribute('required');
+            FormValidator.hideError(field);
+          }
+        });
+        
+        // Scroll al mensaje de éxito
+        setTimeout(() => {
+          document.getElementById('form-message').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+          });
+        }, 100);
       })
       .catch(error => {
+        clearTimeout(timeoutId); // Limpiar timeout en caso de error
         console.error('Error al enviar formulario:', error);
-        FormValidator.showFormMessage(
-          'Hubo un error al enviar el formulario. Por favor, inténtelo nuevamente.'
-        );
+        
+        // Mensaje de error más específico
+        let errorMessage = 'Hubo un error al enviar el formulario. ';
+        
+        if (error.name === 'AbortError') {
+          errorMessage += 'La conexión tardó demasiado. Por favor, inténtelo nuevamente.';
+        } else if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
+          errorMessage += 'Por favor, verifique su conexión a internet e inténtelo nuevamente.';
+        } else if (error.message.includes('500')) {
+          errorMessage += 'Error del servidor. Por favor, inténtelo en unos minutos.';
+        } else if (error.message.includes('404')) {
+          errorMessage += 'Servicio temporalmente no disponible. Por favor, inténtelo más tarde.';
+        } else {
+          errorMessage += 'Por favor, inténtelo nuevamente o contáctenos directamente por WhatsApp.';
+        }
+        
+        FormValidator.showFormMessage(errorMessage);
       })
       .finally(() => {
-        // Restaurar estado del botón
+        // Restaurar estado del botón y permitir nuevos envíos
+        isSubmitting = false;
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.innerHTML = 'Enviar registro <span><i class="ri-arrow-right-up-line"></i></span>';
+          submitBtn.innerHTML = 'Enviar <span><i class="ri-arrow-right-up-line"></i></span>';
         }
       });
     });

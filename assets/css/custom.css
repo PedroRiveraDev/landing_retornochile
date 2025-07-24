@@ -37,6 +37,29 @@
   min-height: 48px;
 }
 
+/* Ocultar completamente en desktop - IMPORTANTE */
+@media (min-width: 1024px) {
+  .mobile-menu-trigger,
+  .hamburger-menu,
+  .block.lg\\:hidden {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+  
+  /* Asegurar que todas las líneas del hamburger estén ocultas */
+  .mobile-menu-trigger span,
+  .mobile-menu-trigger span:before,
+  .mobile-menu-trigger span:after,
+  .hamburger-menu span,
+  .hamburger-menu span:before,
+  .hamburger-menu span:after {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+}
+
 .mobile-menu-trigger:hover {
   opacity: 0.7;
 }

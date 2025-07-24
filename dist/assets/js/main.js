@@ -657,37 +657,13 @@ document.addEventListener('DOMContentLoaded', function() {
     return;
   }
 
-  // Referencias a elementos del formulario
-  const tipoRegistro = document.getElementById('tipoRegistro');
+  // Referencias a elementos del formulario actualizado
   const nombre = document.getElementById('nombre');
-  const rut = document.getElementById('rut');
-  const ciudad = document.getElementById('ciudad');
   const whatsapp = document.getElementById('whatsapp');
-  const tieneConductores = document.getElementById('tieneConductores');
-  const cantidadConductores = document.getElementById('campoCantidadConductores');
+  const tipoUsuario = document.getElementById('tipoUsuario');
+  const ciudad = document.getElementById('ciudad');
+  const interesPremium = document.getElementById('interesPremium');
   const submitBtn = document.getElementById('submitBtn');
-
-  // Formateo automático del RUT
-  if (rut) {
-    rut.addEventListener('input', function(e) {
-      const cursorPos = e.target.selectionStart;
-      const oldValue = e.target.value;
-      e.target.value = FormValidator.formatRUT(e.target.value);
-      
-      // Mantener posición del cursor
-      const newValue = e.target.value;
-      const lengthDiff = newValue.length - oldValue.length;
-      e.target.setSelectionRange(cursorPos + lengthDiff, cursorPos + lengthDiff);
-    });
-
-    rut.addEventListener('blur', function() {
-      if (this.value && !FormValidator.validateRUT(this.value)) {
-        FormValidator.showError(this, 'Ingrese un RUT válido (ej: 12.345.678-9)');
-      } else if (this.value) {
-        FormValidator.hideError(this);
-      }
-    });
-  }
 
   // Formateo automático del WhatsApp
   if (whatsapp) {
@@ -709,23 +685,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Mostrar/ocultar campo de cantidad de conductores
-  if (tieneConductores && cantidadConductores) {
-    tieneConductores.addEventListener('change', function() {
-      if (this.value === 'yes') {
-        cantidadConductores.style.display = 'block';
-        cantidadConductores.required = true;
-      } else {
-        cantidadConductores.style.display = 'none';
-        cantidadConductores.required = false;
-        cantidadConductores.value = '';
-        FormValidator.hideError(cantidadConductores);
-      }
-    });
-  }
-
   // Validación en tiempo real para campos requeridos
-  const requiredFields = [tipoRegistro, nombre, ciudad, tieneConductores];
+  const requiredFields = [nombre, whatsapp, tipoUsuario, ciudad, interesPremium];
   
   requiredFields.forEach(field => {
     if (field) {
@@ -750,60 +711,40 @@ document.addEventListener('DOMContentLoaded', function() {
     let isValid = true;
     FormValidator.hideFormMessage();
 
-    // Validar tipo de registro
-    if (!tipoRegistro.value) {
-      FormValidator.showError(tipoRegistro, 'Seleccione un tipo de registro');
-      isValid = false;
-    }
-
     // Validar nombre
-    if (!nombre.value.trim()) {
-      FormValidator.showError(nombre, 'Ingrese su nombre o razón social');
+    if (!nombre || !nombre.value.trim()) {
+      if (nombre) FormValidator.showError(nombre, 'Ingrese su nombre completo');
       isValid = false;
     } else if (nombre.value.trim().length < 2) {
       FormValidator.showError(nombre, 'El nombre debe tener al menos 2 caracteres');
       isValid = false;
     }
 
-    // Validar RUT
-    if (!rut.value) {
-      FormValidator.showError(rut, 'Ingrese su RUT');
-      isValid = false;
-    } else if (!FormValidator.validateRUT(rut.value)) {
-      FormValidator.showError(rut, 'Ingrese un RUT válido');
-      isValid = false;
-    }
-
-    // Validar ciudad
-    if (!ciudad.value.trim()) {
-      FormValidator.showError(ciudad, 'Ingrese su ciudad');
-      isValid = false;
-    }
-
     // Validar WhatsApp
-    if (!whatsapp.value) {
-      FormValidator.showError(whatsapp, 'Ingrese su número de WhatsApp');
+    if (!whatsapp || !whatsapp.value) {
+      if (whatsapp) FormValidator.showError(whatsapp, 'Ingrese su número de WhatsApp');
       isValid = false;
     } else if (!FormValidator.validateWhatsApp(whatsapp.value)) {
       FormValidator.showError(whatsapp, 'Ingrese un número de WhatsApp válido');
       isValid = false;
     }
 
-    // Validar conductores a cargo
-    if (!tieneConductores.value) {
-      FormValidator.showError(tieneConductores, 'Seleccione una opción');
+    // Validar tipo de usuario
+    if (!tipoUsuario || !tipoUsuario.value) {
+      if (tipoUsuario) FormValidator.showError(tipoUsuario, 'Seleccione su tipo de usuario');
       isValid = false;
     }
 
-    // Validar cantidad de conductores (si corresponde)
-    if (tieneConductores.value === 'yes') {
-      if (!cantidadConductores.value) {
-        FormValidator.showError(cantidadConductores, 'Ingrese la cantidad de conductores');
-        isValid = false;
-      } else if (parseInt(cantidadConductores.value) < 1) {
-        FormValidator.showError(cantidadConductores, 'La cantidad debe ser mayor a 0');
-        isValid = false;
-      }
+    // Validar ciudad
+    if (!ciudad || !ciudad.value.trim()) {
+      if (ciudad) FormValidator.showError(ciudad, 'Ingrese su ciudad');
+      isValid = false;
+    }
+
+    // Validar interés premium
+    if (!interesPremium || !interesPremium.value) {
+      if (interesPremium) FormValidator.showError(interesPremium, 'Seleccione su nivel de interés');
+      isValid = false;
     }
 
     return isValid;
@@ -815,13 +756,15 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       
       if (!validateForm()) {
-        FormValidator.showFormMessage('Por favor, agregue los datos faltantes en el formulario');
+        FormValidator.showFormMessage('Por favor, complete todos los campos requeridos');
         return;
       }
 
       // Mostrar estado de carga
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<i class="ri-loader-4-line animate-spin mr-2"></i> Enviando...';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="ri-loader-4-line animate-spin mr-2"></i> Enviando...';
+      }
 
       // Preparar datos del formulario para n8n
       const formDataObject = {};
@@ -838,6 +781,8 @@ document.addEventListener('DOMContentLoaded', function() {
       formDataObject.user_agent = navigator.userAgent;
       formDataObject.url_origen = window.location.href;
 
+      console.log('Enviando formulario:', formDataObject);
+
       // URL del webhook de n8n
       const webhookUrl = 'https://n8n.skinslabs.cl/webhook-test/registroretornochile';
 
@@ -846,50 +791,39 @@ document.addEventListener('DOMContentLoaded', function() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          // Si necesitas autenticación, agregar aquí:
-          // 'Authorization': 'Bearer tu-token-aqui',
-          // o 'X-API-Key': 'tu-api-key-aqui'
+          'Accept': 'application/json'
         },
         body: JSON.stringify(formDataObject)
       })
       .then(response => {
-        // n8n devuelve diferentes códigos de estado
+        console.log('Respuesta del servidor:', response);
         if (response.ok) {
-          return response.json().catch(() => ({})); // Si no hay JSON, retornar objeto vacío
+          return response.json().catch(() => ({ success: true }));
         } else {
           throw new Error(`Error ${response.status}: ${response.statusText}`);
         }
       })
       .then(data => {
+        console.log('Datos recibidos:', data);
         // Mostrar mensaje de éxito
         FormValidator.showFormMessage(
           '¡Registro exitoso! Nos pondremos en contacto contigo pronto.', 
           'success'
         );
         form.reset();
-        if (cantidadConductores) {
-          cantidadConductores.style.display = 'none';
-        }
       })
       .catch(error => {
         console.error('Error al enviar formulario:', error);
-        
-        // Verificar si es un error de CORS
-        if (error.message.includes('fetch')) {
-          FormValidator.showFormMessage(
-            'Error de conexión. Verifique su conexión a internet e inténtelo nuevamente.'
-          );
-        } else {
-          FormValidator.showFormMessage(
-            'Hubo un error al enviar el formulario. Por favor, inténtelo nuevamente.'
-          );
-        }
+        FormValidator.showFormMessage(
+          'Hubo un error al enviar el formulario. Por favor, inténtelo nuevamente.'
+        );
       })
       .finally(() => {
         // Restaurar estado del botón
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = 'Enviar registro <span><i class="ri-arrow-right-up-line"></i></span>';
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Enviar registro <span><i class="ri-arrow-right-up-line"></i></span>';
+        }
       });
     });
   }

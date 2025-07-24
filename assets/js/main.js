@@ -784,7 +784,7 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log('Enviando formulario:', formDataObject);
 
       // URL del webhook de n8n
-      const webhookUrl = 'https://n8n.skinslabs.cl/webhook-test/registroretornochile';
+      const webhookUrl = 'https://n8n.skinslabs.cl/webhook/registroretornochile';
 
       // Enviar formulario al webhook de n8n
       fetch(webhookUrl, {

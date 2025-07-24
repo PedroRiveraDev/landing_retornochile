@@ -28,14 +28,24 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         <ul class="site-menu-main">
 
+                            <!-- Qué es -->
+                            <li class="nav-item">
+                                <a class="nav-link-item text-colorDark" href="#que-es" aria-label="Ver qué es Retornos Chile">¿Qué es?</a>
+                            </li>
+
+                            <!-- Por qué unirte -->
+                            <li class="nav-item">
+                                <a class="nav-link-item text-colorDark" href="#por-que-unirte" aria-label="Ver beneficios de unirse">¿Por qué unirte?</a>
+                            </li>
+
                             <!-- Cómo Funciona -->
                             <li class="nav-item">
                                 <a class="nav-link-item text-colorDark" href="#comofunciona" aria-label="Ver cómo funciona">¿Cómo funciona?</a>
                             </li>
 
-                            <!-- Servicios -->
+                            <!-- Para quién es -->
                             <li class="nav-item">
-                                <a class="nav-link-item text-colorDark" href="#servicios" aria-label="Ver servicios y características">¿Para quién es esto?</a>
+                                <a class="nav-link-item text-colorDark" href="#servicios" aria-label="Ver para quién es esto">¿Para quién es?</a>
                             </li>
 
                             <!-- Comunidad -->
@@ -43,22 +53,10 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <a class="nav-link-item text-colorDark" href="#comunidad" aria-label="Ver comunidad verificada">Comunidad</a>
                             </li>
 
-                            <!-- Plan Verificado -->
-                            <li class="nav-item">
-                                <a class="nav-link-item text-colorDark" href="#pricing" aria-label="Ver plan verificado">Plan Verificado</a>
-                            </li>
                             <!-- Registro -->
                             <li class="nav-item">
                                 <a class="nav-link-item text-colorDark" href="#contacto" aria-label="Registrarse en la plataforma">Registro</a>
                             </li>
-
-
-                            
-                            <!-- Seguridad -->
-                            <li class="nav-item">
-                                <a class="nav-link-item text-colorDark" href="#sistema-reputacion" aria-label="Ver sistema de seguridad">Seguridad</a>
-                            </li>
-
 
                         </ul>
                     </nav>
@@ -126,49 +124,26 @@ document.addEventListener('DOMContentLoaded', function () {
                             </p>
                         </div>
                         
-                        <!-- Social Links -->
-                        <div class="flex gap-3">
-                            <a href="https://www.facebook.com/retornoschile" target="_blank" rel="noopener noreferrer"
-                                class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-800 text-lg transition-all duration-300 hover:bg-colorBlue hover:text-white hover:scale-110"
-                                aria-label="Síguenos en Facebook">
-                                <i class="ri-facebook-fill"></i>
-                            </a>
-                            <a href="https://www.instagram.com/retornoschile" target="_blank" rel="noopener noreferrer"
-                                class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-800 text-lg transition-all duration-300 hover:bg-colorBlue hover:text-white hover:scale-110"
-                                aria-label="Síguenos en Instagram">
-                                <i class="ri-instagram-line"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/company/retornoschile" target="_blank" rel="noopener noreferrer"
-                                class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-800 text-lg transition-all duration-300 hover:bg-colorBlue hover:text-white hover:scale-110"
-                                aria-label="Síguenos en LinkedIn">
-                                <i class="ri-linkedin-fill"></i>
-                            </a>
-                            <a href="https://wa.me/56912345678" target="_blank" rel="noopener noreferrer"
-                                class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-800 text-lg transition-all duration-300 hover:bg-green-600 hover:text-white hover:scale-110"
-                                aria-label="Contáctanos por WhatsApp">
-                                <i class="ri-whatsapp-fill"></i>
-                            </a>
-                        </div>
                     </div>
                     
                     <!-- Footer Widget - Quick Links -->
                     <div>
                         <h3 class="mb-6 text-xl font-semibold text-white">Enlaces Rápidos</h3>
                         <nav class="flex flex-col gap-3">
+                            <a href="#que-es" class="footer-link">
+                                ¿Qué es?
+                            </a>
+                            <a href="#por-que-unirte" class="footer-link">
+                                ¿Por qué unirte?
+                            </a>
                             <a href="#comofunciona" class="footer-link">
                                 ¿Cómo funciona?
                             </a>
                             <a href="#servicios" class="footer-link">
-                                ¿Para quién es esto?
+                                ¿Para quién es?
                             </a>
                             <a href="#comunidad" class="footer-link">
                                 Comunidad
-                            </a>
-                            <a href="#pricing" class="footer-link">
-                                Plan Verificado
-                            </a>
-                            <a href="#sistema-reputacion" class="footer-link">
-                                Seguridad
                             </a>
                             <a href="#contacto" class="footer-link">
                                 Registro
@@ -176,27 +151,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         </nav>
                     </div>
                     
-                    <!-- Footer Widget - Information -->
-                    <div>
-                        <h3 class="mb-6 text-xl font-semibold text-white">Información</h3>
-                        <nav class="flex flex-col gap-3">
-                            <a href="#resenas" class="footer-link">
-                                Testimonios
-                            </a>
-                            <a href="#faq" class="footer-link">
-                                Preguntas Frecuentes
-                            </a>
-                            <a href="#" class="footer-link">
-                                Política de Privacidad
-                            </a>
-                            <a href="#" class="footer-link">
-                                Términos y Condiciones
-                            </a>
-                            <a href="#" class="footer-link">
-                                Ayuda
-                            </a>
-                        </nav>
-                    </div>
                     
                 </div>
                 <!-- Footer Top Area -->

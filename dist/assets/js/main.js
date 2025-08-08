@@ -1047,7 +1047,7 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log('Enviando formulario:', formDataObject);
 
       // URL del webhook de n8n
-      const webhookUrl = 'https://n8n.skinslabs.cl/webhook/registroretornochile';
+      const webhookUrl = 'https://odin.inteli-flow.com/webhook/registroretornochile';
 
       // Crear AbortController para timeout
       const controller = new AbortController();
